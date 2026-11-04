@@ -63,7 +63,26 @@ curl -sI http://127.0.0.1:8501 | head -1   # HTTP/1.1 200 OK
 docker compose logs -f --tail=50   # Ctrl+C to leave
 ```
 
-## 5. Nginx, password and HTTPS
+## 5a. If Traefik already owns ports 80/443 (Hostinger templates, n8n, Coolify, Dokploy, ...)
+
+If the `ss` check in step 2 shows `traefik`, skip Nginx: do not install it and do not stop Traefik, which serves your
+other sites. Let the existing Traefik route the domain to the desk instead. It also gets the free HTTPS certificate
+and asks for the password:
+
+```bash
+cd /opt/customer-support-agents
+python3 deploy/traefik/connect.py support.gansgpm.tech
+```
+
+The script:
+- reads Traefik's settings (HTTPS entry point, certificate resolver, Docker network);
+- checks that the DNS record points to this server;
+- asks for a username and password, and writes `docker-compose.override.yml` (git-ignored) with the Traefik labels;
+- restarts the app and waits until `https://support.gansgpm.tech` answers with the password prompt.
+
+Traefik itself is not changed, and the script can be run again safely, for example to change the password.
+
+## 5. Nginx, password and HTTPS (when nothing else uses ports 80/443)
 
 ```bash
 htpasswd -c /etc/nginx/.htpasswd-support judge        # pick the username, then type a password twice
@@ -107,6 +126,6 @@ Email and Telegram need no webhook, because the worker polls them.
 | Page keeps loading / "Connection error" banner | the websocket is blocked: the `Upgrade` / `Connection` lines must be in the Nginx `location /` block; `nginx -t && systemctl reload nginx` |
 | `502 Bad Gateway` | the app container is not up: `docker compose ps`, `docker compose logs app` |
 | Certbot: "DNS problem" / timeout | the A record is not live yet (`nslookup support.gansgpm.tech`) or port 80 is closed (ufw, or the Hostinger VPS firewall in hPanel) |
-| Port 80/443 already used by another container (Traefik, Caddy, another app) | keep that proxy and add a route for `support.gansgpm.tech` → `127.0.0.1:8501` there instead of installing Nginx |
+| Port 80/443 already used by Traefik | use step 5a (`deploy/traefik/connect.py`) instead of Nginx; for another proxy (Caddy, ...) add a route for the domain → `127.0.0.1:8501` there |
 | Telegram: "Conflict: terminated by other getUpdates request" | another worker (your PC) polls the same bot - stop it |
 | OpenAI 401 | wrong / old key in the server's `.env`; after editing: `docker compose up -d` |
