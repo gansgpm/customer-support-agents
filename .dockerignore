@@ -1,0 +1,20 @@
+# never bake secrets or local runtime data into the image (.env is passed at runtime with env_file)
+.env
+*.env.local
+.git
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.vscode
+.idea
+_to_delete
+data
+logs/*.csv
+logs/*.log*
+logs/*.jsonl
+logs/*.lock
+knowledge_base/learned/*.jsonl
+knowledge_base/learned/*.lock
+evaluation/runs

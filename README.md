@@ -353,8 +353,9 @@ the escalation threshold. The status is drawn at the end of each run, so the cou
 Logs: `logs/app.log` (rotating application log) and `logs/traces.jsonl` (one line per ticket — open it per
 ticket in **Ticket Log → Trace**).
 
-Docker: `docker compose up -d --build` starts the UI (port 8501) and the channel worker;
-`docker compose --profile webhooks up -d` also starts the webhook server (port 8000).
+Docker: `docker compose up -d --build` starts the UI (http://localhost:8501) and the channel worker;
+`docker compose --profile webhooks up -d` also starts the webhook server (port 8000). Both listen on localhost only.
+**Publishing on your own domain** (VPS + Nginx + free HTTPS + password): see [`docs/DEPLOY.md`](docs/DEPLOY.md).
 
 ## Log file
 
@@ -561,7 +562,8 @@ customer-support-agents/
 ├── logs/                         # tickets.csv, app.log, traces.jsonl (created automatically)
 ├── data/index/                   # persisted knowledge index (created automatically)
 ├── screenshots/, docs/SUBMISSION.md
-├── Dockerfile, docker-compose.yml, requirements.txt, requirements-optional.txt, .env.example, .gitignore
+├── Dockerfile, docker-compose.yml, .dockerignore, requirements.txt, requirements-optional.txt, .env.example, .gitignore
+├── deploy/nginx/                 # Nginx site for the public URL (HTTPS + password)
 ```
 
 ## Bonus challenges
@@ -571,7 +573,7 @@ customer-support-agents/
 - [x] Human-in-the-loop — Escalation Queue per desk: a specialist edits / approves the AI draft before it is sent *(implemented in Streamlit rather than `UserProxyAgent`, because a blocking console prompt does not fit a web app or a 24x7 worker)*
 - [x] Dashboard — tickets per division, open escalations per desk, category, urgency, sentiment, channel, trend, escalation reasons
 - [x] Language — script-aware detection (Tamil, Hindi, ...), English search queries fused with the original, Indic-aware tokenizer, reply in the customer's language (LLM mode); measured on Tamil/Hindi ground-truth questions
-- [x] Deployment — Dockerfile + docker-compose (UI, worker, webhooks) for a VPS
+- [x] Deployment — Dockerfile + docker-compose (UI, worker, webhooks), Nginx + HTTPS + password on a VPS (`docs/DEPLOY.md`)
 
 ## Notes and limits
 

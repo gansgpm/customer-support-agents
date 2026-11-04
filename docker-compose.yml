@@ -1,8 +1,8 @@
 services:
-  app:            # Streamlit UI
+  app:            # Streamlit UI - on a server, Nginx (HTTPS + password) forwards to it, see docs/DEPLOY.md
     build: .
     env_file: .env
-    ports: ["8501:8501"]
+    ports: ["127.0.0.1:8501:8501"]   # localhost only: never reachable from the internet without Nginx
     volumes: &shared
       - ./data:/app/data
       - ./logs:/app/logs
@@ -20,7 +20,7 @@ services:
     build: .
     env_file: .env
     command: ["uvicorn", "channels.webhook_server:app", "--host", "0.0.0.0", "--port", "8000"]
-    ports: ["8000:8000"]
+    ports: ["127.0.0.1:8000:8000"]
     volumes: *shared
     restart: unless-stopped
     profiles: ["webhooks"]
