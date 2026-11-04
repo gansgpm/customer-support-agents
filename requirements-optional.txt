@@ -1,0 +1,8 @@
+# Optional neural models (not needed for the default offline TF-IDF + feature-reranker setup).
+#   pip install -r requirements-optional.txt
+# Then in .env:
+#   EMBEDDING_BACKEND=sentence-transformers      # paraphrase-multilingual-MiniLM-L12-v2 (Tamil, Hindi, 50+ languages)
+#   RERANKER=cross-encoder                       # BAAI/bge-reranker-v2-m3 (multilingual cross-encoder)
+# The models download once from Hugging Face (about 0.5 GB and 2.2 GB). EMBEDDING_BACKEND=openai
+# (text-embedding-3-small, multilingual) needs nothing extra beyond OPENAI_API_KEY.
+sentence-transformers>=3.4,<6

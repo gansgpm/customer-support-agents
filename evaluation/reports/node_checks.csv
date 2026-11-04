@@ -1,0 +1,1605 @@
+case,node,check,result
+PDF-1,Guardrails,stopped_when_not_a_ticket,n/a
+PDF-1,Guardrails,real_complaint_not_stopped,pass
+PDF-1,Guardrails,block_reason_correct,n/a
+PDF-1,Guardrails,stopped_by_expected_stage,n/a
+PDF-1,Guardrails,no_agent_group_ran_when_stopped,n/a
+PDF-1,Guardrails,flag_raised,n/a
+PDF-1,Guardrails,pii_not_in_log,n/a
+PDF-1,Guardrails,reply_has_no_ai_chatter,pass
+PDF-1,Support Manager,json_valid,pass
+PDF-1,Support Manager,product_line_tool_used,pass
+PDF-1,Support Manager,route_line_given,pass
+PDF-1,Support Manager,routed_to_correct_division,pass
+PDF-1,Support Manager,needs_human_flag,n/a
+PDF-1,Support Manager,secondary_divisions_found,n/a
+PDF-1,Support Manager,reason_and_guidance,pass
+PDF-1,Support Manager,handed_to_that_group,pass
+PDF-1,Customer Query Agent,json_valid,pass
+PDF-1,Customer Query Agent,category,pass
+PDF-1,Customer Query Agent,urgency,pass
+PDF-1,Customer Query Agent,sentiment,pass
+PDF-1,Customer Query Agent,sentiment_tool_used,pass
+PDF-1,Customer Query Agent,history_rag_used,pass
+PDF-1,Customer Query Agent,summary_ok,pass
+PDF-1,Customer Query Agent,repeat_detected,n/a
+PDF-1,Customer Query Agent,language,n/a
+PDF-1,Customer Query Agent,product_line,pass
+PDF-1,Customer Query Agent,all_product_lines_found,n/a
+PDF-1,Knowledge Base Agent,json_valid,pass
+PDF-1,Knowledge Base Agent,search_tool_used,pass
+PDF-1,Knowledge Base Agent,retrieval_hit,pass
+PDF-1,Knowledge Base Agent,source_shown_in_log,pass
+PDF-1,Knowledge Base Agent,coverage_decision,pass
+PDF-1,Knowledge Base Agent,context_brief,pass
+PDF-1,Knowledge Base Agent,facts_verbatim,pass
+PDF-1,Knowledge Base Agent,learned_reuse,n/a
+PDF-1,Knowledge Base Agent,scoped_to_product_line,n/a
+PDF-1,Resolution Agent,json_valid,pass
+PDF-1,Resolution Agent,numbers_grounded,pass
+PDF-1,Resolution Agent,required_facts,pass
+PDF-1,Resolution Agent,honest_when_unknown,n/a
+PDF-1,Resolution Agent,mentions_ticket,FAIL
+PDF-1,Resolution Agent,polite,pass
+PDF-1,Resolution Agent,concise,pass
+PDF-1,Resolution Agent,citations_valid,pass
+PDF-1,Resolution Agent,reply_grounded,pass
+PDF-1,Resolution Agent,confidence_calibrated,pass
+PDF-1,Log Agent,row_written,pass
+PDF-1,Log Agent,required_columns,pass
+PDF-1,Log Agent,status_correct,pass
+PDF-1,Log Agent,reason_when_escalated,n/a
+PDF-1,Log Agent,logged_by_log_agent,pass
+PDF-1,Log Agent,kb_feed_correct,pass
+PDF-1,Log Agent,agent_agrees_with_rules,pass
+PDF-1,Log Agent,routed_to_correct_desk,n/a
+PDF-1,Log Agent,product_line_logged,pass
+PDF-1,Orchestration,order_manager_query_kb_resolution_log,pass
+PDF-1,Orchestration,one_division_group_ran,pass
+PDF-1,Orchestration,terminated_on_LOGGED,pass
+PDF-1,Orchestration,within_message_cap,pass
+PDF-1,Orchestration,no_pipeline_error,pass
+PDF-2,Guardrails,stopped_when_not_a_ticket,n/a
+PDF-2,Guardrails,real_complaint_not_stopped,pass
+PDF-2,Guardrails,block_reason_correct,n/a
+PDF-2,Guardrails,stopped_by_expected_stage,n/a
+PDF-2,Guardrails,no_agent_group_ran_when_stopped,n/a
+PDF-2,Guardrails,flag_raised,n/a
+PDF-2,Guardrails,pii_not_in_log,n/a
+PDF-2,Guardrails,reply_has_no_ai_chatter,pass
+PDF-2,Support Manager,json_valid,pass
+PDF-2,Support Manager,product_line_tool_used,pass
+PDF-2,Support Manager,route_line_given,pass
+PDF-2,Support Manager,routed_to_correct_division,pass
+PDF-2,Support Manager,needs_human_flag,n/a
+PDF-2,Support Manager,secondary_divisions_found,n/a
+PDF-2,Support Manager,reason_and_guidance,pass
+PDF-2,Support Manager,handed_to_that_group,pass
+PDF-2,Customer Query Agent,json_valid,pass
+PDF-2,Customer Query Agent,category,pass
+PDF-2,Customer Query Agent,urgency,pass
+PDF-2,Customer Query Agent,sentiment,pass
+PDF-2,Customer Query Agent,sentiment_tool_used,pass
+PDF-2,Customer Query Agent,history_rag_used,pass
+PDF-2,Customer Query Agent,summary_ok,pass
+PDF-2,Customer Query Agent,repeat_detected,n/a
+PDF-2,Customer Query Agent,language,n/a
+PDF-2,Customer Query Agent,product_line,pass
+PDF-2,Customer Query Agent,all_product_lines_found,n/a
+PDF-2,Knowledge Base Agent,json_valid,pass
+PDF-2,Knowledge Base Agent,search_tool_used,pass
+PDF-2,Knowledge Base Agent,retrieval_hit,pass
+PDF-2,Knowledge Base Agent,source_shown_in_log,pass
+PDF-2,Knowledge Base Agent,coverage_decision,pass
+PDF-2,Knowledge Base Agent,context_brief,pass
+PDF-2,Knowledge Base Agent,facts_verbatim,pass
+PDF-2,Knowledge Base Agent,learned_reuse,n/a
+PDF-2,Knowledge Base Agent,scoped_to_product_line,pass
+PDF-2,Resolution Agent,json_valid,pass
+PDF-2,Resolution Agent,numbers_grounded,pass
+PDF-2,Resolution Agent,required_facts,pass
+PDF-2,Resolution Agent,honest_when_unknown,n/a
+PDF-2,Resolution Agent,mentions_ticket,pass
+PDF-2,Resolution Agent,polite,pass
+PDF-2,Resolution Agent,concise,pass
+PDF-2,Resolution Agent,citations_valid,pass
+PDF-2,Resolution Agent,reply_grounded,pass
+PDF-2,Resolution Agent,confidence_calibrated,pass
+PDF-2,Log Agent,row_written,pass
+PDF-2,Log Agent,required_columns,pass
+PDF-2,Log Agent,status_correct,pass
+PDF-2,Log Agent,reason_when_escalated,n/a
+PDF-2,Log Agent,logged_by_log_agent,pass
+PDF-2,Log Agent,kb_feed_correct,pass
+PDF-2,Log Agent,agent_agrees_with_rules,pass
+PDF-2,Log Agent,routed_to_correct_desk,pass
+PDF-2,Log Agent,product_line_logged,pass
+PDF-2,Orchestration,order_manager_query_kb_resolution_log,pass
+PDF-2,Orchestration,one_division_group_ran,pass
+PDF-2,Orchestration,terminated_on_LOGGED,pass
+PDF-2,Orchestration,within_message_cap,pass
+PDF-2,Orchestration,no_pipeline_error,pass
+PDF-3,Guardrails,stopped_when_not_a_ticket,n/a
+PDF-3,Guardrails,real_complaint_not_stopped,pass
+PDF-3,Guardrails,block_reason_correct,n/a
+PDF-3,Guardrails,stopped_by_expected_stage,n/a
+PDF-3,Guardrails,no_agent_group_ran_when_stopped,n/a
+PDF-3,Guardrails,flag_raised,n/a
+PDF-3,Guardrails,pii_not_in_log,n/a
+PDF-3,Guardrails,reply_has_no_ai_chatter,FAIL
+PDF-3,Support Manager,json_valid,pass
+PDF-3,Support Manager,product_line_tool_used,pass
+PDF-3,Support Manager,route_line_given,pass
+PDF-3,Support Manager,routed_to_correct_division,pass
+PDF-3,Support Manager,needs_human_flag,n/a
+PDF-3,Support Manager,secondary_divisions_found,n/a
+PDF-3,Support Manager,reason_and_guidance,pass
+PDF-3,Support Manager,handed_to_that_group,pass
+PDF-3,Customer Query Agent,json_valid,pass
+PDF-3,Customer Query Agent,category,pass
+PDF-3,Customer Query Agent,urgency,pass
+PDF-3,Customer Query Agent,sentiment,pass
+PDF-3,Customer Query Agent,sentiment_tool_used,pass
+PDF-3,Customer Query Agent,history_rag_used,pass
+PDF-3,Customer Query Agent,summary_ok,pass
+PDF-3,Customer Query Agent,repeat_detected,n/a
+PDF-3,Customer Query Agent,language,n/a
+PDF-3,Customer Query Agent,product_line,pass
+PDF-3,Customer Query Agent,all_product_lines_found,n/a
+PDF-3,Knowledge Base Agent,json_valid,pass
+PDF-3,Knowledge Base Agent,search_tool_used,pass
+PDF-3,Knowledge Base Agent,retrieval_hit,pass
+PDF-3,Knowledge Base Agent,source_shown_in_log,pass
+PDF-3,Knowledge Base Agent,coverage_decision,pass
+PDF-3,Knowledge Base Agent,context_brief,pass
+PDF-3,Knowledge Base Agent,facts_verbatim,pass
+PDF-3,Knowledge Base Agent,learned_reuse,n/a
+PDF-3,Knowledge Base Agent,scoped_to_product_line,n/a
+PDF-3,Resolution Agent,json_valid,pass
+PDF-3,Resolution Agent,numbers_grounded,pass
+PDF-3,Resolution Agent,required_facts,pass
+PDF-3,Resolution Agent,honest_when_unknown,n/a
+PDF-3,Resolution Agent,mentions_ticket,pass
+PDF-3,Resolution Agent,polite,pass
+PDF-3,Resolution Agent,concise,pass
+PDF-3,Resolution Agent,citations_valid,pass
+PDF-3,Resolution Agent,reply_grounded,pass
+PDF-3,Resolution Agent,confidence_calibrated,pass
+PDF-3,Log Agent,row_written,pass
+PDF-3,Log Agent,required_columns,pass
+PDF-3,Log Agent,status_correct,pass
+PDF-3,Log Agent,reason_when_escalated,n/a
+PDF-3,Log Agent,logged_by_log_agent,pass
+PDF-3,Log Agent,kb_feed_correct,pass
+PDF-3,Log Agent,agent_agrees_with_rules,pass
+PDF-3,Log Agent,routed_to_correct_desk,n/a
+PDF-3,Log Agent,product_line_logged,pass
+PDF-3,Orchestration,order_manager_query_kb_resolution_log,pass
+PDF-3,Orchestration,one_division_group_ran,pass
+PDF-3,Orchestration,terminated_on_LOGGED,pass
+PDF-3,Orchestration,within_message_cap,pass
+PDF-3,Orchestration,no_pipeline_error,pass
+PDF-4,Guardrails,stopped_when_not_a_ticket,n/a
+PDF-4,Guardrails,real_complaint_not_stopped,pass
+PDF-4,Guardrails,block_reason_correct,n/a
+PDF-4,Guardrails,stopped_by_expected_stage,n/a
+PDF-4,Guardrails,no_agent_group_ran_when_stopped,n/a
+PDF-4,Guardrails,flag_raised,n/a
+PDF-4,Guardrails,pii_not_in_log,n/a
+PDF-4,Guardrails,reply_has_no_ai_chatter,pass
+PDF-4,Support Manager,json_valid,pass
+PDF-4,Support Manager,product_line_tool_used,pass
+PDF-4,Support Manager,route_line_given,pass
+PDF-4,Support Manager,routed_to_correct_division,pass
+PDF-4,Support Manager,needs_human_flag,n/a
+PDF-4,Support Manager,secondary_divisions_found,n/a
+PDF-4,Support Manager,reason_and_guidance,pass
+PDF-4,Support Manager,handed_to_that_group,pass
+PDF-4,Customer Query Agent,json_valid,pass
+PDF-4,Customer Query Agent,category,pass
+PDF-4,Customer Query Agent,urgency,pass
+PDF-4,Customer Query Agent,sentiment,pass
+PDF-4,Customer Query Agent,sentiment_tool_used,pass
+PDF-4,Customer Query Agent,history_rag_used,pass
+PDF-4,Customer Query Agent,summary_ok,pass
+PDF-4,Customer Query Agent,repeat_detected,n/a
+PDF-4,Customer Query Agent,language,n/a
+PDF-4,Customer Query Agent,product_line,pass
+PDF-4,Customer Query Agent,all_product_lines_found,n/a
+PDF-4,Knowledge Base Agent,json_valid,pass
+PDF-4,Knowledge Base Agent,search_tool_used,pass
+PDF-4,Knowledge Base Agent,retrieval_hit,pass
+PDF-4,Knowledge Base Agent,source_shown_in_log,pass
+PDF-4,Knowledge Base Agent,coverage_decision,pass
+PDF-4,Knowledge Base Agent,context_brief,pass
+PDF-4,Knowledge Base Agent,facts_verbatim,pass
+PDF-4,Knowledge Base Agent,learned_reuse,n/a
+PDF-4,Knowledge Base Agent,scoped_to_product_line,pass
+PDF-4,Resolution Agent,json_valid,pass
+PDF-4,Resolution Agent,numbers_grounded,pass
+PDF-4,Resolution Agent,required_facts,pass
+PDF-4,Resolution Agent,honest_when_unknown,n/a
+PDF-4,Resolution Agent,mentions_ticket,pass
+PDF-4,Resolution Agent,polite,pass
+PDF-4,Resolution Agent,concise,pass
+PDF-4,Resolution Agent,citations_valid,pass
+PDF-4,Resolution Agent,reply_grounded,pass
+PDF-4,Resolution Agent,confidence_calibrated,pass
+PDF-4,Log Agent,row_written,pass
+PDF-4,Log Agent,required_columns,pass
+PDF-4,Log Agent,status_correct,pass
+PDF-4,Log Agent,reason_when_escalated,n/a
+PDF-4,Log Agent,logged_by_log_agent,pass
+PDF-4,Log Agent,kb_feed_correct,pass
+PDF-4,Log Agent,agent_agrees_with_rules,pass
+PDF-4,Log Agent,routed_to_correct_desk,pass
+PDF-4,Log Agent,product_line_logged,pass
+PDF-4,Orchestration,order_manager_query_kb_resolution_log,pass
+PDF-4,Orchestration,one_division_group_ran,pass
+PDF-4,Orchestration,terminated_on_LOGGED,pass
+PDF-4,Orchestration,within_message_cap,pass
+PDF-4,Orchestration,no_pipeline_error,pass
+PDF-5,Guardrails,stopped_when_not_a_ticket,n/a
+PDF-5,Guardrails,real_complaint_not_stopped,pass
+PDF-5,Guardrails,block_reason_correct,n/a
+PDF-5,Guardrails,stopped_by_expected_stage,n/a
+PDF-5,Guardrails,no_agent_group_ran_when_stopped,n/a
+PDF-5,Guardrails,flag_raised,n/a
+PDF-5,Guardrails,pii_not_in_log,n/a
+PDF-5,Guardrails,reply_has_no_ai_chatter,pass
+PDF-5,Support Manager,json_valid,pass
+PDF-5,Support Manager,product_line_tool_used,pass
+PDF-5,Support Manager,route_line_given,pass
+PDF-5,Support Manager,routed_to_correct_division,pass
+PDF-5,Support Manager,needs_human_flag,n/a
+PDF-5,Support Manager,secondary_divisions_found,n/a
+PDF-5,Support Manager,reason_and_guidance,pass
+PDF-5,Support Manager,handed_to_that_group,pass
+PDF-5,Customer Query Agent,json_valid,pass
+PDF-5,Customer Query Agent,category,pass
+PDF-5,Customer Query Agent,urgency,pass
+PDF-5,Customer Query Agent,sentiment,pass
+PDF-5,Customer Query Agent,sentiment_tool_used,pass
+PDF-5,Customer Query Agent,history_rag_used,pass
+PDF-5,Customer Query Agent,summary_ok,pass
+PDF-5,Customer Query Agent,repeat_detected,n/a
+PDF-5,Customer Query Agent,language,n/a
+PDF-5,Customer Query Agent,product_line,pass
+PDF-5,Customer Query Agent,all_product_lines_found,n/a
+PDF-5,Knowledge Base Agent,json_valid,pass
+PDF-5,Knowledge Base Agent,search_tool_used,pass
+PDF-5,Knowledge Base Agent,retrieval_hit,pass
+PDF-5,Knowledge Base Agent,source_shown_in_log,pass
+PDF-5,Knowledge Base Agent,coverage_decision,pass
+PDF-5,Knowledge Base Agent,context_brief,pass
+PDF-5,Knowledge Base Agent,facts_verbatim,pass
+PDF-5,Knowledge Base Agent,learned_reuse,n/a
+PDF-5,Knowledge Base Agent,scoped_to_product_line,n/a
+PDF-5,Resolution Agent,json_valid,pass
+PDF-5,Resolution Agent,numbers_grounded,pass
+PDF-5,Resolution Agent,required_facts,pass
+PDF-5,Resolution Agent,honest_when_unknown,n/a
+PDF-5,Resolution Agent,mentions_ticket,pass
+PDF-5,Resolution Agent,polite,pass
+PDF-5,Resolution Agent,concise,pass
+PDF-5,Resolution Agent,citations_valid,pass
+PDF-5,Resolution Agent,reply_grounded,pass
+PDF-5,Resolution Agent,confidence_calibrated,pass
+PDF-5,Log Agent,row_written,pass
+PDF-5,Log Agent,required_columns,pass
+PDF-5,Log Agent,status_correct,pass
+PDF-5,Log Agent,reason_when_escalated,pass
+PDF-5,Log Agent,logged_by_log_agent,pass
+PDF-5,Log Agent,kb_feed_correct,pass
+PDF-5,Log Agent,agent_agrees_with_rules,pass
+PDF-5,Log Agent,routed_to_correct_desk,pass
+PDF-5,Log Agent,product_line_logged,pass
+PDF-5,Orchestration,order_manager_query_kb_resolution_log,pass
+PDF-5,Orchestration,one_division_group_ran,pass
+PDF-5,Orchestration,terminated_on_LOGGED,pass
+PDF-5,Orchestration,within_message_cap,pass
+PDF-5,Orchestration,no_pipeline_error,pass
+PDF-6,Guardrails,stopped_when_not_a_ticket,n/a
+PDF-6,Guardrails,real_complaint_not_stopped,pass
+PDF-6,Guardrails,block_reason_correct,n/a
+PDF-6,Guardrails,stopped_by_expected_stage,n/a
+PDF-6,Guardrails,no_agent_group_ran_when_stopped,n/a
+PDF-6,Guardrails,flag_raised,n/a
+PDF-6,Guardrails,pii_not_in_log,n/a
+PDF-6,Guardrails,reply_has_no_ai_chatter,pass
+PDF-6,Support Manager,json_valid,pass
+PDF-6,Support Manager,product_line_tool_used,pass
+PDF-6,Support Manager,route_line_given,pass
+PDF-6,Support Manager,routed_to_correct_division,pass
+PDF-6,Support Manager,needs_human_flag,n/a
+PDF-6,Support Manager,secondary_divisions_found,n/a
+PDF-6,Support Manager,reason_and_guidance,pass
+PDF-6,Support Manager,handed_to_that_group,pass
+PDF-6,Customer Query Agent,json_valid,pass
+PDF-6,Customer Query Agent,category,pass
+PDF-6,Customer Query Agent,urgency,pass
+PDF-6,Customer Query Agent,sentiment,pass
+PDF-6,Customer Query Agent,sentiment_tool_used,pass
+PDF-6,Customer Query Agent,history_rag_used,pass
+PDF-6,Customer Query Agent,summary_ok,pass
+PDF-6,Customer Query Agent,repeat_detected,n/a
+PDF-6,Customer Query Agent,language,n/a
+PDF-6,Customer Query Agent,product_line,pass
+PDF-6,Customer Query Agent,all_product_lines_found,n/a
+PDF-6,Knowledge Base Agent,json_valid,pass
+PDF-6,Knowledge Base Agent,search_tool_used,pass
+PDF-6,Knowledge Base Agent,retrieval_hit,n/a
+PDF-6,Knowledge Base Agent,source_shown_in_log,n/a
+PDF-6,Knowledge Base Agent,coverage_decision,FAIL
+PDF-6,Knowledge Base Agent,context_brief,pass
+PDF-6,Knowledge Base Agent,facts_verbatim,pass
+PDF-6,Knowledge Base Agent,learned_reuse,n/a
+PDF-6,Knowledge Base Agent,scoped_to_product_line,n/a
+PDF-6,Resolution Agent,json_valid,pass
+PDF-6,Resolution Agent,numbers_grounded,pass
+PDF-6,Resolution Agent,required_facts,FAIL
+PDF-6,Resolution Agent,honest_when_unknown,FAIL
+PDF-6,Resolution Agent,mentions_ticket,pass
+PDF-6,Resolution Agent,polite,pass
+PDF-6,Resolution Agent,concise,pass
+PDF-6,Resolution Agent,citations_valid,pass
+PDF-6,Resolution Agent,reply_grounded,FAIL
+PDF-6,Resolution Agent,confidence_calibrated,FAIL
+PDF-6,Log Agent,row_written,pass
+PDF-6,Log Agent,required_columns,pass
+PDF-6,Log Agent,status_correct,pass
+PDF-6,Log Agent,reason_when_escalated,pass
+PDF-6,Log Agent,logged_by_log_agent,pass
+PDF-6,Log Agent,kb_feed_correct,pass
+PDF-6,Log Agent,agent_agrees_with_rules,FAIL
+PDF-6,Log Agent,routed_to_correct_desk,pass
+PDF-6,Log Agent,product_line_logged,pass
+PDF-6,Orchestration,order_manager_query_kb_resolution_log,pass
+PDF-6,Orchestration,one_division_group_ran,pass
+PDF-6,Orchestration,terminated_on_LOGGED,pass
+PDF-6,Orchestration,within_message_cap,pass
+PDF-6,Orchestration,no_pipeline_error,pass
+CUS-1,Guardrails,stopped_when_not_a_ticket,n/a
+CUS-1,Guardrails,real_complaint_not_stopped,pass
+CUS-1,Guardrails,block_reason_correct,n/a
+CUS-1,Guardrails,stopped_by_expected_stage,n/a
+CUS-1,Guardrails,no_agent_group_ran_when_stopped,n/a
+CUS-1,Guardrails,flag_raised,n/a
+CUS-1,Guardrails,pii_not_in_log,n/a
+CUS-1,Guardrails,reply_has_no_ai_chatter,pass
+CUS-1,Support Manager,json_valid,pass
+CUS-1,Support Manager,product_line_tool_used,pass
+CUS-1,Support Manager,route_line_given,pass
+CUS-1,Support Manager,routed_to_correct_division,pass
+CUS-1,Support Manager,needs_human_flag,n/a
+CUS-1,Support Manager,secondary_divisions_found,n/a
+CUS-1,Support Manager,reason_and_guidance,pass
+CUS-1,Support Manager,handed_to_that_group,pass
+CUS-1,Customer Query Agent,json_valid,pass
+CUS-1,Customer Query Agent,category,pass
+CUS-1,Customer Query Agent,urgency,pass
+CUS-1,Customer Query Agent,sentiment,pass
+CUS-1,Customer Query Agent,sentiment_tool_used,pass
+CUS-1,Customer Query Agent,history_rag_used,pass
+CUS-1,Customer Query Agent,summary_ok,pass
+CUS-1,Customer Query Agent,repeat_detected,pass
+CUS-1,Customer Query Agent,language,n/a
+CUS-1,Customer Query Agent,product_line,pass
+CUS-1,Customer Query Agent,all_product_lines_found,n/a
+CUS-1,Knowledge Base Agent,json_valid,pass
+CUS-1,Knowledge Base Agent,search_tool_used,pass
+CUS-1,Knowledge Base Agent,retrieval_hit,pass
+CUS-1,Knowledge Base Agent,source_shown_in_log,pass
+CUS-1,Knowledge Base Agent,coverage_decision,pass
+CUS-1,Knowledge Base Agent,context_brief,pass
+CUS-1,Knowledge Base Agent,facts_verbatim,pass
+CUS-1,Knowledge Base Agent,learned_reuse,n/a
+CUS-1,Knowledge Base Agent,scoped_to_product_line,n/a
+CUS-1,Resolution Agent,json_valid,pass
+CUS-1,Resolution Agent,numbers_grounded,pass
+CUS-1,Resolution Agent,required_facts,pass
+CUS-1,Resolution Agent,honest_when_unknown,n/a
+CUS-1,Resolution Agent,mentions_ticket,pass
+CUS-1,Resolution Agent,polite,pass
+CUS-1,Resolution Agent,concise,pass
+CUS-1,Resolution Agent,citations_valid,pass
+CUS-1,Resolution Agent,reply_grounded,FAIL
+CUS-1,Resolution Agent,confidence_calibrated,pass
+CUS-1,Log Agent,row_written,pass
+CUS-1,Log Agent,required_columns,pass
+CUS-1,Log Agent,status_correct,pass
+CUS-1,Log Agent,reason_when_escalated,pass
+CUS-1,Log Agent,logged_by_log_agent,pass
+CUS-1,Log Agent,kb_feed_correct,pass
+CUS-1,Log Agent,agent_agrees_with_rules,pass
+CUS-1,Log Agent,routed_to_correct_desk,n/a
+CUS-1,Log Agent,product_line_logged,pass
+CUS-1,Orchestration,order_manager_query_kb_resolution_log,pass
+CUS-1,Orchestration,one_division_group_ran,pass
+CUS-1,Orchestration,terminated_on_LOGGED,pass
+CUS-1,Orchestration,within_message_cap,pass
+CUS-1,Orchestration,no_pipeline_error,pass
+CUS-2,Guardrails,stopped_when_not_a_ticket,n/a
+CUS-2,Guardrails,real_complaint_not_stopped,pass
+CUS-2,Guardrails,block_reason_correct,n/a
+CUS-2,Guardrails,stopped_by_expected_stage,n/a
+CUS-2,Guardrails,no_agent_group_ran_when_stopped,n/a
+CUS-2,Guardrails,flag_raised,n/a
+CUS-2,Guardrails,pii_not_in_log,n/a
+CUS-2,Guardrails,reply_has_no_ai_chatter,pass
+CUS-2,Support Manager,json_valid,pass
+CUS-2,Support Manager,product_line_tool_used,pass
+CUS-2,Support Manager,route_line_given,pass
+CUS-2,Support Manager,routed_to_correct_division,pass
+CUS-2,Support Manager,needs_human_flag,n/a
+CUS-2,Support Manager,secondary_divisions_found,n/a
+CUS-2,Support Manager,reason_and_guidance,pass
+CUS-2,Support Manager,handed_to_that_group,pass
+CUS-2,Customer Query Agent,json_valid,pass
+CUS-2,Customer Query Agent,category,pass
+CUS-2,Customer Query Agent,urgency,pass
+CUS-2,Customer Query Agent,sentiment,pass
+CUS-2,Customer Query Agent,sentiment_tool_used,pass
+CUS-2,Customer Query Agent,history_rag_used,pass
+CUS-2,Customer Query Agent,summary_ok,pass
+CUS-2,Customer Query Agent,repeat_detected,n/a
+CUS-2,Customer Query Agent,language,n/a
+CUS-2,Customer Query Agent,product_line,pass
+CUS-2,Customer Query Agent,all_product_lines_found,n/a
+CUS-2,Knowledge Base Agent,json_valid,pass
+CUS-2,Knowledge Base Agent,search_tool_used,pass
+CUS-2,Knowledge Base Agent,retrieval_hit,pass
+CUS-2,Knowledge Base Agent,source_shown_in_log,pass
+CUS-2,Knowledge Base Agent,coverage_decision,pass
+CUS-2,Knowledge Base Agent,context_brief,pass
+CUS-2,Knowledge Base Agent,facts_verbatim,pass
+CUS-2,Knowledge Base Agent,learned_reuse,n/a
+CUS-2,Knowledge Base Agent,scoped_to_product_line,pass
+CUS-2,Resolution Agent,json_valid,pass
+CUS-2,Resolution Agent,numbers_grounded,pass
+CUS-2,Resolution Agent,required_facts,pass
+CUS-2,Resolution Agent,honest_when_unknown,n/a
+CUS-2,Resolution Agent,mentions_ticket,pass
+CUS-2,Resolution Agent,polite,pass
+CUS-2,Resolution Agent,concise,pass
+CUS-2,Resolution Agent,citations_valid,pass
+CUS-2,Resolution Agent,reply_grounded,pass
+CUS-2,Resolution Agent,confidence_calibrated,pass
+CUS-2,Log Agent,row_written,pass
+CUS-2,Log Agent,required_columns,pass
+CUS-2,Log Agent,status_correct,pass
+CUS-2,Log Agent,reason_when_escalated,n/a
+CUS-2,Log Agent,logged_by_log_agent,pass
+CUS-2,Log Agent,kb_feed_correct,pass
+CUS-2,Log Agent,agent_agrees_with_rules,pass
+CUS-2,Log Agent,routed_to_correct_desk,pass
+CUS-2,Log Agent,product_line_logged,pass
+CUS-2,Orchestration,order_manager_query_kb_resolution_log,pass
+CUS-2,Orchestration,one_division_group_ran,pass
+CUS-2,Orchestration,terminated_on_LOGGED,pass
+CUS-2,Orchestration,within_message_cap,pass
+CUS-2,Orchestration,no_pipeline_error,pass
+CUS-3,Guardrails,stopped_when_not_a_ticket,n/a
+CUS-3,Guardrails,real_complaint_not_stopped,pass
+CUS-3,Guardrails,block_reason_correct,n/a
+CUS-3,Guardrails,stopped_by_expected_stage,n/a
+CUS-3,Guardrails,no_agent_group_ran_when_stopped,n/a
+CUS-3,Guardrails,flag_raised,n/a
+CUS-3,Guardrails,pii_not_in_log,n/a
+CUS-3,Guardrails,reply_has_no_ai_chatter,pass
+CUS-3,Support Manager,json_valid,pass
+CUS-3,Support Manager,product_line_tool_used,pass
+CUS-3,Support Manager,route_line_given,pass
+CUS-3,Support Manager,routed_to_correct_division,pass
+CUS-3,Support Manager,needs_human_flag,n/a
+CUS-3,Support Manager,secondary_divisions_found,n/a
+CUS-3,Support Manager,reason_and_guidance,pass
+CUS-3,Support Manager,handed_to_that_group,pass
+CUS-3,Customer Query Agent,json_valid,pass
+CUS-3,Customer Query Agent,category,pass
+CUS-3,Customer Query Agent,urgency,pass
+CUS-3,Customer Query Agent,sentiment,pass
+CUS-3,Customer Query Agent,sentiment_tool_used,pass
+CUS-3,Customer Query Agent,history_rag_used,pass
+CUS-3,Customer Query Agent,summary_ok,pass
+CUS-3,Customer Query Agent,repeat_detected,n/a
+CUS-3,Customer Query Agent,language,n/a
+CUS-3,Customer Query Agent,product_line,pass
+CUS-3,Customer Query Agent,all_product_lines_found,n/a
+CUS-3,Knowledge Base Agent,json_valid,pass
+CUS-3,Knowledge Base Agent,search_tool_used,pass
+CUS-3,Knowledge Base Agent,retrieval_hit,pass
+CUS-3,Knowledge Base Agent,source_shown_in_log,pass
+CUS-3,Knowledge Base Agent,coverage_decision,pass
+CUS-3,Knowledge Base Agent,context_brief,pass
+CUS-3,Knowledge Base Agent,facts_verbatim,pass
+CUS-3,Knowledge Base Agent,learned_reuse,n/a
+CUS-3,Knowledge Base Agent,scoped_to_product_line,n/a
+CUS-3,Resolution Agent,json_valid,pass
+CUS-3,Resolution Agent,numbers_grounded,pass
+CUS-3,Resolution Agent,required_facts,pass
+CUS-3,Resolution Agent,honest_when_unknown,n/a
+CUS-3,Resolution Agent,mentions_ticket,pass
+CUS-3,Resolution Agent,polite,pass
+CUS-3,Resolution Agent,concise,pass
+CUS-3,Resolution Agent,citations_valid,pass
+CUS-3,Resolution Agent,reply_grounded,pass
+CUS-3,Resolution Agent,confidence_calibrated,pass
+CUS-3,Log Agent,row_written,pass
+CUS-3,Log Agent,required_columns,pass
+CUS-3,Log Agent,status_correct,pass
+CUS-3,Log Agent,reason_when_escalated,pass
+CUS-3,Log Agent,logged_by_log_agent,pass
+CUS-3,Log Agent,kb_feed_correct,pass
+CUS-3,Log Agent,agent_agrees_with_rules,pass
+CUS-3,Log Agent,routed_to_correct_desk,pass
+CUS-3,Log Agent,product_line_logged,pass
+CUS-3,Orchestration,order_manager_query_kb_resolution_log,pass
+CUS-3,Orchestration,one_division_group_ran,pass
+CUS-3,Orchestration,terminated_on_LOGGED,pass
+CUS-3,Orchestration,within_message_cap,pass
+CUS-3,Orchestration,no_pipeline_error,pass
+CUS-4,Guardrails,stopped_when_not_a_ticket,n/a
+CUS-4,Guardrails,real_complaint_not_stopped,pass
+CUS-4,Guardrails,block_reason_correct,n/a
+CUS-4,Guardrails,stopped_by_expected_stage,n/a
+CUS-4,Guardrails,no_agent_group_ran_when_stopped,n/a
+CUS-4,Guardrails,flag_raised,n/a
+CUS-4,Guardrails,pii_not_in_log,n/a
+CUS-4,Guardrails,reply_has_no_ai_chatter,pass
+CUS-4,Support Manager,json_valid,pass
+CUS-4,Support Manager,product_line_tool_used,pass
+CUS-4,Support Manager,route_line_given,pass
+CUS-4,Support Manager,routed_to_correct_division,pass
+CUS-4,Support Manager,needs_human_flag,n/a
+CUS-4,Support Manager,secondary_divisions_found,n/a
+CUS-4,Support Manager,reason_and_guidance,pass
+CUS-4,Support Manager,handed_to_that_group,pass
+CUS-4,Customer Query Agent,json_valid,pass
+CUS-4,Customer Query Agent,category,pass
+CUS-4,Customer Query Agent,urgency,pass
+CUS-4,Customer Query Agent,sentiment,pass
+CUS-4,Customer Query Agent,sentiment_tool_used,pass
+CUS-4,Customer Query Agent,history_rag_used,pass
+CUS-4,Customer Query Agent,summary_ok,pass
+CUS-4,Customer Query Agent,repeat_detected,n/a
+CUS-4,Customer Query Agent,language,n/a
+CUS-4,Customer Query Agent,product_line,pass
+CUS-4,Customer Query Agent,all_product_lines_found,n/a
+CUS-4,Knowledge Base Agent,json_valid,pass
+CUS-4,Knowledge Base Agent,search_tool_used,pass
+CUS-4,Knowledge Base Agent,retrieval_hit,pass
+CUS-4,Knowledge Base Agent,source_shown_in_log,pass
+CUS-4,Knowledge Base Agent,coverage_decision,pass
+CUS-4,Knowledge Base Agent,context_brief,pass
+CUS-4,Knowledge Base Agent,facts_verbatim,pass
+CUS-4,Knowledge Base Agent,learned_reuse,n/a
+CUS-4,Knowledge Base Agent,scoped_to_product_line,n/a
+CUS-4,Resolution Agent,json_valid,pass
+CUS-4,Resolution Agent,numbers_grounded,FAIL
+CUS-4,Resolution Agent,required_facts,pass
+CUS-4,Resolution Agent,honest_when_unknown,n/a
+CUS-4,Resolution Agent,mentions_ticket,pass
+CUS-4,Resolution Agent,polite,pass
+CUS-4,Resolution Agent,concise,pass
+CUS-4,Resolution Agent,citations_valid,pass
+CUS-4,Resolution Agent,reply_grounded,FAIL
+CUS-4,Resolution Agent,confidence_calibrated,pass
+CUS-4,Log Agent,row_written,pass
+CUS-4,Log Agent,required_columns,pass
+CUS-4,Log Agent,status_correct,FAIL
+CUS-4,Log Agent,reason_when_escalated,pass
+CUS-4,Log Agent,logged_by_log_agent,pass
+CUS-4,Log Agent,kb_feed_correct,pass
+CUS-4,Log Agent,agent_agrees_with_rules,FAIL
+CUS-4,Log Agent,routed_to_correct_desk,n/a
+CUS-4,Log Agent,product_line_logged,pass
+CUS-4,Orchestration,order_manager_query_kb_resolution_log,pass
+CUS-4,Orchestration,one_division_group_ran,pass
+CUS-4,Orchestration,terminated_on_LOGGED,pass
+CUS-4,Orchestration,within_message_cap,pass
+CUS-4,Orchestration,no_pipeline_error,pass
+CUS-5,Guardrails,stopped_when_not_a_ticket,n/a
+CUS-5,Guardrails,real_complaint_not_stopped,pass
+CUS-5,Guardrails,block_reason_correct,n/a
+CUS-5,Guardrails,stopped_by_expected_stage,n/a
+CUS-5,Guardrails,no_agent_group_ran_when_stopped,n/a
+CUS-5,Guardrails,flag_raised,n/a
+CUS-5,Guardrails,pii_not_in_log,n/a
+CUS-5,Guardrails,reply_has_no_ai_chatter,pass
+CUS-5,Support Manager,json_valid,pass
+CUS-5,Support Manager,product_line_tool_used,pass
+CUS-5,Support Manager,route_line_given,pass
+CUS-5,Support Manager,routed_to_correct_division,pass
+CUS-5,Support Manager,needs_human_flag,n/a
+CUS-5,Support Manager,secondary_divisions_found,n/a
+CUS-5,Support Manager,reason_and_guidance,pass
+CUS-5,Support Manager,handed_to_that_group,pass
+CUS-5,Customer Query Agent,json_valid,pass
+CUS-5,Customer Query Agent,category,pass
+CUS-5,Customer Query Agent,urgency,pass
+CUS-5,Customer Query Agent,sentiment,pass
+CUS-5,Customer Query Agent,sentiment_tool_used,pass
+CUS-5,Customer Query Agent,history_rag_used,pass
+CUS-5,Customer Query Agent,summary_ok,pass
+CUS-5,Customer Query Agent,repeat_detected,n/a
+CUS-5,Customer Query Agent,language,n/a
+CUS-5,Customer Query Agent,product_line,pass
+CUS-5,Customer Query Agent,all_product_lines_found,n/a
+CUS-5,Knowledge Base Agent,json_valid,pass
+CUS-5,Knowledge Base Agent,search_tool_used,pass
+CUS-5,Knowledge Base Agent,retrieval_hit,pass
+CUS-5,Knowledge Base Agent,source_shown_in_log,pass
+CUS-5,Knowledge Base Agent,coverage_decision,pass
+CUS-5,Knowledge Base Agent,context_brief,pass
+CUS-5,Knowledge Base Agent,facts_verbatim,pass
+CUS-5,Knowledge Base Agent,learned_reuse,pass
+CUS-5,Knowledge Base Agent,scoped_to_product_line,pass
+CUS-5,Resolution Agent,json_valid,pass
+CUS-5,Resolution Agent,numbers_grounded,pass
+CUS-5,Resolution Agent,required_facts,pass
+CUS-5,Resolution Agent,honest_when_unknown,n/a
+CUS-5,Resolution Agent,mentions_ticket,pass
+CUS-5,Resolution Agent,polite,pass
+CUS-5,Resolution Agent,concise,pass
+CUS-5,Resolution Agent,citations_valid,pass
+CUS-5,Resolution Agent,reply_grounded,pass
+CUS-5,Resolution Agent,confidence_calibrated,pass
+CUS-5,Log Agent,row_written,pass
+CUS-5,Log Agent,required_columns,pass
+CUS-5,Log Agent,status_correct,pass
+CUS-5,Log Agent,reason_when_escalated,n/a
+CUS-5,Log Agent,logged_by_log_agent,pass
+CUS-5,Log Agent,kb_feed_correct,pass
+CUS-5,Log Agent,agent_agrees_with_rules,pass
+CUS-5,Log Agent,routed_to_correct_desk,n/a
+CUS-5,Log Agent,product_line_logged,pass
+CUS-5,Orchestration,order_manager_query_kb_resolution_log,pass
+CUS-5,Orchestration,one_division_group_ran,pass
+CUS-5,Orchestration,terminated_on_LOGGED,pass
+CUS-5,Orchestration,within_message_cap,pass
+CUS-5,Orchestration,no_pipeline_error,pass
+LIN-1,Guardrails,stopped_when_not_a_ticket,n/a
+LIN-1,Guardrails,real_complaint_not_stopped,pass
+LIN-1,Guardrails,block_reason_correct,n/a
+LIN-1,Guardrails,stopped_by_expected_stage,n/a
+LIN-1,Guardrails,no_agent_group_ran_when_stopped,n/a
+LIN-1,Guardrails,flag_raised,n/a
+LIN-1,Guardrails,pii_not_in_log,n/a
+LIN-1,Guardrails,reply_has_no_ai_chatter,pass
+LIN-1,Support Manager,json_valid,pass
+LIN-1,Support Manager,product_line_tool_used,pass
+LIN-1,Support Manager,route_line_given,pass
+LIN-1,Support Manager,routed_to_correct_division,pass
+LIN-1,Support Manager,needs_human_flag,n/a
+LIN-1,Support Manager,secondary_divisions_found,n/a
+LIN-1,Support Manager,reason_and_guidance,pass
+LIN-1,Support Manager,handed_to_that_group,pass
+LIN-1,Customer Query Agent,json_valid,pass
+LIN-1,Customer Query Agent,category,pass
+LIN-1,Customer Query Agent,urgency,pass
+LIN-1,Customer Query Agent,sentiment,pass
+LIN-1,Customer Query Agent,sentiment_tool_used,pass
+LIN-1,Customer Query Agent,history_rag_used,pass
+LIN-1,Customer Query Agent,summary_ok,pass
+LIN-1,Customer Query Agent,repeat_detected,n/a
+LIN-1,Customer Query Agent,language,n/a
+LIN-1,Customer Query Agent,product_line,pass
+LIN-1,Customer Query Agent,all_product_lines_found,n/a
+LIN-1,Knowledge Base Agent,json_valid,pass
+LIN-1,Knowledge Base Agent,search_tool_used,pass
+LIN-1,Knowledge Base Agent,retrieval_hit,pass
+LIN-1,Knowledge Base Agent,source_shown_in_log,pass
+LIN-1,Knowledge Base Agent,coverage_decision,pass
+LIN-1,Knowledge Base Agent,context_brief,pass
+LIN-1,Knowledge Base Agent,facts_verbatim,pass
+LIN-1,Knowledge Base Agent,learned_reuse,n/a
+LIN-1,Knowledge Base Agent,scoped_to_product_line,pass
+LIN-1,Resolution Agent,json_valid,pass
+LIN-1,Resolution Agent,numbers_grounded,pass
+LIN-1,Resolution Agent,required_facts,pass
+LIN-1,Resolution Agent,honest_when_unknown,n/a
+LIN-1,Resolution Agent,mentions_ticket,pass
+LIN-1,Resolution Agent,polite,pass
+LIN-1,Resolution Agent,concise,pass
+LIN-1,Resolution Agent,citations_valid,pass
+LIN-1,Resolution Agent,reply_grounded,pass
+LIN-1,Resolution Agent,confidence_calibrated,pass
+LIN-1,Log Agent,row_written,pass
+LIN-1,Log Agent,required_columns,pass
+LIN-1,Log Agent,status_correct,pass
+LIN-1,Log Agent,reason_when_escalated,pass
+LIN-1,Log Agent,logged_by_log_agent,pass
+LIN-1,Log Agent,kb_feed_correct,pass
+LIN-1,Log Agent,agent_agrees_with_rules,pass
+LIN-1,Log Agent,routed_to_correct_desk,pass
+LIN-1,Log Agent,product_line_logged,pass
+LIN-1,Orchestration,order_manager_query_kb_resolution_log,pass
+LIN-1,Orchestration,one_division_group_ran,pass
+LIN-1,Orchestration,terminated_on_LOGGED,pass
+LIN-1,Orchestration,within_message_cap,pass
+LIN-1,Orchestration,no_pipeline_error,pass
+LIN-2,Guardrails,stopped_when_not_a_ticket,n/a
+LIN-2,Guardrails,real_complaint_not_stopped,pass
+LIN-2,Guardrails,block_reason_correct,n/a
+LIN-2,Guardrails,stopped_by_expected_stage,n/a
+LIN-2,Guardrails,no_agent_group_ran_when_stopped,n/a
+LIN-2,Guardrails,flag_raised,n/a
+LIN-2,Guardrails,pii_not_in_log,n/a
+LIN-2,Guardrails,reply_has_no_ai_chatter,pass
+LIN-2,Support Manager,json_valid,pass
+LIN-2,Support Manager,product_line_tool_used,pass
+LIN-2,Support Manager,route_line_given,pass
+LIN-2,Support Manager,routed_to_correct_division,pass
+LIN-2,Support Manager,needs_human_flag,n/a
+LIN-2,Support Manager,secondary_divisions_found,n/a
+LIN-2,Support Manager,reason_and_guidance,pass
+LIN-2,Support Manager,handed_to_that_group,pass
+LIN-2,Customer Query Agent,json_valid,pass
+LIN-2,Customer Query Agent,category,pass
+LIN-2,Customer Query Agent,urgency,pass
+LIN-2,Customer Query Agent,sentiment,pass
+LIN-2,Customer Query Agent,sentiment_tool_used,pass
+LIN-2,Customer Query Agent,history_rag_used,pass
+LIN-2,Customer Query Agent,summary_ok,pass
+LIN-2,Customer Query Agent,repeat_detected,n/a
+LIN-2,Customer Query Agent,language,n/a
+LIN-2,Customer Query Agent,product_line,pass
+LIN-2,Customer Query Agent,all_product_lines_found,n/a
+LIN-2,Knowledge Base Agent,json_valid,pass
+LIN-2,Knowledge Base Agent,search_tool_used,pass
+LIN-2,Knowledge Base Agent,retrieval_hit,pass
+LIN-2,Knowledge Base Agent,source_shown_in_log,pass
+LIN-2,Knowledge Base Agent,coverage_decision,pass
+LIN-2,Knowledge Base Agent,context_brief,pass
+LIN-2,Knowledge Base Agent,facts_verbatim,pass
+LIN-2,Knowledge Base Agent,learned_reuse,n/a
+LIN-2,Knowledge Base Agent,scoped_to_product_line,pass
+LIN-2,Resolution Agent,json_valid,pass
+LIN-2,Resolution Agent,numbers_grounded,pass
+LIN-2,Resolution Agent,required_facts,FAIL
+LIN-2,Resolution Agent,honest_when_unknown,n/a
+LIN-2,Resolution Agent,mentions_ticket,pass
+LIN-2,Resolution Agent,polite,pass
+LIN-2,Resolution Agent,concise,pass
+LIN-2,Resolution Agent,citations_valid,pass
+LIN-2,Resolution Agent,reply_grounded,FAIL
+LIN-2,Resolution Agent,confidence_calibrated,pass
+LIN-2,Log Agent,row_written,pass
+LIN-2,Log Agent,required_columns,pass
+LIN-2,Log Agent,status_correct,FAIL
+LIN-2,Log Agent,reason_when_escalated,pass
+LIN-2,Log Agent,logged_by_log_agent,pass
+LIN-2,Log Agent,kb_feed_correct,pass
+LIN-2,Log Agent,agent_agrees_with_rules,FAIL
+LIN-2,Log Agent,routed_to_correct_desk,pass
+LIN-2,Log Agent,product_line_logged,pass
+LIN-2,Orchestration,order_manager_query_kb_resolution_log,pass
+LIN-2,Orchestration,one_division_group_ran,pass
+LIN-2,Orchestration,terminated_on_LOGGED,pass
+LIN-2,Orchestration,within_message_cap,pass
+LIN-2,Orchestration,no_pipeline_error,pass
+LIN-3,Guardrails,stopped_when_not_a_ticket,n/a
+LIN-3,Guardrails,real_complaint_not_stopped,pass
+LIN-3,Guardrails,block_reason_correct,n/a
+LIN-3,Guardrails,stopped_by_expected_stage,n/a
+LIN-3,Guardrails,no_agent_group_ran_when_stopped,n/a
+LIN-3,Guardrails,flag_raised,n/a
+LIN-3,Guardrails,pii_not_in_log,n/a
+LIN-3,Guardrails,reply_has_no_ai_chatter,pass
+LIN-3,Support Manager,json_valid,pass
+LIN-3,Support Manager,product_line_tool_used,pass
+LIN-3,Support Manager,route_line_given,pass
+LIN-3,Support Manager,routed_to_correct_division,pass
+LIN-3,Support Manager,needs_human_flag,n/a
+LIN-3,Support Manager,secondary_divisions_found,n/a
+LIN-3,Support Manager,reason_and_guidance,pass
+LIN-3,Support Manager,handed_to_that_group,pass
+LIN-3,Customer Query Agent,json_valid,pass
+LIN-3,Customer Query Agent,category,pass
+LIN-3,Customer Query Agent,urgency,pass
+LIN-3,Customer Query Agent,sentiment,pass
+LIN-3,Customer Query Agent,sentiment_tool_used,pass
+LIN-3,Customer Query Agent,history_rag_used,pass
+LIN-3,Customer Query Agent,summary_ok,pass
+LIN-3,Customer Query Agent,repeat_detected,n/a
+LIN-3,Customer Query Agent,language,n/a
+LIN-3,Customer Query Agent,product_line,pass
+LIN-3,Customer Query Agent,all_product_lines_found,n/a
+LIN-3,Knowledge Base Agent,json_valid,pass
+LIN-3,Knowledge Base Agent,search_tool_used,pass
+LIN-3,Knowledge Base Agent,retrieval_hit,pass
+LIN-3,Knowledge Base Agent,source_shown_in_log,pass
+LIN-3,Knowledge Base Agent,coverage_decision,pass
+LIN-3,Knowledge Base Agent,context_brief,pass
+LIN-3,Knowledge Base Agent,facts_verbatim,pass
+LIN-3,Knowledge Base Agent,learned_reuse,n/a
+LIN-3,Knowledge Base Agent,scoped_to_product_line,pass
+LIN-3,Resolution Agent,json_valid,pass
+LIN-3,Resolution Agent,numbers_grounded,pass
+LIN-3,Resolution Agent,required_facts,pass
+LIN-3,Resolution Agent,honest_when_unknown,n/a
+LIN-3,Resolution Agent,mentions_ticket,pass
+LIN-3,Resolution Agent,polite,pass
+LIN-3,Resolution Agent,concise,pass
+LIN-3,Resolution Agent,citations_valid,pass
+LIN-3,Resolution Agent,reply_grounded,pass
+LIN-3,Resolution Agent,confidence_calibrated,pass
+LIN-3,Log Agent,row_written,pass
+LIN-3,Log Agent,required_columns,pass
+LIN-3,Log Agent,status_correct,pass
+LIN-3,Log Agent,reason_when_escalated,n/a
+LIN-3,Log Agent,logged_by_log_agent,pass
+LIN-3,Log Agent,kb_feed_correct,pass
+LIN-3,Log Agent,agent_agrees_with_rules,pass
+LIN-3,Log Agent,routed_to_correct_desk,pass
+LIN-3,Log Agent,product_line_logged,pass
+LIN-3,Orchestration,order_manager_query_kb_resolution_log,pass
+LIN-3,Orchestration,one_division_group_ran,pass
+LIN-3,Orchestration,terminated_on_LOGGED,pass
+LIN-3,Orchestration,within_message_cap,pass
+LIN-3,Orchestration,no_pipeline_error,pass
+LIN-4,Guardrails,stopped_when_not_a_ticket,n/a
+LIN-4,Guardrails,real_complaint_not_stopped,pass
+LIN-4,Guardrails,block_reason_correct,n/a
+LIN-4,Guardrails,stopped_by_expected_stage,n/a
+LIN-4,Guardrails,no_agent_group_ran_when_stopped,n/a
+LIN-4,Guardrails,flag_raised,n/a
+LIN-4,Guardrails,pii_not_in_log,n/a
+LIN-4,Guardrails,reply_has_no_ai_chatter,pass
+LIN-4,Support Manager,json_valid,pass
+LIN-4,Support Manager,product_line_tool_used,pass
+LIN-4,Support Manager,route_line_given,pass
+LIN-4,Support Manager,routed_to_correct_division,pass
+LIN-4,Support Manager,needs_human_flag,n/a
+LIN-4,Support Manager,secondary_divisions_found,n/a
+LIN-4,Support Manager,reason_and_guidance,pass
+LIN-4,Support Manager,handed_to_that_group,pass
+LIN-4,Customer Query Agent,json_valid,pass
+LIN-4,Customer Query Agent,category,pass
+LIN-4,Customer Query Agent,urgency,pass
+LIN-4,Customer Query Agent,sentiment,pass
+LIN-4,Customer Query Agent,sentiment_tool_used,pass
+LIN-4,Customer Query Agent,history_rag_used,pass
+LIN-4,Customer Query Agent,summary_ok,pass
+LIN-4,Customer Query Agent,repeat_detected,n/a
+LIN-4,Customer Query Agent,language,n/a
+LIN-4,Customer Query Agent,product_line,pass
+LIN-4,Customer Query Agent,all_product_lines_found,n/a
+LIN-4,Knowledge Base Agent,json_valid,pass
+LIN-4,Knowledge Base Agent,search_tool_used,pass
+LIN-4,Knowledge Base Agent,retrieval_hit,pass
+LIN-4,Knowledge Base Agent,source_shown_in_log,pass
+LIN-4,Knowledge Base Agent,coverage_decision,pass
+LIN-4,Knowledge Base Agent,context_brief,pass
+LIN-4,Knowledge Base Agent,facts_verbatim,pass
+LIN-4,Knowledge Base Agent,learned_reuse,n/a
+LIN-4,Knowledge Base Agent,scoped_to_product_line,pass
+LIN-4,Resolution Agent,json_valid,pass
+LIN-4,Resolution Agent,numbers_grounded,pass
+LIN-4,Resolution Agent,required_facts,pass
+LIN-4,Resolution Agent,honest_when_unknown,n/a
+LIN-4,Resolution Agent,mentions_ticket,pass
+LIN-4,Resolution Agent,polite,pass
+LIN-4,Resolution Agent,concise,pass
+LIN-4,Resolution Agent,citations_valid,pass
+LIN-4,Resolution Agent,reply_grounded,pass
+LIN-4,Resolution Agent,confidence_calibrated,pass
+LIN-4,Log Agent,row_written,pass
+LIN-4,Log Agent,required_columns,pass
+LIN-4,Log Agent,status_correct,pass
+LIN-4,Log Agent,reason_when_escalated,n/a
+LIN-4,Log Agent,logged_by_log_agent,pass
+LIN-4,Log Agent,kb_feed_correct,pass
+LIN-4,Log Agent,agent_agrees_with_rules,pass
+LIN-4,Log Agent,routed_to_correct_desk,pass
+LIN-4,Log Agent,product_line_logged,pass
+LIN-4,Orchestration,order_manager_query_kb_resolution_log,pass
+LIN-4,Orchestration,one_division_group_ran,pass
+LIN-4,Orchestration,terminated_on_LOGGED,pass
+LIN-4,Orchestration,within_message_cap,pass
+LIN-4,Orchestration,no_pipeline_error,pass
+LIN-5,Guardrails,stopped_when_not_a_ticket,n/a
+LIN-5,Guardrails,real_complaint_not_stopped,pass
+LIN-5,Guardrails,block_reason_correct,n/a
+LIN-5,Guardrails,stopped_by_expected_stage,n/a
+LIN-5,Guardrails,no_agent_group_ran_when_stopped,n/a
+LIN-5,Guardrails,flag_raised,n/a
+LIN-5,Guardrails,pii_not_in_log,n/a
+LIN-5,Guardrails,reply_has_no_ai_chatter,pass
+LIN-5,Support Manager,json_valid,pass
+LIN-5,Support Manager,product_line_tool_used,pass
+LIN-5,Support Manager,route_line_given,pass
+LIN-5,Support Manager,routed_to_correct_division,pass
+LIN-5,Support Manager,needs_human_flag,n/a
+LIN-5,Support Manager,secondary_divisions_found,n/a
+LIN-5,Support Manager,reason_and_guidance,pass
+LIN-5,Support Manager,handed_to_that_group,pass
+LIN-5,Customer Query Agent,json_valid,pass
+LIN-5,Customer Query Agent,category,pass
+LIN-5,Customer Query Agent,urgency,pass
+LIN-5,Customer Query Agent,sentiment,pass
+LIN-5,Customer Query Agent,sentiment_tool_used,pass
+LIN-5,Customer Query Agent,history_rag_used,pass
+LIN-5,Customer Query Agent,summary_ok,pass
+LIN-5,Customer Query Agent,repeat_detected,n/a
+LIN-5,Customer Query Agent,language,n/a
+LIN-5,Customer Query Agent,product_line,pass
+LIN-5,Customer Query Agent,all_product_lines_found,n/a
+LIN-5,Knowledge Base Agent,json_valid,pass
+LIN-5,Knowledge Base Agent,search_tool_used,pass
+LIN-5,Knowledge Base Agent,retrieval_hit,pass
+LIN-5,Knowledge Base Agent,source_shown_in_log,pass
+LIN-5,Knowledge Base Agent,coverage_decision,pass
+LIN-5,Knowledge Base Agent,context_brief,pass
+LIN-5,Knowledge Base Agent,facts_verbatim,pass
+LIN-5,Knowledge Base Agent,learned_reuse,n/a
+LIN-5,Knowledge Base Agent,scoped_to_product_line,pass
+LIN-5,Resolution Agent,json_valid,pass
+LIN-5,Resolution Agent,numbers_grounded,pass
+LIN-5,Resolution Agent,required_facts,pass
+LIN-5,Resolution Agent,honest_when_unknown,n/a
+LIN-5,Resolution Agent,mentions_ticket,pass
+LIN-5,Resolution Agent,polite,pass
+LIN-5,Resolution Agent,concise,pass
+LIN-5,Resolution Agent,citations_valid,pass
+LIN-5,Resolution Agent,reply_grounded,FAIL
+LIN-5,Resolution Agent,confidence_calibrated,pass
+LIN-5,Log Agent,row_written,pass
+LIN-5,Log Agent,required_columns,pass
+LIN-5,Log Agent,status_correct,pass
+LIN-5,Log Agent,reason_when_escalated,pass
+LIN-5,Log Agent,logged_by_log_agent,pass
+LIN-5,Log Agent,kb_feed_correct,pass
+LIN-5,Log Agent,agent_agrees_with_rules,pass
+LIN-5,Log Agent,routed_to_correct_desk,pass
+LIN-5,Log Agent,product_line_logged,pass
+LIN-5,Orchestration,order_manager_query_kb_resolution_log,pass
+LIN-5,Orchestration,one_division_group_ran,pass
+LIN-5,Orchestration,terminated_on_LOGGED,pass
+LIN-5,Orchestration,within_message_cap,pass
+LIN-5,Orchestration,no_pipeline_error,pass
+SRV-1,Guardrails,stopped_when_not_a_ticket,n/a
+SRV-1,Guardrails,real_complaint_not_stopped,pass
+SRV-1,Guardrails,block_reason_correct,n/a
+SRV-1,Guardrails,stopped_by_expected_stage,n/a
+SRV-1,Guardrails,no_agent_group_ran_when_stopped,n/a
+SRV-1,Guardrails,flag_raised,n/a
+SRV-1,Guardrails,pii_not_in_log,n/a
+SRV-1,Guardrails,reply_has_no_ai_chatter,pass
+SRV-1,Support Manager,json_valid,pass
+SRV-1,Support Manager,product_line_tool_used,pass
+SRV-1,Support Manager,route_line_given,pass
+SRV-1,Support Manager,routed_to_correct_division,pass
+SRV-1,Support Manager,needs_human_flag,n/a
+SRV-1,Support Manager,secondary_divisions_found,pass
+SRV-1,Support Manager,reason_and_guidance,pass
+SRV-1,Support Manager,handed_to_that_group,pass
+SRV-1,Customer Query Agent,json_valid,pass
+SRV-1,Customer Query Agent,category,pass
+SRV-1,Customer Query Agent,urgency,pass
+SRV-1,Customer Query Agent,sentiment,pass
+SRV-1,Customer Query Agent,sentiment_tool_used,pass
+SRV-1,Customer Query Agent,history_rag_used,pass
+SRV-1,Customer Query Agent,summary_ok,pass
+SRV-1,Customer Query Agent,repeat_detected,n/a
+SRV-1,Customer Query Agent,language,n/a
+SRV-1,Customer Query Agent,product_line,pass
+SRV-1,Customer Query Agent,all_product_lines_found,pass
+SRV-1,Knowledge Base Agent,json_valid,pass
+SRV-1,Knowledge Base Agent,search_tool_used,pass
+SRV-1,Knowledge Base Agent,retrieval_hit,pass
+SRV-1,Knowledge Base Agent,source_shown_in_log,pass
+SRV-1,Knowledge Base Agent,coverage_decision,pass
+SRV-1,Knowledge Base Agent,context_brief,pass
+SRV-1,Knowledge Base Agent,facts_verbatim,pass
+SRV-1,Knowledge Base Agent,learned_reuse,n/a
+SRV-1,Knowledge Base Agent,scoped_to_product_line,pass
+SRV-1,Resolution Agent,json_valid,pass
+SRV-1,Resolution Agent,numbers_grounded,pass
+SRV-1,Resolution Agent,required_facts,pass
+SRV-1,Resolution Agent,honest_when_unknown,n/a
+SRV-1,Resolution Agent,mentions_ticket,pass
+SRV-1,Resolution Agent,polite,pass
+SRV-1,Resolution Agent,concise,pass
+SRV-1,Resolution Agent,citations_valid,pass
+SRV-1,Resolution Agent,reply_grounded,pass
+SRV-1,Resolution Agent,confidence_calibrated,pass
+SRV-1,Log Agent,row_written,pass
+SRV-1,Log Agent,required_columns,pass
+SRV-1,Log Agent,status_correct,pass
+SRV-1,Log Agent,reason_when_escalated,n/a
+SRV-1,Log Agent,logged_by_log_agent,pass
+SRV-1,Log Agent,kb_feed_correct,pass
+SRV-1,Log Agent,agent_agrees_with_rules,pass
+SRV-1,Log Agent,routed_to_correct_desk,pass
+SRV-1,Log Agent,product_line_logged,pass
+SRV-1,Orchestration,order_manager_query_kb_resolution_log,pass
+SRV-1,Orchestration,one_division_group_ran,pass
+SRV-1,Orchestration,terminated_on_LOGGED,pass
+SRV-1,Orchestration,within_message_cap,pass
+SRV-1,Orchestration,no_pipeline_error,pass
+SRV-2,Guardrails,stopped_when_not_a_ticket,n/a
+SRV-2,Guardrails,real_complaint_not_stopped,pass
+SRV-2,Guardrails,block_reason_correct,n/a
+SRV-2,Guardrails,stopped_by_expected_stage,n/a
+SRV-2,Guardrails,no_agent_group_ran_when_stopped,n/a
+SRV-2,Guardrails,flag_raised,n/a
+SRV-2,Guardrails,pii_not_in_log,n/a
+SRV-2,Guardrails,reply_has_no_ai_chatter,pass
+SRV-2,Support Manager,json_valid,pass
+SRV-2,Support Manager,product_line_tool_used,pass
+SRV-2,Support Manager,route_line_given,pass
+SRV-2,Support Manager,routed_to_correct_division,pass
+SRV-2,Support Manager,needs_human_flag,n/a
+SRV-2,Support Manager,secondary_divisions_found,n/a
+SRV-2,Support Manager,reason_and_guidance,pass
+SRV-2,Support Manager,handed_to_that_group,pass
+SRV-2,Customer Query Agent,json_valid,pass
+SRV-2,Customer Query Agent,category,pass
+SRV-2,Customer Query Agent,urgency,pass
+SRV-2,Customer Query Agent,sentiment,pass
+SRV-2,Customer Query Agent,sentiment_tool_used,pass
+SRV-2,Customer Query Agent,history_rag_used,pass
+SRV-2,Customer Query Agent,summary_ok,pass
+SRV-2,Customer Query Agent,repeat_detected,n/a
+SRV-2,Customer Query Agent,language,n/a
+SRV-2,Customer Query Agent,product_line,pass
+SRV-2,Customer Query Agent,all_product_lines_found,n/a
+SRV-2,Knowledge Base Agent,json_valid,pass
+SRV-2,Knowledge Base Agent,search_tool_used,pass
+SRV-2,Knowledge Base Agent,retrieval_hit,pass
+SRV-2,Knowledge Base Agent,source_shown_in_log,pass
+SRV-2,Knowledge Base Agent,coverage_decision,pass
+SRV-2,Knowledge Base Agent,context_brief,pass
+SRV-2,Knowledge Base Agent,facts_verbatim,pass
+SRV-2,Knowledge Base Agent,learned_reuse,n/a
+SRV-2,Knowledge Base Agent,scoped_to_product_line,pass
+SRV-2,Resolution Agent,json_valid,pass
+SRV-2,Resolution Agent,numbers_grounded,pass
+SRV-2,Resolution Agent,required_facts,pass
+SRV-2,Resolution Agent,honest_when_unknown,n/a
+SRV-2,Resolution Agent,mentions_ticket,pass
+SRV-2,Resolution Agent,polite,pass
+SRV-2,Resolution Agent,concise,pass
+SRV-2,Resolution Agent,citations_valid,pass
+SRV-2,Resolution Agent,reply_grounded,pass
+SRV-2,Resolution Agent,confidence_calibrated,pass
+SRV-2,Log Agent,row_written,pass
+SRV-2,Log Agent,required_columns,pass
+SRV-2,Log Agent,status_correct,pass
+SRV-2,Log Agent,reason_when_escalated,n/a
+SRV-2,Log Agent,logged_by_log_agent,pass
+SRV-2,Log Agent,kb_feed_correct,pass
+SRV-2,Log Agent,agent_agrees_with_rules,pass
+SRV-2,Log Agent,routed_to_correct_desk,pass
+SRV-2,Log Agent,product_line_logged,pass
+SRV-2,Orchestration,order_manager_query_kb_resolution_log,pass
+SRV-2,Orchestration,one_division_group_ran,pass
+SRV-2,Orchestration,terminated_on_LOGGED,pass
+SRV-2,Orchestration,within_message_cap,pass
+SRV-2,Orchestration,no_pipeline_error,pass
+SRV-3,Guardrails,stopped_when_not_a_ticket,n/a
+SRV-3,Guardrails,real_complaint_not_stopped,pass
+SRV-3,Guardrails,block_reason_correct,n/a
+SRV-3,Guardrails,stopped_by_expected_stage,n/a
+SRV-3,Guardrails,no_agent_group_ran_when_stopped,n/a
+SRV-3,Guardrails,flag_raised,n/a
+SRV-3,Guardrails,pii_not_in_log,n/a
+SRV-3,Guardrails,reply_has_no_ai_chatter,pass
+SRV-3,Support Manager,json_valid,pass
+SRV-3,Support Manager,product_line_tool_used,pass
+SRV-3,Support Manager,route_line_given,pass
+SRV-3,Support Manager,routed_to_correct_division,pass
+SRV-3,Support Manager,needs_human_flag,n/a
+SRV-3,Support Manager,secondary_divisions_found,n/a
+SRV-3,Support Manager,reason_and_guidance,pass
+SRV-3,Support Manager,handed_to_that_group,pass
+SRV-3,Customer Query Agent,json_valid,pass
+SRV-3,Customer Query Agent,category,pass
+SRV-3,Customer Query Agent,urgency,pass
+SRV-3,Customer Query Agent,sentiment,pass
+SRV-3,Customer Query Agent,sentiment_tool_used,pass
+SRV-3,Customer Query Agent,history_rag_used,pass
+SRV-3,Customer Query Agent,summary_ok,pass
+SRV-3,Customer Query Agent,repeat_detected,n/a
+SRV-3,Customer Query Agent,language,n/a
+SRV-3,Customer Query Agent,product_line,pass
+SRV-3,Customer Query Agent,all_product_lines_found,n/a
+SRV-3,Knowledge Base Agent,json_valid,pass
+SRV-3,Knowledge Base Agent,search_tool_used,pass
+SRV-3,Knowledge Base Agent,retrieval_hit,pass
+SRV-3,Knowledge Base Agent,source_shown_in_log,pass
+SRV-3,Knowledge Base Agent,coverage_decision,pass
+SRV-3,Knowledge Base Agent,context_brief,pass
+SRV-3,Knowledge Base Agent,facts_verbatim,pass
+SRV-3,Knowledge Base Agent,learned_reuse,n/a
+SRV-3,Knowledge Base Agent,scoped_to_product_line,pass
+SRV-3,Resolution Agent,json_valid,pass
+SRV-3,Resolution Agent,numbers_grounded,pass
+SRV-3,Resolution Agent,required_facts,pass
+SRV-3,Resolution Agent,honest_when_unknown,n/a
+SRV-3,Resolution Agent,mentions_ticket,pass
+SRV-3,Resolution Agent,polite,pass
+SRV-3,Resolution Agent,concise,pass
+SRV-3,Resolution Agent,citations_valid,pass
+SRV-3,Resolution Agent,reply_grounded,pass
+SRV-3,Resolution Agent,confidence_calibrated,pass
+SRV-3,Log Agent,row_written,pass
+SRV-3,Log Agent,required_columns,pass
+SRV-3,Log Agent,status_correct,pass
+SRV-3,Log Agent,reason_when_escalated,n/a
+SRV-3,Log Agent,logged_by_log_agent,pass
+SRV-3,Log Agent,kb_feed_correct,pass
+SRV-3,Log Agent,agent_agrees_with_rules,pass
+SRV-3,Log Agent,routed_to_correct_desk,pass
+SRV-3,Log Agent,product_line_logged,pass
+SRV-3,Orchestration,order_manager_query_kb_resolution_log,pass
+SRV-3,Orchestration,one_division_group_ran,pass
+SRV-3,Orchestration,terminated_on_LOGGED,pass
+SRV-3,Orchestration,within_message_cap,pass
+SRV-3,Orchestration,no_pipeline_error,pass
+SRV-4,Guardrails,stopped_when_not_a_ticket,n/a
+SRV-4,Guardrails,real_complaint_not_stopped,pass
+SRV-4,Guardrails,block_reason_correct,n/a
+SRV-4,Guardrails,stopped_by_expected_stage,n/a
+SRV-4,Guardrails,no_agent_group_ran_when_stopped,n/a
+SRV-4,Guardrails,flag_raised,n/a
+SRV-4,Guardrails,pii_not_in_log,n/a
+SRV-4,Guardrails,reply_has_no_ai_chatter,pass
+SRV-4,Support Manager,json_valid,pass
+SRV-4,Support Manager,product_line_tool_used,pass
+SRV-4,Support Manager,route_line_given,pass
+SRV-4,Support Manager,routed_to_correct_division,pass
+SRV-4,Support Manager,needs_human_flag,n/a
+SRV-4,Support Manager,secondary_divisions_found,n/a
+SRV-4,Support Manager,reason_and_guidance,pass
+SRV-4,Support Manager,handed_to_that_group,pass
+SRV-4,Customer Query Agent,json_valid,pass
+SRV-4,Customer Query Agent,category,pass
+SRV-4,Customer Query Agent,urgency,pass
+SRV-4,Customer Query Agent,sentiment,pass
+SRV-4,Customer Query Agent,sentiment_tool_used,pass
+SRV-4,Customer Query Agent,history_rag_used,pass
+SRV-4,Customer Query Agent,summary_ok,pass
+SRV-4,Customer Query Agent,repeat_detected,n/a
+SRV-4,Customer Query Agent,language,n/a
+SRV-4,Customer Query Agent,product_line,pass
+SRV-4,Customer Query Agent,all_product_lines_found,n/a
+SRV-4,Knowledge Base Agent,json_valid,pass
+SRV-4,Knowledge Base Agent,search_tool_used,pass
+SRV-4,Knowledge Base Agent,retrieval_hit,pass
+SRV-4,Knowledge Base Agent,source_shown_in_log,pass
+SRV-4,Knowledge Base Agent,coverage_decision,pass
+SRV-4,Knowledge Base Agent,context_brief,pass
+SRV-4,Knowledge Base Agent,facts_verbatim,pass
+SRV-4,Knowledge Base Agent,learned_reuse,n/a
+SRV-4,Knowledge Base Agent,scoped_to_product_line,pass
+SRV-4,Resolution Agent,json_valid,pass
+SRV-4,Resolution Agent,numbers_grounded,pass
+SRV-4,Resolution Agent,required_facts,pass
+SRV-4,Resolution Agent,honest_when_unknown,n/a
+SRV-4,Resolution Agent,mentions_ticket,pass
+SRV-4,Resolution Agent,polite,pass
+SRV-4,Resolution Agent,concise,pass
+SRV-4,Resolution Agent,citations_valid,pass
+SRV-4,Resolution Agent,reply_grounded,pass
+SRV-4,Resolution Agent,confidence_calibrated,pass
+SRV-4,Log Agent,row_written,pass
+SRV-4,Log Agent,required_columns,pass
+SRV-4,Log Agent,status_correct,pass
+SRV-4,Log Agent,reason_when_escalated,pass
+SRV-4,Log Agent,logged_by_log_agent,pass
+SRV-4,Log Agent,kb_feed_correct,pass
+SRV-4,Log Agent,agent_agrees_with_rules,pass
+SRV-4,Log Agent,routed_to_correct_desk,pass
+SRV-4,Log Agent,product_line_logged,pass
+SRV-4,Orchestration,order_manager_query_kb_resolution_log,pass
+SRV-4,Orchestration,one_division_group_ran,pass
+SRV-4,Orchestration,terminated_on_LOGGED,pass
+SRV-4,Orchestration,within_message_cap,pass
+SRV-4,Orchestration,no_pipeline_error,pass
+MUL-1,Guardrails,stopped_when_not_a_ticket,n/a
+MUL-1,Guardrails,real_complaint_not_stopped,pass
+MUL-1,Guardrails,block_reason_correct,n/a
+MUL-1,Guardrails,stopped_by_expected_stage,n/a
+MUL-1,Guardrails,no_agent_group_ran_when_stopped,n/a
+MUL-1,Guardrails,flag_raised,n/a
+MUL-1,Guardrails,pii_not_in_log,n/a
+MUL-1,Guardrails,reply_has_no_ai_chatter,pass
+MUL-1,Support Manager,json_valid,pass
+MUL-1,Support Manager,product_line_tool_used,pass
+MUL-1,Support Manager,route_line_given,pass
+MUL-1,Support Manager,routed_to_correct_division,pass
+MUL-1,Support Manager,needs_human_flag,n/a
+MUL-1,Support Manager,secondary_divisions_found,pass
+MUL-1,Support Manager,reason_and_guidance,pass
+MUL-1,Support Manager,handed_to_that_group,pass
+MUL-1,Customer Query Agent,json_valid,pass
+MUL-1,Customer Query Agent,category,pass
+MUL-1,Customer Query Agent,urgency,pass
+MUL-1,Customer Query Agent,sentiment,pass
+MUL-1,Customer Query Agent,sentiment_tool_used,pass
+MUL-1,Customer Query Agent,history_rag_used,pass
+MUL-1,Customer Query Agent,summary_ok,pass
+MUL-1,Customer Query Agent,repeat_detected,n/a
+MUL-1,Customer Query Agent,language,n/a
+MUL-1,Customer Query Agent,product_line,pass
+MUL-1,Customer Query Agent,all_product_lines_found,pass
+MUL-1,Knowledge Base Agent,json_valid,pass
+MUL-1,Knowledge Base Agent,search_tool_used,pass
+MUL-1,Knowledge Base Agent,retrieval_hit,pass
+MUL-1,Knowledge Base Agent,source_shown_in_log,pass
+MUL-1,Knowledge Base Agent,coverage_decision,pass
+MUL-1,Knowledge Base Agent,context_brief,pass
+MUL-1,Knowledge Base Agent,facts_verbatim,pass
+MUL-1,Knowledge Base Agent,learned_reuse,n/a
+MUL-1,Knowledge Base Agent,scoped_to_product_line,pass
+MUL-1,Resolution Agent,json_valid,pass
+MUL-1,Resolution Agent,numbers_grounded,pass
+MUL-1,Resolution Agent,required_facts,pass
+MUL-1,Resolution Agent,honest_when_unknown,n/a
+MUL-1,Resolution Agent,mentions_ticket,pass
+MUL-1,Resolution Agent,polite,pass
+MUL-1,Resolution Agent,concise,pass
+MUL-1,Resolution Agent,citations_valid,pass
+MUL-1,Resolution Agent,reply_grounded,pass
+MUL-1,Resolution Agent,confidence_calibrated,pass
+MUL-1,Log Agent,row_written,pass
+MUL-1,Log Agent,required_columns,pass
+MUL-1,Log Agent,status_correct,pass
+MUL-1,Log Agent,reason_when_escalated,n/a
+MUL-1,Log Agent,logged_by_log_agent,pass
+MUL-1,Log Agent,kb_feed_correct,pass
+MUL-1,Log Agent,agent_agrees_with_rules,pass
+MUL-1,Log Agent,routed_to_correct_desk,pass
+MUL-1,Log Agent,product_line_logged,pass
+MUL-1,Orchestration,order_manager_query_kb_resolution_log,pass
+MUL-1,Orchestration,one_division_group_ran,pass
+MUL-1,Orchestration,terminated_on_LOGGED,pass
+MUL-1,Orchestration,within_message_cap,pass
+MUL-1,Orchestration,no_pipeline_error,pass
+MAN-1,Guardrails,stopped_when_not_a_ticket,n/a
+MAN-1,Guardrails,real_complaint_not_stopped,pass
+MAN-1,Guardrails,block_reason_correct,n/a
+MAN-1,Guardrails,stopped_by_expected_stage,n/a
+MAN-1,Guardrails,no_agent_group_ran_when_stopped,n/a
+MAN-1,Guardrails,flag_raised,n/a
+MAN-1,Guardrails,pii_not_in_log,n/a
+MAN-1,Guardrails,reply_has_no_ai_chatter,pass
+MAN-1,Support Manager,json_valid,pass
+MAN-1,Support Manager,product_line_tool_used,pass
+MAN-1,Support Manager,route_line_given,pass
+MAN-1,Support Manager,routed_to_correct_division,pass
+MAN-1,Support Manager,needs_human_flag,pass
+MAN-1,Support Manager,secondary_divisions_found,n/a
+MAN-1,Support Manager,reason_and_guidance,pass
+MAN-1,Support Manager,handed_to_that_group,pass
+MAN-1,Customer Query Agent,json_valid,pass
+MAN-1,Customer Query Agent,category,pass
+MAN-1,Customer Query Agent,urgency,pass
+MAN-1,Customer Query Agent,sentiment,pass
+MAN-1,Customer Query Agent,sentiment_tool_used,pass
+MAN-1,Customer Query Agent,history_rag_used,pass
+MAN-1,Customer Query Agent,summary_ok,pass
+MAN-1,Customer Query Agent,repeat_detected,n/a
+MAN-1,Customer Query Agent,language,n/a
+MAN-1,Customer Query Agent,product_line,pass
+MAN-1,Customer Query Agent,all_product_lines_found,n/a
+MAN-1,Knowledge Base Agent,json_valid,pass
+MAN-1,Knowledge Base Agent,search_tool_used,pass
+MAN-1,Knowledge Base Agent,retrieval_hit,n/a
+MAN-1,Knowledge Base Agent,source_shown_in_log,n/a
+MAN-1,Knowledge Base Agent,coverage_decision,FAIL
+MAN-1,Knowledge Base Agent,context_brief,pass
+MAN-1,Knowledge Base Agent,facts_verbatim,pass
+MAN-1,Knowledge Base Agent,learned_reuse,n/a
+MAN-1,Knowledge Base Agent,scoped_to_product_line,n/a
+MAN-1,Resolution Agent,json_valid,pass
+MAN-1,Resolution Agent,numbers_grounded,pass
+MAN-1,Resolution Agent,required_facts,n/a
+MAN-1,Resolution Agent,honest_when_unknown,FAIL
+MAN-1,Resolution Agent,mentions_ticket,pass
+MAN-1,Resolution Agent,polite,pass
+MAN-1,Resolution Agent,concise,pass
+MAN-1,Resolution Agent,citations_valid,pass
+MAN-1,Resolution Agent,reply_grounded,pass
+MAN-1,Resolution Agent,confidence_calibrated,FAIL
+MAN-1,Log Agent,row_written,pass
+MAN-1,Log Agent,required_columns,pass
+MAN-1,Log Agent,status_correct,pass
+MAN-1,Log Agent,reason_when_escalated,pass
+MAN-1,Log Agent,logged_by_log_agent,pass
+MAN-1,Log Agent,kb_feed_correct,pass
+MAN-1,Log Agent,agent_agrees_with_rules,pass
+MAN-1,Log Agent,routed_to_correct_desk,n/a
+MAN-1,Log Agent,product_line_logged,pass
+MAN-1,Orchestration,order_manager_query_kb_resolution_log,pass
+MAN-1,Orchestration,one_division_group_ran,pass
+MAN-1,Orchestration,terminated_on_LOGGED,pass
+MAN-1,Orchestration,within_message_cap,pass
+MAN-1,Orchestration,no_pipeline_error,pass
+MAN-2,Guardrails,stopped_when_not_a_ticket,n/a
+MAN-2,Guardrails,real_complaint_not_stopped,pass
+MAN-2,Guardrails,block_reason_correct,n/a
+MAN-2,Guardrails,stopped_by_expected_stage,n/a
+MAN-2,Guardrails,no_agent_group_ran_when_stopped,n/a
+MAN-2,Guardrails,flag_raised,n/a
+MAN-2,Guardrails,pii_not_in_log,n/a
+MAN-2,Guardrails,reply_has_no_ai_chatter,pass
+MAN-2,Support Manager,json_valid,pass
+MAN-2,Support Manager,product_line_tool_used,pass
+MAN-2,Support Manager,route_line_given,pass
+MAN-2,Support Manager,routed_to_correct_division,pass
+MAN-2,Support Manager,needs_human_flag,pass
+MAN-2,Support Manager,secondary_divisions_found,n/a
+MAN-2,Support Manager,reason_and_guidance,pass
+MAN-2,Support Manager,handed_to_that_group,pass
+MAN-2,Customer Query Agent,json_valid,pass
+MAN-2,Customer Query Agent,category,pass
+MAN-2,Customer Query Agent,urgency,pass
+MAN-2,Customer Query Agent,sentiment,pass
+MAN-2,Customer Query Agent,sentiment_tool_used,pass
+MAN-2,Customer Query Agent,history_rag_used,pass
+MAN-2,Customer Query Agent,summary_ok,pass
+MAN-2,Customer Query Agent,repeat_detected,n/a
+MAN-2,Customer Query Agent,language,n/a
+MAN-2,Customer Query Agent,product_line,pass
+MAN-2,Customer Query Agent,all_product_lines_found,n/a
+MAN-2,Knowledge Base Agent,json_valid,pass
+MAN-2,Knowledge Base Agent,search_tool_used,pass
+MAN-2,Knowledge Base Agent,retrieval_hit,pass
+MAN-2,Knowledge Base Agent,source_shown_in_log,pass
+MAN-2,Knowledge Base Agent,coverage_decision,pass
+MAN-2,Knowledge Base Agent,context_brief,pass
+MAN-2,Knowledge Base Agent,facts_verbatim,pass
+MAN-2,Knowledge Base Agent,learned_reuse,n/a
+MAN-2,Knowledge Base Agent,scoped_to_product_line,pass
+MAN-2,Resolution Agent,json_valid,pass
+MAN-2,Resolution Agent,numbers_grounded,pass
+MAN-2,Resolution Agent,required_facts,pass
+MAN-2,Resolution Agent,honest_when_unknown,n/a
+MAN-2,Resolution Agent,mentions_ticket,pass
+MAN-2,Resolution Agent,polite,pass
+MAN-2,Resolution Agent,concise,pass
+MAN-2,Resolution Agent,citations_valid,pass
+MAN-2,Resolution Agent,reply_grounded,pass
+MAN-2,Resolution Agent,confidence_calibrated,pass
+MAN-2,Log Agent,row_written,pass
+MAN-2,Log Agent,required_columns,pass
+MAN-2,Log Agent,status_correct,pass
+MAN-2,Log Agent,reason_when_escalated,n/a
+MAN-2,Log Agent,logged_by_log_agent,pass
+MAN-2,Log Agent,kb_feed_correct,pass
+MAN-2,Log Agent,agent_agrees_with_rules,pass
+MAN-2,Log Agent,routed_to_correct_desk,pass
+MAN-2,Log Agent,product_line_logged,pass
+MAN-2,Orchestration,order_manager_query_kb_resolution_log,pass
+MAN-2,Orchestration,one_division_group_ran,pass
+MAN-2,Orchestration,terminated_on_LOGGED,pass
+MAN-2,Orchestration,within_message_cap,pass
+MAN-2,Orchestration,no_pipeline_error,pass
+GRD-1,Guardrails,stopped_when_not_a_ticket,pass
+GRD-1,Guardrails,real_complaint_not_stopped,n/a
+GRD-1,Guardrails,block_reason_correct,pass
+GRD-1,Guardrails,stopped_by_expected_stage,pass
+GRD-1,Guardrails,no_agent_group_ran_when_stopped,pass
+GRD-1,Guardrails,flag_raised,n/a
+GRD-1,Guardrails,pii_not_in_log,n/a
+GRD-1,Guardrails,reply_has_no_ai_chatter,pass
+GRD-1,Log Agent,row_written,pass
+GRD-1,Log Agent,required_columns,pass
+GRD-1,Log Agent,status_correct,pass
+GRD-2,Guardrails,stopped_when_not_a_ticket,pass
+GRD-2,Guardrails,real_complaint_not_stopped,n/a
+GRD-2,Guardrails,block_reason_correct,pass
+GRD-2,Guardrails,stopped_by_expected_stage,pass
+GRD-2,Guardrails,no_agent_group_ran_when_stopped,pass
+GRD-2,Guardrails,flag_raised,n/a
+GRD-2,Guardrails,pii_not_in_log,n/a
+GRD-2,Guardrails,reply_has_no_ai_chatter,pass
+GRD-2,Log Agent,row_written,pass
+GRD-2,Log Agent,required_columns,pass
+GRD-2,Log Agent,status_correct,pass
+GRD-3,Guardrails,stopped_when_not_a_ticket,pass
+GRD-3,Guardrails,real_complaint_not_stopped,n/a
+GRD-3,Guardrails,block_reason_correct,pass
+GRD-3,Guardrails,stopped_by_expected_stage,pass
+GRD-3,Guardrails,no_agent_group_ran_when_stopped,pass
+GRD-3,Guardrails,flag_raised,n/a
+GRD-3,Guardrails,pii_not_in_log,n/a
+GRD-3,Guardrails,reply_has_no_ai_chatter,pass
+GRD-3,Log Agent,row_written,pass
+GRD-3,Log Agent,required_columns,pass
+GRD-3,Log Agent,status_correct,pass
+GRD-4,Guardrails,stopped_when_not_a_ticket,pass
+GRD-4,Guardrails,real_complaint_not_stopped,n/a
+GRD-4,Guardrails,block_reason_correct,FAIL
+GRD-4,Guardrails,stopped_by_expected_stage,pass
+GRD-4,Guardrails,no_agent_group_ran_when_stopped,pass
+GRD-4,Guardrails,flag_raised,n/a
+GRD-4,Guardrails,pii_not_in_log,n/a
+GRD-4,Guardrails,reply_has_no_ai_chatter,pass
+GRD-4,Log Agent,row_written,pass
+GRD-4,Log Agent,required_columns,pass
+GRD-4,Log Agent,status_correct,pass
+GRD-5,Guardrails,stopped_when_not_a_ticket,n/a
+GRD-5,Guardrails,real_complaint_not_stopped,pass
+GRD-5,Guardrails,block_reason_correct,n/a
+GRD-5,Guardrails,stopped_by_expected_stage,n/a
+GRD-5,Guardrails,no_agent_group_ran_when_stopped,n/a
+GRD-5,Guardrails,flag_raised,pass
+GRD-5,Guardrails,pii_not_in_log,n/a
+GRD-5,Guardrails,reply_has_no_ai_chatter,pass
+GRD-5,Support Manager,json_valid,pass
+GRD-5,Support Manager,product_line_tool_used,pass
+GRD-5,Support Manager,route_line_given,pass
+GRD-5,Support Manager,routed_to_correct_division,pass
+GRD-5,Support Manager,needs_human_flag,n/a
+GRD-5,Support Manager,secondary_divisions_found,n/a
+GRD-5,Support Manager,reason_and_guidance,pass
+GRD-5,Support Manager,handed_to_that_group,pass
+GRD-5,Customer Query Agent,json_valid,pass
+GRD-5,Customer Query Agent,category,pass
+GRD-5,Customer Query Agent,urgency,pass
+GRD-5,Customer Query Agent,sentiment,pass
+GRD-5,Customer Query Agent,sentiment_tool_used,pass
+GRD-5,Customer Query Agent,history_rag_used,pass
+GRD-5,Customer Query Agent,summary_ok,pass
+GRD-5,Customer Query Agent,repeat_detected,n/a
+GRD-5,Customer Query Agent,language,n/a
+GRD-5,Customer Query Agent,product_line,pass
+GRD-5,Customer Query Agent,all_product_lines_found,n/a
+GRD-5,Knowledge Base Agent,json_valid,pass
+GRD-5,Knowledge Base Agent,search_tool_used,pass
+GRD-5,Knowledge Base Agent,retrieval_hit,pass
+GRD-5,Knowledge Base Agent,source_shown_in_log,pass
+GRD-5,Knowledge Base Agent,coverage_decision,pass
+GRD-5,Knowledge Base Agent,context_brief,pass
+GRD-5,Knowledge Base Agent,facts_verbatim,pass
+GRD-5,Knowledge Base Agent,learned_reuse,n/a
+GRD-5,Knowledge Base Agent,scoped_to_product_line,n/a
+GRD-5,Resolution Agent,json_valid,pass
+GRD-5,Resolution Agent,numbers_grounded,pass
+GRD-5,Resolution Agent,required_facts,n/a
+GRD-5,Resolution Agent,honest_when_unknown,n/a
+GRD-5,Resolution Agent,mentions_ticket,pass
+GRD-5,Resolution Agent,polite,pass
+GRD-5,Resolution Agent,concise,pass
+GRD-5,Resolution Agent,citations_valid,pass
+GRD-5,Resolution Agent,reply_grounded,pass
+GRD-5,Resolution Agent,confidence_calibrated,pass
+GRD-5,Log Agent,row_written,pass
+GRD-5,Log Agent,required_columns,pass
+GRD-5,Log Agent,status_correct,pass
+GRD-5,Log Agent,reason_when_escalated,pass
+GRD-5,Log Agent,logged_by_log_agent,pass
+GRD-5,Log Agent,kb_feed_correct,pass
+GRD-5,Log Agent,agent_agrees_with_rules,FAIL
+GRD-5,Log Agent,routed_to_correct_desk,pass
+GRD-5,Log Agent,product_line_logged,pass
+GRD-5,Orchestration,order_manager_query_kb_resolution_log,pass
+GRD-5,Orchestration,one_division_group_ran,pass
+GRD-5,Orchestration,terminated_on_LOGGED,pass
+GRD-5,Orchestration,within_message_cap,pass
+GRD-5,Orchestration,no_pipeline_error,pass
+GRD-6,Guardrails,stopped_when_not_a_ticket,n/a
+GRD-6,Guardrails,real_complaint_not_stopped,pass
+GRD-6,Guardrails,block_reason_correct,n/a
+GRD-6,Guardrails,stopped_by_expected_stage,n/a
+GRD-6,Guardrails,no_agent_group_ran_when_stopped,n/a
+GRD-6,Guardrails,flag_raised,pass
+GRD-6,Guardrails,pii_not_in_log,pass
+GRD-6,Guardrails,reply_has_no_ai_chatter,pass
+GRD-6,Support Manager,json_valid,pass
+GRD-6,Support Manager,product_line_tool_used,pass
+GRD-6,Support Manager,route_line_given,pass
+GRD-6,Support Manager,routed_to_correct_division,pass
+GRD-6,Support Manager,needs_human_flag,n/a
+GRD-6,Support Manager,secondary_divisions_found,n/a
+GRD-6,Support Manager,reason_and_guidance,pass
+GRD-6,Support Manager,handed_to_that_group,pass
+GRD-6,Customer Query Agent,json_valid,pass
+GRD-6,Customer Query Agent,category,pass
+GRD-6,Customer Query Agent,urgency,pass
+GRD-6,Customer Query Agent,sentiment,pass
+GRD-6,Customer Query Agent,sentiment_tool_used,pass
+GRD-6,Customer Query Agent,history_rag_used,pass
+GRD-6,Customer Query Agent,summary_ok,pass
+GRD-6,Customer Query Agent,repeat_detected,n/a
+GRD-6,Customer Query Agent,language,n/a
+GRD-6,Customer Query Agent,product_line,pass
+GRD-6,Customer Query Agent,all_product_lines_found,n/a
+GRD-6,Knowledge Base Agent,json_valid,pass
+GRD-6,Knowledge Base Agent,search_tool_used,pass
+GRD-6,Knowledge Base Agent,retrieval_hit,pass
+GRD-6,Knowledge Base Agent,source_shown_in_log,pass
+GRD-6,Knowledge Base Agent,coverage_decision,pass
+GRD-6,Knowledge Base Agent,context_brief,pass
+GRD-6,Knowledge Base Agent,facts_verbatim,pass
+GRD-6,Knowledge Base Agent,learned_reuse,n/a
+GRD-6,Knowledge Base Agent,scoped_to_product_line,n/a
+GRD-6,Resolution Agent,json_valid,pass
+GRD-6,Resolution Agent,numbers_grounded,pass
+GRD-6,Resolution Agent,required_facts,pass
+GRD-6,Resolution Agent,honest_when_unknown,n/a
+GRD-6,Resolution Agent,mentions_ticket,pass
+GRD-6,Resolution Agent,polite,pass
+GRD-6,Resolution Agent,concise,pass
+GRD-6,Resolution Agent,citations_valid,pass
+GRD-6,Resolution Agent,reply_grounded,pass
+GRD-6,Resolution Agent,confidence_calibrated,pass
+GRD-6,Log Agent,row_written,pass
+GRD-6,Log Agent,required_columns,pass
+GRD-6,Log Agent,status_correct,pass
+GRD-6,Log Agent,reason_when_escalated,pass
+GRD-6,Log Agent,logged_by_log_agent,pass
+GRD-6,Log Agent,kb_feed_correct,pass
+GRD-6,Log Agent,agent_agrees_with_rules,pass
+GRD-6,Log Agent,routed_to_correct_desk,pass
+GRD-6,Log Agent,product_line_logged,pass
+GRD-6,Orchestration,order_manager_query_kb_resolution_log,pass
+GRD-6,Orchestration,one_division_group_ran,pass
+GRD-6,Orchestration,terminated_on_LOGGED,pass
+GRD-6,Orchestration,within_message_cap,pass
+GRD-6,Orchestration,no_pipeline_error,pass
+CUS-6,Guardrails,stopped_when_not_a_ticket,n/a
+CUS-6,Guardrails,real_complaint_not_stopped,pass
+CUS-6,Guardrails,block_reason_correct,n/a
+CUS-6,Guardrails,stopped_by_expected_stage,n/a
+CUS-6,Guardrails,no_agent_group_ran_when_stopped,n/a
+CUS-6,Guardrails,flag_raised,n/a
+CUS-6,Guardrails,pii_not_in_log,n/a
+CUS-6,Guardrails,reply_has_no_ai_chatter,pass
+CUS-6,Support Manager,json_valid,pass
+CUS-6,Support Manager,product_line_tool_used,pass
+CUS-6,Support Manager,route_line_given,pass
+CUS-6,Support Manager,routed_to_correct_division,pass
+CUS-6,Support Manager,needs_human_flag,n/a
+CUS-6,Support Manager,secondary_divisions_found,n/a
+CUS-6,Support Manager,reason_and_guidance,pass
+CUS-6,Support Manager,handed_to_that_group,pass
+CUS-6,Customer Query Agent,json_valid,pass
+CUS-6,Customer Query Agent,category,pass
+CUS-6,Customer Query Agent,urgency,pass
+CUS-6,Customer Query Agent,sentiment,pass
+CUS-6,Customer Query Agent,sentiment_tool_used,pass
+CUS-6,Customer Query Agent,history_rag_used,pass
+CUS-6,Customer Query Agent,summary_ok,pass
+CUS-6,Customer Query Agent,repeat_detected,n/a
+CUS-6,Customer Query Agent,language,pass
+CUS-6,Customer Query Agent,product_line,pass
+CUS-6,Customer Query Agent,all_product_lines_found,n/a
+CUS-6,Knowledge Base Agent,json_valid,pass
+CUS-6,Knowledge Base Agent,search_tool_used,pass
+CUS-6,Knowledge Base Agent,retrieval_hit,pass
+CUS-6,Knowledge Base Agent,source_shown_in_log,pass
+CUS-6,Knowledge Base Agent,coverage_decision,pass
+CUS-6,Knowledge Base Agent,context_brief,pass
+CUS-6,Knowledge Base Agent,facts_verbatim,pass
+CUS-6,Knowledge Base Agent,learned_reuse,n/a
+CUS-6,Knowledge Base Agent,scoped_to_product_line,n/a
+CUS-6,Resolution Agent,json_valid,pass
+CUS-6,Resolution Agent,numbers_grounded,pass
+CUS-6,Resolution Agent,required_facts,n/a
+CUS-6,Resolution Agent,honest_when_unknown,n/a
+CUS-6,Resolution Agent,mentions_ticket,FAIL
+CUS-6,Resolution Agent,polite,pass
+CUS-6,Resolution Agent,concise,pass
+CUS-6,Resolution Agent,citations_valid,pass
+CUS-6,Resolution Agent,reply_grounded,FAIL
+CUS-6,Resolution Agent,confidence_calibrated,pass
+CUS-6,Log Agent,row_written,pass
+CUS-6,Log Agent,required_columns,pass
+CUS-6,Log Agent,status_correct,FAIL
+CUS-6,Log Agent,reason_when_escalated,pass
+CUS-6,Log Agent,logged_by_log_agent,pass
+CUS-6,Log Agent,kb_feed_correct,pass
+CUS-6,Log Agent,agent_agrees_with_rules,FAIL
+CUS-6,Log Agent,routed_to_correct_desk,n/a
+CUS-6,Log Agent,product_line_logged,pass
+CUS-6,Orchestration,order_manager_query_kb_resolution_log,pass
+CUS-6,Orchestration,one_division_group_ran,pass
+CUS-6,Orchestration,terminated_on_LOGGED,pass
+CUS-6,Orchestration,within_message_cap,pass
+CUS-6,Orchestration,no_pipeline_error,pass

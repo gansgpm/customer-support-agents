@@ -1,0 +1,427 @@
+{
+  "company": "Remya Industries Ltd",
+  "general": {
+    "id": "general",
+    "type": "general",
+    "name": "General (orders, account, payments)",
+    "description": "Anything not tied to one product line or service: delivery, returns, account, payments, promotions.",
+    "documents": [
+      "shipping_policy.md",
+      "refund_policy.md",
+      "account_and_login.md",
+      "billing_and_payments.md",
+      "support_and_escalation_policy.md",
+      "product_faq.md"
+    ],
+    "team": {
+      "name": "General Support Desk",
+      "email_env": "TEAM_GENERAL_EMAIL",
+      "telegram_env": "TEAM_GENERAL_TELEGRAM"
+    }
+  },
+  "lines": [
+    {
+      "id": "electronics",
+      "type": "product_line",
+      "name": "Electronics",
+      "description": "Mobile phones, laptops, tablets, TVs, audio, wearables, cameras and accessories",
+      "keywords": [
+        "phone",
+        "mobile",
+        "smartphone",
+        "iphone",
+        "android",
+        "laptop",
+        "tablet",
+        "ipad",
+        "tv",
+        "television",
+        "smart tv",
+        "headphone",
+        "earphone",
+        "earbud",
+        "airpods",
+        "bluetooth speaker",
+        "speaker",
+        "smartwatch",
+        "smart watch",
+        "camera",
+        "charger",
+        "power bank",
+        "cable",
+        "monitor",
+        "keyboard",
+        "mouse",
+        "imei",
+        "earbuds",
+        "printer",
+        "router",
+        "hard disk",
+        "pendrive",
+        "pen drive",
+        "console"
+      ],
+      "documents": [
+        "electronics.md"
+      ],
+      "team": {
+        "name": "Electronics Desk",
+        "email_env": "TEAM_ELECTRONICS_EMAIL",
+        "telegram_env": "TEAM_ELECTRONICS_TELEGRAM"
+      },
+      "risk_keywords": {
+        "product_safety": [
+          "battery swelling",
+          "swollen battery",
+          "battery is swelling",
+          "battery swelled",
+          "overheating",
+          "overheats",
+          "very hot",
+          "caught fire",
+          "exploded",
+          "sparking"
+        ]
+      },
+      "sla": {
+        "High": "2 hours (support hours 9:00 AM - 9:00 PM IST)"
+      },
+      "exclude": [
+        "phone number",
+        "mobile number",
+        "registered mobile",
+        "phone no",
+        "mobile no",
+        "by phone",
+        "phone call",
+        "on the phone",
+        "mobile app",
+        "phone app"
+      ]
+    },
+    {
+      "id": "home_appliances",
+      "type": "product_line",
+      "name": "Home & Kitchen Appliances",
+      "description": "Large appliances (AC, washing machine, refrigerator, water purifier) and small kitchen appliances",
+      "keywords": [
+        "blender",
+        "mixer",
+        "mixer grinder",
+        "grinder",
+        "air fryer",
+        "kettle",
+        "iron",
+        "toaster",
+        "microwave",
+        "oven",
+        "refrigerator",
+        "fridge",
+        "washing machine",
+        "washer",
+        "air conditioner",
+        "ac",
+        "water purifier",
+        "ro purifier",
+        "geyser",
+        "water heater",
+        "vacuum cleaner",
+        "chimney",
+        "induction",
+        "ceiling fan",
+        "cooler",
+        "dishwasher",
+        "appliance",
+        "cooker",
+        "pressure cooker",
+        "gas stove",
+        "stove",
+        "hob",
+        "sandwich maker",
+        "juicer",
+        "heater",
+        "purifier"
+      ],
+      "documents": [
+        "home_appliances.md"
+      ],
+      "team": {
+        "name": "Appliances Desk",
+        "email_env": "TEAM_APPLIANCES_EMAIL",
+        "telegram_env": "TEAM_APPLIANCES_TELEGRAM"
+      },
+      "risk_keywords": {
+        "product_safety": [
+          "electric shock",
+          "got a shock",
+          "short circuit",
+          "burning smell",
+          "gas leak",
+          "sparks",
+          "smoke",
+          "water leakage near the socket"
+        ]
+      }
+    },
+    {
+      "id": "fashion",
+      "type": "product_line",
+      "name": "Fashion & Footwear",
+      "description": "Footwear, apparel and fashion accessories",
+      "keywords": [
+        "shoe",
+        "shoes",
+        "sneaker",
+        "sandal",
+        "slipper",
+        "boot",
+        "footwear",
+        "heel",
+        "shirt",
+        "t-shirt",
+        "tshirt",
+        "jeans",
+        "trouser",
+        "pant",
+        "dress",
+        "kurta",
+        "saree",
+        "jacket",
+        "apparel",
+        "clothes",
+        "clothing",
+        "size",
+        "handbag",
+        "belt",
+        "sole",
+        "fabric",
+        "colour",
+        "color",
+        "watch strap",
+        "wallet",
+        "sunglasses",
+        "kurti",
+        "leggings",
+        "socks"
+      ],
+      "documents": [
+        "fashion_footwear.md"
+      ],
+      "team": {
+        "name": "Fashion Desk",
+        "email_env": "TEAM_FASHION_EMAIL",
+        "telegram_env": "TEAM_FASHION_TELEGRAM"
+      },
+      "risk_keywords": {},
+      "exclude": [
+        "screen size",
+        "file size",
+        "pack size",
+        "portion size"
+      ]
+    },
+    {
+      "id": "grocery",
+      "type": "product_line",
+      "name": "Remya Fresh Grocery",
+      "description": "Fresh produce, dairy, bakery, meat and daily essentials delivered in 2-hour slots",
+      "keywords": [
+        "grocery",
+        "groceries",
+        "remyafresh",
+        "remya fresh",
+        "milk",
+        "curd",
+        "paneer",
+        "butter",
+        "bread",
+        "egg",
+        "eggs",
+        "vegetable",
+        "vegetables",
+        "fruit",
+        "fruits",
+        "rice",
+        "atta",
+        "dal",
+        "cooking oil",
+        "meat",
+        "chicken",
+        "fish",
+        "spoiled",
+        "rotten",
+        "expired",
+        "stale",
+        "delivery slot",
+        "slot"
+      ],
+      "documents": [
+        "remya_fresh_grocery.md"
+      ],
+      "team": {
+        "name": "Remya Fresh Grocery Desk",
+        "email_env": "TEAM_GROCERY_EMAIL",
+        "telegram_env": "TEAM_GROCERY_TELEGRAM"
+      },
+      "risk_keywords": {
+        "food_safety": [
+          "food poisoning",
+          "fell sick",
+          "got sick",
+          "vomiting",
+          "insect in",
+          "worm in",
+          "foreign object",
+          "glass piece",
+          "fungus",
+          "mould",
+          "mold"
+        ]
+      },
+      "sla": {
+        "High": "1 hour (Remya Fresh hours 7:00 AM - 10:00 PM IST)",
+        "Medium": "4 hours"
+      },
+      "exclude": [
+        "card expired",
+        "card has expired",
+        "otp expired",
+        "link expired",
+        "code expired",
+        "coupon expired",
+        "promo code expired"
+      ]
+    },
+    {
+      "id": "installation_repair",
+      "type": "service",
+      "name": "Remya Care Installation & Repair",
+      "description": "Installation, demo, uninstallation and repair visits by Remya Care technicians",
+      "keywords": [
+        "installation",
+        "install",
+        "installed",
+        "installing",
+        "technician",
+        "repair",
+        "service visit",
+        "servicing",
+        "remyacare",
+        "remya care",
+        "demo",
+        "uninstall",
+        "uninstallation",
+        "wall mount",
+        "mounting"
+      ],
+      "documents": [
+        "remya_care_installation_repair.md"
+      ],
+      "team": {
+        "name": "Remya Care Services Desk",
+        "email_env": "TEAM_REMYACARE_EMAIL",
+        "telegram_env": "TEAM_REMYACARE_TELEGRAM"
+      },
+      "risk_keywords": {
+        "service_misconduct": [
+          "technician damaged",
+          "damaged my wall",
+          "damaged the wall",
+          "rude technician",
+          "technician was rude",
+          "misbehaved",
+          "asked for extra money",
+          "demanded money"
+        ]
+      }
+    },
+    {
+      "id": "protection_plan",
+      "type": "service",
+      "name": "Remya Shield Protection Plans",
+      "description": "Extended warranty and accidental / liquid / screen damage protection for devices",
+      "keywords": [
+        "remyashield",
+        "remya shield",
+        "protection plan",
+        "extended warranty",
+        "screen damage",
+        "accidental damage",
+        "liquid damage",
+        "damage protection",
+        "insurance",
+        "raise a claim",
+        "my claim",
+        "claim status",
+        "claim rejected",
+        "damage claim",
+        "plan claim"
+      ],
+      "documents": [
+        "remya_shield_protection_plans.md"
+      ],
+      "team": {
+        "name": "Remya Shield Claims Desk",
+        "email_env": "TEAM_REMYASHIELD_EMAIL",
+        "telegram_env": "TEAM_REMYASHIELD_TELEGRAM"
+      },
+      "risk_keywords": {
+        "claim_dispute": [
+          "claim rejected",
+          "claim was rejected",
+          "rejected my claim",
+          "claim denied"
+        ]
+      }
+    },
+    {
+      "id": "membership",
+      "type": "service",
+      "name": "Remya Plus Membership",
+      "description": "Paid membership: free express delivery, free Remya Fresh delivery, early sale access",
+      "keywords": [
+        "remya plus",
+        "plus membership",
+        "membership",
+        "subscription",
+        "renewal",
+        "renew",
+        "auto-renew",
+        "auto renew",
+        "autorenew",
+        "plus member"
+      ],
+      "documents": [
+        "remya_plus_membership.md"
+      ],
+      "team": {
+        "name": "Plus Membership Desk",
+        "email_env": "TEAM_PLUS_EMAIL",
+        "telegram_env": "TEAM_PLUS_TELEGRAM"
+      },
+      "risk_keywords": {}
+    }
+  ],
+  "risk_teams": {
+    "fraud": {
+      "name": "Trust & Safety Team",
+      "email_env": "TEAM_TRUST_SAFETY_EMAIL",
+      "telegram_env": "TEAM_TRUST_SAFETY_TELEGRAM"
+    },
+    "payment_dispute": {
+      "name": "Billing Desk",
+      "email_env": "TEAM_BILLING_EMAIL",
+      "telegram_env": "TEAM_BILLING_TELEGRAM"
+    },
+    "legal_threat": {
+      "name": "Customer Relations (Escalations)",
+      "email_env": "TEAM_RELATIONS_EMAIL",
+      "telegram_env": "TEAM_RELATIONS_TELEGRAM"
+    },
+    "prompt_injection": {
+      "name": "Trust & Safety Team",
+      "email_env": "TEAM_TRUST_SAFETY_EMAIL",
+      "telegram_env": "TEAM_TRUST_SAFETY_TELEGRAM"
+    }
+  }
+}

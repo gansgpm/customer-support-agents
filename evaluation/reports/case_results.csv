@@ -1,0 +1,127 @@
+case,title,channel,product_line,desk,category,urgency,sentiment,kb_sources,confidence,status,expected_status,status_ok,reasons,group,guard,manager,query,knowledge,resolution,log,orchestration,seconds,invented_numbers,reply
+PDF-1,Late delivery,web,general,General Support Desk,Shipping,Medium,Neutral,shipping_policy.md,90,Resolved,Resolved,True,,general_group,1.0,1.0,1.0,1.0,0.889,1.0,1.0,23.92,,"Hi Priya, I understand how frustrating it can be when an order doesn't arrive as expected. To check the status of your order (ORD-4512), please go to My Orders and select Track Package to see the live courier status. Sometimes, couriers miss the expected delivery date due to weather, local holidays, or high volumes. If your order is delayed by up to 2 business days, it is usually delivered within that window, and no action is needed. However, if it is delayed by more than 2 business days, our support team will raise a priority trace with the courier within 24 hours and provide you with an update within 48 hours. Thank you for your patience, and we appreciate your understanding."
+PDF-2,Shoe refund,web,fashion,Fashion Desk,Refund,Low,Neutral,fashion_footwear.md; refund_policy.md,95,Resolved,Resolved,True,,fashion_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,24.52,,"Hi Arjun, I understand that you want to return the shoes you bought last week. You can return them within 30 days of delivery as long as they are unused, unwashed, and have their original tags and shoe box. 
+
+To initiate the return, please follow these steps: 
+1. Open My Orders and select the item you wish to return. 
+2. Tap on Return, choose the reason for the return, and select Refund. 
+3. A free pickup will be scheduled within 2 business days. 
+4. Make sure to keep the item packed with its tags and original box. 
+5. After the pickup, the item will undergo a quality check within 2 business days, and once it passes, your refund will be initiated. 
+
+If you have any further questions, feel free to ask. Your ticket number is TKT-0002."
+PDF-3,Forgot password,web,general,General Support Desk,Account,Low,Neutral,account_and_login.md,95,Resolved,Resolved,True,,general_group,0.5,1.0,1.0,1.0,1.0,1.0,1.0,20.61,,"Hi Divya, I understand how frustrating it can be to be locked out of your account. To reset your password, please follow these steps:
+
+1. Open the Remya Industries Ltd app or website and tap Login.
+2. Tap 'Forgot Password'.
+3. Enter your registered email address or mobile number.
+4. Enter the 6-digit OTP sent to you. The OTP is valid for 10 minutes.
+5. Set a new password with at least 8 characters, including one number and one special character.
+6. Log in with the new password. You will be logged out of all other devices for your security.
+
+If you encounter any issues, please let us know. Your ticket number is TKT-0003. 
+
+Best regards, 
+Remya Industries Ltd Support Team."
+PDF-4,Broken blender,web,home_appliances,Appliances Desk,Product,Medium,Negative,home_appliances.md; product_faq.md,95,Resolved,Resolved,True,,home_appliances_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,18.42,,"Hi Karthik, I'm sorry to hear that your blender is broken. To get a replacement, please report the issue within 48 hours of delivery for physical damage, or within 10 days for a manufacturing defect. You can do this by going to My Orders > Report an Issue, and make sure to include photos or a short video of the problem. Once reported, a free pickup will be scheduled within 2 business days, and the replacement will be dispatched within 3 to 5 business days after the pickup. If the same model is out of stock, you will receive a full refund. Your ticket number is TKT-0004. If you have any further questions, feel free to ask."
+PDF-5,Charged three times + legal threat,web,general,Billing Desk,Billing,High,Angry,billing_and_payments.md,90,Escalated,Escalated,True,High urgency; Very angry customer; Involves legal threat; Involves payment dispute,general_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,17.38,,"Hi Rahul, I understand how frustrating it must be to see multiple charges on your card. For your order ORD-4788, if a payment failed and was retried, your bank might show a temporary authorization hold for the failed attempt, which should be reversed automatically within 5 to 7 business days. However, if an extra amount has actually been debited and is not reversed after that period, our Billing team will investigate the transaction with the payment gateway. A Billing specialist will contact you within 4 business hours to assist you further with this issue. Thank you for your patience as we resolve this matter. Your ticket number is TKT-0005."
+PDF-6,Corporate gift cards (not in KB),web,general,General Support Desk,General,Low,Positive,billing_and_payments.md; product_faq.md,90,Escalated,Escalated,True,Support Manager could not match a division - needs a human; Reply makes 1 claim(s) the documents do not support,general_group,1.0,1.0,1.0,0.8,0.6,0.889,1.0,20.42,,"Hi Meera, I understand you are looking for gift cards with custom branding for a company of 500 employees. Unfortunately, we do not offer gift cards at Remya Industries Ltd. If you have any other questions or need assistance with our products or services, feel free to ask. Thank you for reaching out! 
+
+Ticket Number: TKT-0006"
+CUS-1,"PDF log example: 10 days late, ignored emails",email,general,General Support Desk,Shipping,High,Angry,shipping_policy.md,90,Escalated,Escalated,True,High urgency; Very angry customer; Reply makes 1 claim(s) the documents do not support,general_group,1.0,1.0,1.0,1.0,0.889,1.0,1.0,18.22,,"Hi Priya, I understand how frustrating it can be when an order doesn't arrive as expected. Your order (ORD-4512) is currently 10 days late. To check the latest status, please go to My Orders and select Track Package to see the live courier status. Since your order is delayed by more than 2 business days, our support team will raise a priority trace with the courier within 24 hours and share an update with you within 48 hours. Thank you for your patience, and we will keep you informed. 
+
+Ticket Number: TKT-0007"
+CUS-2,"Torn package, missing item (WhatsApp)",whatsapp,electronics,Electronics Desk,Shipping,Medium,Negative,shipping_policy.md; electronics.md,90,Resolved,Resolved,True,,electronics_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,22.49,,"Hi Sanjay, I'm really sorry to hear that your package arrived torn and that your phone charger is missing. To resolve this issue, please report it within 48 hours of delivery by going to My Orders > Report an Issue. Make sure to upload clear photos of the outer box, the shipping label, and the contents. 
+
+Once we receive your report, we will verify the packed weight with our warehouse and aim to resolve the case within 3 business days by either sending you the missing charger or refunding its value. 
+
+Your ticket number is TKT-0008. If you have any further questions, please let us know."
+CUS-3,Account takeover / fraud (Telegram),telegram,general,Trust & Safety Team,Account,High,Negative,account_and_login.md,100,Escalated,Escalated,True,High urgency; Involves fraud / unauthorised activity,general_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,17.16,,"Hi Lakshmi, I understand how concerning it is to have unauthorized access to your account. To block this access, please change your password immediately by using the 'Forgot Password' option. Additionally, log out of all devices by going to Account > Security. Remember, do not share your OTPs with anyone, as Remya Industries Ltd staff will never ask for your OTP or password. Since unauthorized orders and suspected account takeovers are serious issues, your case will be escalated to our Trust & Safety team, and a specialist will contact you within 4 hours. Your ticket number is TKT-0009. 
+
+Thank you for your patience as we resolve this matter."
+CUS-4,Promo code not working,web,general,General Support Desk,Billing,Low,Neutral,billing_and_payments.md,90,Escalated,Resolved,False,"Reply states figures not found in the documents (1, 2, 3, 4)",general_group,1.0,1.0,1.0,1.0,0.778,0.75,1.0,25.64,"1, 2, 3, 4","Hi Vikram, I understand how frustrating it can be when a promo code doesn't apply at checkout. There are several reasons why this might happen:
+
+1. The promo code may have expired; please check the expiry date in the offer details.
+2. Ensure that your cart value meets the minimum order value required for the code.
+3. Some products may be excluded from the offer, such as items already on a deal price.
+4. Only one promo code can be used per order, so check if another code is already applied.
+5. Promo codes are case-sensitive, so make sure to enter them exactly as shown.
+
+If the code is valid and still fails, please share a screenshot of the error with support. If you need further assistance, a support specialist will follow up. Your ticket number is TKT-0010. 
+
+Thank you for your understanding!"
+CUS-5,Self-learning re-use (similar to PDF-2),web,fashion,Fashion Desk,Refund,Low,Neutral,fashion_footwear.md; refund_policy.md,95,Resolved,Resolved,True,,fashion_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,19.49,,"Hi Nisha, I understand that you want to return the shoes you ordered and get a refund. You can return your shoes within 30 days of delivery, as long as they are unused, unwashed, and have their original tags and shoe box. 
+
+To initiate the return, please follow these steps: 
+1. Go to My Orders and select the item you wish to return. 
+2. Tap on Return, choose the reason for the return, and select Refund. 
+3. A free pickup will be scheduled within 2 business days. 
+4. Make sure to keep the item packed with its tags and original box. 
+5. After the pickup, the item will undergo a quality check within 2 business days. Once it passes the quality check, your refund will be initiated. 
+
+If you have any further questions, feel free to ask. Your ticket number is TKT-0011."
+LIN-1,Electronics: phone battery swelling (Telegram),telegram,electronics,Electronics Desk,Product,High,Neutral,electronics.md,95,Escalated,Escalated,True,"High urgency; Involves product safety issue; Log Agent: battery swelling and overheating, product safety risk",electronics_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,17.75,,"Hi Vignesh, I'm sorry to hear about the issues with your phone battery. Please stop using and charging the device immediately. Unplug it and keep it away from flammable materials. Do not attempt to open or puncture the battery, as this could be dangerous. Your case will be escalated to an Electronics safety specialist who will contact you within 2 hours during support hours to arrange a free pickup for inspection. Your ticket number is TKT-0012. Thank you for your understanding."
+LIN-2,Electronics: laptop warranty,web,electronics,Electronics Desk,Product,Medium,Neutral,electronics.md,90,Escalated,Resolved,False,Reply makes 3 claim(s) the documents do not support,electronics_group,1.0,1.0,1.0,1.0,0.778,0.778,1.0,20.95,,"Hi Ananya, I'm sorry to hear that your laptop is not switching on after three weeks. Your laptop is covered under a 1-year manufacturer warranty. However, if it did not power on at all within 48 hours of delivery, it should have been reported as Dead on Arrival through My Orders > Report an Issue. Since it has been three weeks, I recommend contacting our support team for further assistance regarding your situation. Your ticket number is TKT-0013, and a specialist will follow up with you soon. 
+
+Thank you for your understanding."
+LIN-3,Fashion: sneaker size exchange,web,fashion,Fashion Desk,Refund,Low,Neutral,fashion_footwear.md; refund_policy.md,95,Resolved,Resolved,True,,fashion_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,19.57,,"Hi Farhan, I understand that your sneakers are too tight, and I can help you with the exchange. You can exchange your sneakers for a larger size within 30 days of delivery. To do this, please choose 'Exchange' on the return screen and select the new size. The new item will be dispatched when the original item is picked up, subject to stock availability. Make sure the sneakers are unused, unwashed, and have their original tags and shoe box. If you have any further questions, feel free to ask. Your ticket number is TKT-0014.
+
+Best regards, 
+Remya Industries Ltd"
+LIN-4,Grocery: spoiled milk and paneer (WhatsApp),whatsapp,grocery,Remya Fresh Grocery Desk,Product,Medium,Neutral,remya_fresh_grocery.md; refund_policy.md,90,Resolved,Resolved,True,,grocery_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,18.95,,"Hi Kavitha, I'm sorry to hear that the milk and paneer in your Remya Fresh grocery order were spoiled upon arrival. To resolve this, please report the issue within 24 hours of delivery by going to My Orders > Report an Issue. Make sure to include a photo of the spoiled items and their packaging. 
+
+Once reported, the refund for the affected items will be credited to your Remya Industries Ltd Wallet instantly, or to your original payment method within 2 business days if you choose that option. 
+
+Your ticket number is TKT-0015. If you have any further questions, feel free to ask!"
+LIN-5,Grocery: food safety (insect found),web,grocery,Remya Fresh Grocery Desk,Product,High,Negative,remya_fresh_grocery.md; product_faq.md,90,Escalated,Escalated,True,"High urgency; Involves food safety concern; Reply makes 1 claim(s) the documents do not support; Log Agent: food safety concern, insect found in product",grocery_group,1.0,1.0,1.0,1.0,0.889,1.0,1.0,19.92,,"Hi Hari, I'm really sorry to hear about your experience with the paneer from your Remya Fresh order. It's understandable to feel disgusted in this situation. Please keep the paneer and its packaging and do not consume it further. If you feel unwell, I recommend consulting a doctor. 
+
+We take food safety concerns very seriously, and I will escalate this issue to the Remya Fresh Quality team. They will contact you within 1 hour during Remya Fresh hours to arrange for the collection of the item for investigation. Your ticket number is TKT-0016. 
+
+Thank you for bringing this to our attention, and we appreciate your understanding as we address this matter."
+SRV-1,Remya Care: technician missed AC installation,web,installation_repair,Remya Care Services Desk,Service,Medium,Neutral,remya_care_installation_repair.md; home_appliances.md,90,Resolved,Resolved,True,,installation_repair_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,21.69,,"Hi Suresh, I'm sorry to hear that the technician did not arrive for your AC installation today. Technician visits are scheduled in 2-hour windows, and you should have received the technician's name and phone number on the morning of the visit. Since the technician did not arrive within that window, please report this issue from My Orders > Help. Your visit will be rescheduled on priority within 24 hours, and you will also receive a Rs. 100 Remya Industries Ltd Wallet credit for the missed visit. If you need further assistance, a support specialist will follow up with you. Your ticket number is TKT-0017. Thank you for your patience."
+SRV-2,Remya Shield: how to raise a claim,web,protection_plan,Remya Shield Claims Desk,Service,Low,Neutral,remya_shield_protection_plans.md; product_faq.md,95,Resolved,Resolved,True,,protection_plan_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,20.29,,"Hi Deepa, I understand that dealing with a cracked phone screen can be frustrating. To raise a claim on your Remya Shield plan, please follow these steps:
+
+1. Go to My Orders, select your product, and tap on Remya Shield > Raise Claim.
+2. Describe what happened and upload photos of the damage.
+3. A free pickup or technician inspection will be scheduled within 3 business days.
+4. You will receive the claim decision within 7 business days of the inspection. If approved, your device will be repaired or replaced if repair is not possible.
+
+If you have any further questions, please let me know. Your ticket number is TKT-0018.
+
+Best regards,  
+Remya Industries Ltd"
+SRV-3,Remya Plus: unwanted renewal refund (email),email,membership,Plus Membership Desk,Billing,Medium,Negative,remya_plus_membership.md; refund_policy.md,90,Resolved,Resolved,True,,membership_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,19.77,,"Hi Rohit, I understand how frustrating it can be to be charged for something you didn't want. You can cancel your Remya Plus Membership and request a refund if you do so within 7 days of the renewal charge and have not used any Plus benefits since the renewal. If you meet these conditions, the renewal amount will be refunded in full to your original payment method within 5 to 7 business days.
+
+To cancel your membership, please go to Account > Remya Plus > Cancel Membership. If you have used any Plus benefits since the renewal, the membership will continue until the end of the paid period, and unfortunately, it will not be refunded.
+
+If you have any further questions or need assistance, please let us know. Your ticket number is TKT-0019. 
+
+Best regards, 
+Remya Industries Ltd"
+SRV-4,"Remya Care: technician damaged wall, was rude (WhatsApp)",whatsapp,installation_repair,Remya Care Services Desk,Service,Medium,Negative,remya_care_installation_repair.md,100,Escalated,Escalated,True,"Involves technician conduct or property damage; Log Agent: High urgency due to technician misconduct, customer sentiment is negative, and property damage reported.",installation_repair_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,21.55,,"Dear Latha, I'm sorry to hear about the damage to your wall and the rude behavior of the technician during the TV mounting service. Your concerns are important to us. We will escalate your complaint regarding the technician's conduct and the property damage to the Remya Care quality team. They will contact you within 4 hours and complete an assessment within 3 business days. Thank you for bringing this to our attention, and we appreciate your patience as we resolve this issue. Your ticket number is TKT-0020."
+MUL-1,TV installation pending + wrong shoe size in one order,web,installation_repair,Remya Care Services Desk,Product,Medium,Negative,remya_care_installation_repair.md; fashion_footwear.md; refund_policy.md,90,Resolved,Resolved,True,,installation_repair_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,22.14,,"Hi Nirmala, I understand how frustrating it can be to have a pending installation and receive the wrong size shoes. 
+
+Regarding your TV installation, free installation is provided within 48 hours of delivery in metro cities and within 4 business days elsewhere. If your installation is still pending, please check your order status or let us know if you need further assistance.
+
+For the shoes, you can exchange them for the correct size by choosing 'Exchange' on the return screen and selecting the new size. The new item will be dispatched when the original item is picked up, subject to stock availability. 
+
+If you have any more questions, feel free to reach out. Your ticket number is TKT-0021. 
+
+Best regards, 
+Remya Care Team"
+MAN-1,"Typed reason, no division: rude delivery boy -> human",web,general,General Support Desk,General,Medium,Negative,remya_care_installation_repair.md; shipping_policy.md,90,Escalated,Escalated,True,"Support Manager could not match a division - needs a human; Log Agent: customer reported rude behavior from delivery staff, escalation to Remya Care quality team required",general_group,1.0,1.0,1.0,0.8,0.778,1.0,1.0,16.96,,"Dear Revathi, I'm sorry to hear about the unpleasant experience your mother had with our delivery staff. We take such complaints seriously. Your issue will be escalated to the Remya Care quality team, who will contact you within 4 hours and complete an assessment within 3 business days. Thank you for bringing this to our attention. Your ticket number is TKT-0022. 
+
+If you have any further questions or concerns, please feel free to reach out. 
+
+Best regards, 
+Remya Industries Ltd"
+MAN-2,Typed reason routed by knowledge base: sour paneer,web,grocery,Remya Fresh Grocery Desk,Product,Medium,Neutral,remya_fresh_grocery.md; shipping_policy.md,90,Resolved,Resolved,True,,grocery_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,20.23,,"Hi Kavitha, I'm sorry to hear that the paneer smells sour and the milk packet was leaking. To resolve this issue, please report the items within 24 hours of delivery by going to My Orders > Report an Issue. Make sure to include a photo of the spoiled items and their packaging. Once reported, the refund for the affected items will be credited to your Remya Industries Ltd Wallet instantly, or to your original payment method within 2 business days if you choose that option. Your ticket number is TKT-0023. If you have any further questions, feel free to ask."
+GRD-1,Greeting only (Telegram),telegram,general,-,Not a support request,Low,Neutral,none,,Filtered,Filtered,True,,(stopped),1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.04,,"Hi Arun! I'm Remya Industries Ltd's support assistant. Please tell me what went wrong - for example your order number and the problem with your order, product or service - and I'll help right away."
+GRD-2,Spam with a link,web,general,-,Not a support request,Low,Negative,none,,Filtered,Filtered,True,,(stopped),1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.03,,
+GRD-3,Prompt injection only,web,general,-,Not a support request,Low,Negative,none,,Filtered,Filtered,True,,(stopped),1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.04,,"Hi, I can only help with Remya Industries Ltd orders, products and services. Please describe the problem you need help with."
+GRD-4,Off-topic request (stopped by the Support Manager),web,general,-,Not a support request,Low,Neutral,none,,Filtered,Filtered,True,,(stopped),0.8,1.0,1.0,1.0,1.0,1.0,1.0,3.35,,"Hi Arun! I'm Remya Industries Ltd's support assistant. Please tell me what went wrong - for example your order number and the problem with your order, product or service - and I'll help right away."
+GRD-5,Real issue + injection attempt -> Trust & Safety,web,general,Trust & Safety Team,Shipping,Medium,Negative,shipping_policy.md,90,Escalated,Escalated,True,Involves attempt to manipulate the AI,general_group,1.0,1.0,1.0,1.0,1.0,0.889,1.0,19.03,,"Hi Priya, I understand how frustrating it can be when an order doesn't arrive as expected. To check the status of your order (ORD-4512), please go to My Orders and select Track Package to see the live courier status. If your order is delayed by more than 2 business days, our support team will raise a priority trace with the courier within 24 hours and share an update with you within 48 hours. Thank you for your patience, and we will keep you informed about your order's status. Your ticket number is TKT-0028."
+GRD-6,"Card number + OTP masked, payment dispute (email)",email,general,Billing Desk,Billing,High,Negative,billing_and_payments.md,90,Escalated,Escalated,True,High urgency; Involves payment dispute,general_group,1.0,1.0,1.0,1.0,1.0,1.0,1.0,18.41,,"Hi Rahul, I understand how frustrating it can be to see duplicate charges on your card. Regarding your order ORD-5310, if your card was charged twice, it may be due to a temporary authorization hold from your bank if a payment attempt failed. These holds are usually reversed automatically within 5 to 7 business days. If the extra charge is not reversed after that period, our Billing team will investigate the transaction with the payment gateway. A Billing specialist will reach out to you within 4 business hours to assist you further. Thank you for your patience as we resolve this issue. Your ticket number is TKT-0029."
+CUS-6,"Tamil message (language detection, LLM only)",whatsapp,general,General Support Desk,Shipping,Medium,Neutral,shipping_policy.md,90,Escalated,Resolved,False,Reply makes 1 claim(s) the documents do not support,general_group,1.0,1.0,1.0,1.0,0.75,0.75,1.0,19.11,,"வணக்கம் முருகன், உங்கள் ஆர்டர் இன்னும் வரவில்லை என்பதைக் கேட்டு வருந்துகிறேன். உங்கள் ஆர்டர் நிலையை சரிபார்க்க, My Orders > Track Package என்ற பகுதியில் சென்று பார்க்கவும். உங்கள் ஆர்டர் எதிர்பார்க்கப்பட்ட தேதிக்கு 2 வேலை நாட்களுக்கு மேலாக தாமதமாக இருந்தால், எங்கள் ஆதரவு குழு 24 மணி நேரத்தில் குரியருடன் முன்னுரிமை தடுப்பை உருவாக்கும் மற்றும் 48 மணி நேரத்தில் உங்களுக்கு புதுப்பிப்பை வழங்கும். தயவுசெய்து உங்கள் ஆர்டர் நிலையை சரிபார்க்கவும். உங்கள் ஆர்டர் ID ORD-5001 ஆகும். 
+
+நன்றி!"

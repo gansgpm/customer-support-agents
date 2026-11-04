@@ -1,0 +1,17 @@
+{
+ "min_relevance": 0.454,
+ "min_coverage": 0.231,
+ "strong_relevance": 0.663,
+ "strong_min_coverage": 0.25,
+ "dev_accuracy": 1.0,
+ "dev_balanced_accuracy": 1.0,
+ "false_covered_cost": 3.0,
+ "tied_settings": 33,
+ "dev_false_covered": 0,
+ "dev_missed_answerable": 0,
+ "embedding_backend": "openai",
+ "embedding_model": "",
+ "with_llm_rewrite": true,
+ "dev_questions": 56,
+ "calibrated_at": "2026-11-04 22:04"
+}

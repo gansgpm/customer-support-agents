@@ -1,0 +1,35 @@
+# Exact versions this project was built and tested with (Python 3.11 - 3.13).
+# Install:  pip install -r requirements.txt          Optional neural models: requirements-optional.txt
+
+# Agents
+autogen-agentchat==0.7.5
+autogen-core==0.7.5
+autogen-ext[openai]==0.7.5
+openai==3.42.0
+tiktoken==0.14.0
+
+# UI + data
+streamlit==1.66.1
+pandas==3.0.5
+numpy==2.5.3
+openpyxl==3.1.5
+plotly==7.1.0
+python-dotenv==1.2.3
+filelock==4.2.5
+
+# RAG (hybrid BM25 + FAISS vectors, reranker) and sentiment / language detection
+rank-bm25==0.2.2
+scikit-learn==1.9.1
+faiss-cpu==1.15.1
+snowballstemmer==3.1.1
+vaderSentiment==3.3.2
+langdetect==1.0.9
+
+# Channels (Telegram / Twilio WhatsApp REST, optional webhook server)
+requests==2.34.2
+fastapi==0.162.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+
+# Tests
+pytest==9.1.1

@@ -1,0 +1,26 @@
+services:
+  app:            # Streamlit UI
+    build: .
+    env_file: .env
+    ports: ["8501:8501"]
+    volumes: &shared
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./knowledge_base:/app/knowledge_base
+    restart: unless-stopped
+
+  worker:         # polls Email / Telegram / WhatsApp and answers 24x7
+    build: .
+    env_file: .env
+    command: ["python", "channel_worker.py"]
+    volumes: *shared
+    restart: unless-stopped
+
+  webhooks:       # optional: Twilio / Telegram webhooks (put behind HTTPS)
+    build: .
+    env_file: .env
+    command: ["uvicorn", "channels.webhook_server:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports: ["8000:8000"]
+    volumes: *shared
+    restart: unless-stopped
+    profiles: ["webhooks"]

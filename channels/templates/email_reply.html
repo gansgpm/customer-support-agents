@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f5f7;font-family:Segoe UI,Arial,sans-serif;color:#1f2933;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f7;padding:24px 0;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0"
+                 style="max-width:600px;width:100%;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #e4e7eb;">
+            <tr>
+              <td style="background:#1d3557;padding:18px 24px;color:#ffffff;">
+                <div style="font-size:20px;font-weight:700;">$company Customer Care</div>
+                <div style="font-size:13px;opacity:.85;">Ticket $ticket_id</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:18px 24px 0 24px;">
+                <span style="display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;
+                             background:$badge_bg;color:$badge_fg;">$status_label</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 24px 8px 24px;font-size:15px;line-height:1.6;">$body_html</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 24px 20px 24px;">
+                <div style="background:#f8fafc;border:1px solid #e4e7eb;border-radius:8px;padding:12px 14px;font-size:13px;color:#52606d;">
+                  <b>Your request:</b> $complaint_short
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:14px 24px;border-top:1px solid #e4e7eb;font-size:12px;color:#7b8794;">
+                Reply to this email to continue the conversation. Please keep the ticket number $ticket_id in the subject.<br>
+                This message was prepared by $company's AI support desk$review_note.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

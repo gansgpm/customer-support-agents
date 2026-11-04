@@ -1,0 +1,28 @@
+# secrets
+.env
+*.env.local
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# runtime data (recreated automatically)
+data/
+logs/*.csv
+logs/*.lock
+logs/*.log*
+logs/*.jsonl
+knowledge_base/learned/*.jsonl
+knowledge_base/learned/*.lock
+knowledge_base/learned/*.tmp
+evaluation/runs/
+_to_delete/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

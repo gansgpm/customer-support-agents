@@ -1,0 +1,17 @@
+{
+ "min_relevance": 0.056,
+ "min_coverage": 0.344,
+ "strong_relevance": 0.396,
+ "strong_min_coverage": 0.25,
+ "dev_accuracy": 0.929,
+ "dev_balanced_accuracy": 0.871,
+ "false_covered_cost": 3.0,
+ "tied_settings": 54,
+ "dev_false_covered": 1,
+ "dev_missed_answerable": 3,
+ "embedding_backend": "tfidf",
+ "embedding_model": "",
+ "with_llm_rewrite": false,
+ "dev_questions": 56,
+ "calibrated_at": "2026-11-04 16:24"
+}

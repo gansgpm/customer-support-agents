@@ -1,0 +1,1169 @@
+{
+ "description": "Hand-labelled ground truth for the knowledge-base retriever. Each question is phrased the way customers write (not copied from the section titles). 'expected' lists the acceptable passages (document + a substring of the section title; the first one is the best answer). 'scope' is the division the Support Manager would route to ('general' = all documents). Unanswerable questions (answerable=false) are about topics the documents never cover: the retriever must report match_found=false so the ticket goes to a human. split=dev questions were used while tuning the query expansion and the reranker; split=test questions were written afterwards and are reported separately as held-out results.",
+ "protocol": "dev = the only questions used to tune query expansion, reranker weights and thresholds. test = held-out, written after the query expansion was tuned; frozen by the SHA-256 above - the evaluation reports whether it is unchanged and checks that no held-out question appears in the code or the documents.",
+ "test_split_sha256": "c7bfadff79a00eaecc225337d9ff34a19f54809c07ecd0647b05e7a0cb4c04f2",
+ "test_split_frozen_at": "2026-11-04",
+ "questions": [
+  {
+   "id": "EN-01",
+   "lang": "en",
+   "scope": "general",
+   "question": "I've been waiting a week and my parcel still hasn't shown up",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "My order is late"
+    ],
+    [
+     "shipping_policy.md",
+     "Where is my order"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-02",
+   "lang": "en",
+   "scope": "general",
+   "question": "App says delivered but nothing came to my door",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "tracking says delivered"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-03",
+   "lang": "en",
+   "scope": "general",
+   "question": "The box was ripped and two items were not inside",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "arrived damaged, torn open"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-04",
+   "lang": "en",
+   "scope": "general",
+   "question": "Can I get the order sent to my office instead of my home address?",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "change my delivery address"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-05",
+   "lang": "en",
+   "scope": "general",
+   "question": "How do I see where my package is right now?",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "How do I track it"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-06",
+   "lang": "en",
+   "scope": "general",
+   "question": "Do you charge anything for delivery?",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "Shipping charges"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-07",
+   "lang": "en",
+   "scope": "general",
+   "question": "Money got debited from my bank but the app says payment failed",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "payment failed but money was deducted"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-08",
+   "lang": "en",
+   "scope": "general",
+   "question": "My bank statement shows the same order billed two times",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "charged twice"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-09",
+   "lang": "en",
+   "scope": "general",
+   "question": "The discount coupon gives an error at checkout",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "promo code is not working"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-10",
+   "lang": "en",
+   "scope": "general",
+   "question": "I need a GST bill for my purchase",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "download the invoice"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-11",
+   "lang": "en",
+   "scope": "general",
+   "question": "Can I pay cash when the order is delivered?",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "payment methods do you accept"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-12",
+   "lang": "en",
+   "scope": "general",
+   "question": "I am not getting the verification code on my phone",
+   "expected": [
+    [
+     "account_and_login.md",
+     "not receiving the OTP"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-13",
+   "lang": "en",
+   "scope": "general",
+   "question": "Someone placed orders from my account that I never made",
+   "expected": [
+    [
+     "account_and_login.md",
+     "Someone else logged in"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-14",
+   "lang": "en",
+   "scope": "general",
+   "question": "Too many wrong attempts and now I can't get into my account",
+   "expected": [
+    [
+     "account_and_login.md",
+     "account is locked"
+    ],
+    [
+     "account_and_login.md",
+     "forgot my password"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-15",
+   "lang": "en",
+   "scope": "general",
+   "question": "I want to remove my account permanently",
+   "expected": [
+    [
+     "account_and_login.md",
+     "delete my account"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-16",
+   "lang": "en",
+   "scope": "general",
+   "question": "How many days after delivery can I send something back?",
+   "expected": [
+    [
+     "refund_policy.md",
+     "How many days do I have to return"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-17",
+   "lang": "en",
+   "scope": "general",
+   "question": "When will I get my money back after the return is picked up?",
+   "expected": [
+    [
+     "refund_policy.md",
+     "How long does a refund take"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-18",
+   "lang": "en",
+   "scope": "general",
+   "question": "I want to cancel the order I placed an hour ago",
+   "expected": [
+    [
+     "refund_policy.md",
+     "Can I cancel my order"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-19",
+   "lang": "en",
+   "scope": "general",
+   "question": "Are innerwear and perishable items returnable?",
+   "expected": [
+    [
+     "refund_policy.md",
+     "Which items cannot be returned"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-20",
+   "lang": "en",
+   "scope": "general",
+   "question": "Is the stuff you sell original or fake?",
+   "expected": [
+    [
+     "product_faq.md",
+     "genuine"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-21",
+   "lang": "en",
+   "scope": "general",
+   "question": "What are your customer care working hours?",
+   "expected": [
+    [
+     "support_and_escalation_policy.md",
+     "How can I contact"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-22",
+   "lang": "en",
+   "scope": "general",
+   "question": "How fast will someone reply to my complaint?",
+   "expected": [
+    [
+     "support_and_escalation_policy.md",
+     "How quickly will support respond"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-23",
+   "lang": "en",
+   "scope": "electronics",
+   "question": "My brand new laptop won't turn on at all",
+   "expected": [
+    [
+     "electronics.md",
+     "dead or does not switch on"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-24",
+   "lang": "en",
+   "scope": "electronics",
+   "question": "The phone box came without the charger",
+   "expected": [
+    [
+     "electronics.md",
+     "charger, cable or earphones are missing"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-25",
+   "lang": "en",
+   "scope": "electronics",
+   "question": "My phone battery is bulging and getting very hot",
+   "expected": [
+    [
+     "electronics.md",
+     "battery is swelling"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-26",
+   "lang": "en",
+   "scope": "electronics",
+   "question": "What should I back up before sending my phone for repair?",
+   "expected": [
+    [
+     "electronics.md",
+     "before sending a device"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-27",
+   "lang": "en",
+   "scope": "home_appliances",
+   "question": "My mixer grinder stopped working after one use",
+   "expected": [
+    [
+     "home_appliances.md",
+     "small appliance is broken"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-28",
+   "lang": "en",
+   "scope": "home_appliances",
+   "question": "The fridge is not cooling since it was delivered",
+   "expected": [
+    [
+     "home_appliances.md",
+     "refrigerator is not working"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-29",
+   "lang": "en",
+   "scope": "home_appliances",
+   "question": "I saw sparks and smelled burning from the kettle",
+   "expected": [
+    [
+     "home_appliances.md",
+     "electric shock, smelled burning"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-30",
+   "lang": "en",
+   "scope": "fashion",
+   "question": "These sneakers are too tight, I want one size up",
+   "expected": [
+    [
+     "fashion_footwear.md",
+     "exchange for a different size"
+    ],
+    [
+     "refund_policy.md",
+     "exchange shoes or clothes"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-31",
+   "lang": "en",
+   "scope": "fashion",
+   "question": "The sole of my shoes came off after two days",
+   "expected": [
+    [
+     "fashion_footwear.md",
+     "sole came off"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-32",
+   "lang": "en",
+   "scope": "grocery",
+   "question": "The curd was sour and the tomatoes were rotten",
+   "expected": [
+    [
+     "remya_fresh_grocery.md",
+     "spoiled, rotten"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-33",
+   "lang": "en",
+   "scope": "grocery",
+   "question": "The bread was not in my grocery bag",
+   "expected": [
+    [
+     "remya_fresh_grocery.md",
+     "item is missing from my grocery order"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-34",
+   "lang": "en",
+   "scope": "grocery",
+   "question": "I got toned milk instead of the full cream milk I ordered",
+   "expected": [
+    [
+     "remya_fresh_grocery.md",
+     "different item than I ordered"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-35",
+   "lang": "en",
+   "scope": "installation_repair",
+   "question": "The technician never showed up for my AC installation",
+   "expected": [
+    [
+     "remya_care_installation_repair.md",
+     "did not come"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-36",
+   "lang": "en",
+   "scope": "installation_repair",
+   "question": "Do I have to pay extra for the copper pipe when the AC is installed?",
+   "expected": [
+    [
+     "remya_care_installation_repair.md",
+     "what costs extra"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-37",
+   "lang": "en",
+   "scope": "installation_repair",
+   "question": "The installer cracked my wall tiles and was rude to my family",
+   "expected": [
+    [
+     "remya_care_installation_repair.md",
+     "damaged my property"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-38",
+   "lang": "en",
+   "scope": "protection_plan",
+   "question": "How do I file a claim for my cracked screen under the protection plan?",
+   "expected": [
+    [
+     "remya_shield_protection_plans.md",
+     "raise a Remya Shield claim"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-39",
+   "lang": "en",
+   "scope": "protection_plan",
+   "question": "My protection plan claim got rejected, how do I appeal?",
+   "expected": [
+    [
+     "remya_shield_protection_plans.md",
+     "claim was rejected"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-40",
+   "lang": "en",
+   "scope": "membership",
+   "question": "I got charged for the Plus renewal that I didn't want",
+   "expected": [
+    [
+     "remya_plus_membership.md",
+     "renewal I did not want"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "EN-41",
+   "lang": "en",
+   "scope": "membership",
+   "question": "I'm a Plus member but I still paid a delivery fee",
+   "expected": [
+    [
+     "remya_plus_membership.md",
+     "charged for delivery"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "TA-01",
+   "lang": "ta",
+   "scope": "general",
+   "question": "என் ஆர்டர் இன்னும் டெலிவரி ஆகவில்லை, ஒரு வாரம் தாமதம்",
+   "english": "My order has not been delivered yet, it is one week late",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "My order is late"
+    ],
+    [
+     "shipping_policy.md",
+     "Where is my order"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "TA-02",
+   "lang": "ta",
+   "scope": "home_appliances",
+   "question": "நான் வாங்கிய மிக்ஸி உடைந்து வந்தது, மாற்றித் தர முடியுமா?",
+   "english": "The mixie I bought arrived broken, can you replace it?",
+   "expected": [
+    [
+     "home_appliances.md",
+     "small appliance is broken"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "TA-03",
+   "lang": "ta",
+   "scope": "grocery",
+   "question": "பால் கெட்டுப்போயிருந்தது, பணம் திரும்ப வேண்டும்",
+   "english": "The milk was spoiled, I want my money back",
+   "expected": [
+    [
+     "remya_fresh_grocery.md",
+     "spoiled, rotten"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "TA-04",
+   "lang": "ta",
+   "scope": "general",
+   "question": "ஒரே ஆர்டருக்கு இரண்டு முறை கட்டணம் எடுக்கப்பட்டது",
+   "english": "I was charged twice for the same order",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "charged twice"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "TA-05",
+   "lang": "ta",
+   "scope": "general",
+   "question": "கடவுச்சொல் மறந்துவிட்டேன், கணக்கில் உள்நுழைய முடியவில்லை",
+   "english": "I forgot my password and cannot log in to my account",
+   "expected": [
+    [
+     "account_and_login.md",
+     "forgot my password"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "HI-01",
+   "lang": "hi",
+   "scope": "general",
+   "question": "मेरा ऑर्डर अभी तक नहीं आया, बहुत देर हो गई है",
+   "english": "My order has not arrived yet, it is very late",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "My order is late"
+    ],
+    [
+     "shipping_policy.md",
+     "Where is my order"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "HI-02",
+   "lang": "hi",
+   "scope": "home_appliances",
+   "question": "मेरा ब्लेंडर टूटा हुआ आया है, बदलना है",
+   "english": "My blender arrived broken, I want a replacement",
+   "expected": [
+    [
+     "home_appliances.md",
+     "small appliance is broken"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "HI-03",
+   "lang": "hi",
+   "scope": "general",
+   "question": "एक ही ऑर्डर के लिए दो बार पैसे कट गए",
+   "english": "Money was deducted twice for the same order",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "charged twice"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "HI-04",
+   "lang": "hi",
+   "scope": "electronics",
+   "question": "फोन की बैटरी फूल गई है और बहुत गरम हो रहा है",
+   "english": "The phone battery has swollen and it is getting very hot",
+   "expected": [
+    [
+     "electronics.md",
+     "battery is swelling"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "HI-05",
+   "lang": "hi",
+   "scope": "grocery",
+   "question": "दूध फट गया था, रिफंड चाहिए",
+   "english": "The milk had curdled, I want a refund",
+   "expected": [
+    [
+     "remya_fresh_grocery.md",
+     "spoiled, rotten"
+    ]
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "NO-01",
+   "lang": "en",
+   "scope": "general",
+   "answerable": false,
+   "question": "Do you sell corporate gift cards in bulk for our employees?",
+   "expected": [],
+   "split": "dev"
+  },
+  {
+   "id": "NO-02",
+   "lang": "en",
+   "scope": "general",
+   "answerable": false,
+   "question": "Can I pay for my order with Bitcoin?",
+   "expected": [],
+   "split": "dev"
+  },
+  {
+   "id": "NO-03",
+   "lang": "en",
+   "scope": "general",
+   "answerable": false,
+   "question": "Do you ship orders to Dubai or other countries?",
+   "expected": [],
+   "split": "dev"
+  },
+  {
+   "id": "NO-04",
+   "lang": "en",
+   "scope": "general",
+   "answerable": false,
+   "question": "How can I become a franchise partner for your stores?",
+   "expected": [],
+   "split": "dev"
+  },
+  {
+   "id": "NO-05",
+   "lang": "en",
+   "scope": "general",
+   "answerable": false,
+   "question": "Are there any job openings at your warehouse?",
+   "expected": [],
+   "split": "dev"
+  },
+  {
+   "id": "TS-01",
+   "lang": "en",
+   "scope": "general",
+   "question": "My order has said 'shipped' for 6 days with no update since",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "My order is late"
+    ],
+    [
+     "shipping_policy.md",
+     "Where is my order"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-02",
+   "lang": "en",
+   "scope": "general",
+   "question": "The courier marked it handed over to a neighbour but I can't find my parcel anywhere",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "tracking says delivered"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-03",
+   "lang": "en",
+   "scope": "general",
+   "question": "I moved house last week, can the parcel come to my new flat?",
+   "expected": [
+    [
+     "shipping_policy.md",
+     "change my delivery address"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-04",
+   "lang": "en",
+   "scope": "general",
+   "question": "The payment page crashed and Rs 2,000 left my account but there is no order",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "payment failed but money was deducted"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-05",
+   "lang": "en",
+   "scope": "general",
+   "question": "Your app took money two times for one purchase",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "charged twice"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-06",
+   "lang": "en",
+   "scope": "general",
+   "question": "Which cards and wallets can I use to pay?",
+   "expected": [
+    [
+     "billing_and_payments.md",
+     "payment methods do you accept"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-07",
+   "lang": "en",
+   "scope": "general",
+   "question": "The password reset email never arrives",
+   "expected": [
+    [
+     "account_and_login.md",
+     "forgot my password"
+    ],
+    [
+     "account_and_login.md",
+     "not receiving the OTP"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-08",
+   "lang": "en",
+   "scope": "general",
+   "question": "I want to update the phone number on my profile",
+   "expected": [
+    [
+     "account_and_login.md",
+     "change my email address or mobile number"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-09",
+   "lang": "en",
+   "scope": "general",
+   "question": "What is the last day I can return a dress I bought?",
+   "expected": [
+    [
+     "refund_policy.md",
+     "How many days do I have to return"
+    ],
+    [
+     "fashion_footwear.md",
+     "How long do I have to return"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-10",
+   "lang": "en",
+   "scope": "general",
+   "question": "My refund is still not in my bank account after 10 days",
+   "expected": [
+    [
+     "refund_policy.md",
+     "How long does a refund take"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-11",
+   "lang": "en",
+   "scope": "general",
+   "question": "I dropped my phone - will the warranty pay for the repair?",
+   "expected": [
+    [
+     "product_faq.md",
+     "accidental damage"
+    ],
+    [
+     "remya_shield_protection_plans.md",
+     "What do Remya Shield plans cover"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-12",
+   "lang": "en",
+   "scope": "general",
+   "question": "Who can I talk to if the automatic answer does not solve my problem?",
+   "expected": [
+    [
+     "support_and_escalation_policy.md",
+     "escalated to a human"
+    ],
+    [
+     "support_and_escalation_policy.md",
+     "How can I contact"
+    ],
+    [
+     "support_and_escalation_policy.md",
+     "Who handles my escalated ticket"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-13",
+   "lang": "en",
+   "scope": "electronics",
+   "question": "The earphones were not in the box with my new phone",
+   "expected": [
+    [
+     "electronics.md",
+     "charger, cable or earphones are missing"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-14",
+   "lang": "en",
+   "scope": "electronics",
+   "question": "My phone keeps freezing and apps crash all the time",
+   "expected": [
+    [
+     "electronics.md",
+     "slow, hangs"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-15",
+   "lang": "en",
+   "scope": "electronics",
+   "question": "What is the guarantee period on a laptop?",
+   "expected": [
+    [
+     "electronics.md",
+     "What warranty comes with electronics"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-16",
+   "lang": "en",
+   "scope": "home_appliances",
+   "question": "The washing machine makes a loud noise and will not start since delivery",
+   "expected": [
+    [
+     "home_appliances.md",
+     "washing machine or refrigerator is not working"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-17",
+   "lang": "en",
+   "scope": "home_appliances",
+   "question": "Will someone come to set up my new dishwasher?",
+   "expected": [
+    [
+     "home_appliances.md",
+     "Is installation included"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-18",
+   "lang": "en",
+   "scope": "grocery",
+   "question": "My vegetables came two hours after the time slot I picked",
+   "expected": [
+    [
+     "remya_fresh_grocery.md",
+     "did not arrive in the selected slot"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-19",
+   "lang": "en",
+   "scope": "grocery",
+   "question": "There was a small stone in the rice packet",
+   "expected": [
+    [
+     "remya_fresh_grocery.md",
+     "foreign object"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-20",
+   "lang": "en",
+   "scope": "installation_repair",
+   "question": "I need to move my technician appointment to Sunday",
+   "expected": [
+    [
+     "remya_care_installation_repair.md",
+     "reschedule or cancel a technician visit"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-21",
+   "lang": "en",
+   "scope": "installation_repair",
+   "question": "My microwave needs servicing, how do I book someone?",
+   "expected": [
+    [
+     "remya_care_installation_repair.md",
+     "book a repair"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-22",
+   "lang": "en",
+   "scope": "protection_plan",
+   "question": "Can I still add a protection plan a month after buying the TV?",
+   "expected": [
+    [
+     "remya_shield_protection_plans.md",
+     "When can I buy"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-23",
+   "lang": "en",
+   "scope": "membership",
+   "question": "How do I stop my Plus subscription?",
+   "expected": [
+    [
+     "remya_plus_membership.md",
+     "How do I cancel Remya Plus"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-24",
+   "lang": "en",
+   "scope": "membership",
+   "question": "What do I get if I join the membership?",
+   "expected": [
+    [
+     "remya_plus_membership.md",
+     "What does Remya Plus cost"
+    ]
+   ],
+   "split": "test"
+  },
+  {
+   "id": "TS-25",
+   "lang": "ta",
+   "scope": "general",
+   "question": "என் பணம் இன்னும் திரும்ப வரவில்லை, ரீஃபண்ட் எப்போது வரும்?",
+   "expected": [
+    [
+     "refund_policy.md",
+     "How long does a refund take"
+    ]
+   ],
+   "split": "test",
+   "english": "My money has not come back yet, when will the refund come?"
+  },
+  {
+   "id": "TS-26",
+   "lang": "ta",
+   "scope": "electronics",
+   "question": "புதிய போன் ஆன் ஆகவில்லை",
+   "expected": [
+    [
+     "electronics.md",
+     "dead or does not switch on"
+    ]
+   ],
+   "split": "test",
+   "english": "My new phone does not switch on"
+  },
+  {
+   "id": "TS-27",
+   "lang": "hi",
+   "scope": "general",
+   "question": "मेरा अकाउंट लॉक हो गया है, खोल नहीं पा रहा",
+   "expected": [
+    [
+     "account_and_login.md",
+     "account is locked"
+    ],
+    [
+     "account_and_login.md",
+     "forgot my password"
+    ]
+   ],
+   "split": "test",
+   "english": "My account is locked and I cannot open it"
+  },
+  {
+   "id": "TS-28",
+   "lang": "hi",
+   "scope": "installation_repair",
+   "question": "इंस्टॉलेशन के लिए टेक्नीशियन नहीं आया",
+   "expected": [
+    [
+     "remya_care_installation_repair.md",
+     "did not come"
+    ]
+   ],
+   "split": "test",
+   "english": "The technician did not come for the installation"
+  },
+  {
+   "id": "TS-29",
+   "lang": "en",
+   "scope": "general",
+   "question": "Do you offer student discounts?",
+   "expected": [],
+   "split": "test",
+   "answerable": false
+  },
+  {
+   "id": "TS-30",
+   "lang": "en",
+   "scope": "general",
+   "question": "Do you have a loyalty points programme I can join?",
+   "expected": [],
+   "split": "test",
+   "answerable": false
+  },
+  {
+   "id": "TS-31",
+   "lang": "en",
+   "scope": "general",
+   "question": "Do you also install solar panels on the roof?",
+   "expected": [],
+   "split": "test",
+   "answerable": false
+  }
+ ]
+}
