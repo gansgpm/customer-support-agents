@@ -195,6 +195,9 @@ def explain_email_error(exc: BaseException, original: str = "") -> str:
     return text
 
 
+TICKET_SUBJECT = "TKT-"  # every mail the desk sends has "[TKT-0012]" in its subject, so replies carry it too
+
+
 class EmailChannel(Channel):
     name = "email"
 
@@ -228,11 +231,30 @@ class EmailChannel(Channel):
         return out
 
     def search_criteria(self) -> List[str]:
-        """Unread mail from the last EMAIL_LOOKBACK_DAYS days only - an old unread backlog is never imported."""
+        """Which mails become tickets. Always: unread, from the last EMAIL_LOOKBACK_DAYS days (no old backlog).
+
+        * EMAIL_SUBJECT_FILTER set     -> subject contains the filter, or a reply to one of the desk's tickets
+        * EMAIL_MAILBOX_DEDICATED=true -> every unread mail (a mailbox used by nothing but the desk)
+        * neither (default)            -> ONLY replies to the desk's own tickets ("[TKT-...]" in the subject), so a
+          personal mailbox is never answered - the desk does not reply to your friends, colleagues or newsletters
+        """
         criteria = ["UNSEEN", "SINCE", imap_since(self.settings.email_lookback_days)]
-        if self.settings.email_subject_filter:
-            criteria += ["SUBJECT", f'"{self.settings.email_subject_filter}"']
+        subject_filter = self.settings.email_subject_filter.replace('"', "").strip()
+        if subject_filter:
+            criteria += ["OR", "SUBJECT", f'"{subject_filter}"', "SUBJECT", f'"{TICKET_SUBJECT}"']
+        elif not self.settings.email_mailbox_dedicated:
+            criteria += ["SUBJECT", f'"{TICKET_SUBJECT}"']
         return criteria
+
+    def reading_mode(self) -> str:
+        """One line for the UI / setup check: which mails the desk will pick up."""
+        f = self.settings.email_subject_filter.strip()
+        if f:
+            return f'unread mail whose subject contains "{f}", plus replies to desk tickets'
+        if self.settings.email_mailbox_dedicated:
+            return "every unread mail (EMAIL_MAILBOX_DEDICATED=true - use only for a mailbox reserved for the desk)"
+        return ("only replies to desk tickets ([TKT-...] in the subject). To accept new complaints set "
+                "EMAIL_SUBJECT_FILTER, or EMAIL_MAILBOX_DEDICATED=true for a mailbox used only by the desk")
 
     # ------------------------------------------------------------------- IMAP
     def _imap(self) -> Tuple[imaplib.IMAP4_SSL, bool]:
@@ -312,7 +334,8 @@ class EmailChannel(Channel):
     # ------------------------------------------------------------- setup checks
     def check(self) -> dict:
         """Log in to IMAP and SMTP without sending anything."""
-        result = {"configured": self.configured, "imap": "not tested", "smtp": "not tested", "unread": None}
+        result = {"configured": self.configured, "imap": "not tested", "smtp": "not tested", "unread": None,
+                  "reads": self.reading_mode()}
         if not self.configured:
             return result
         try:

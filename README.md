@@ -253,8 +253,11 @@ stop Streamlit (**Ctrl+C**) and start it again — settings are read at start-up
 
 ### Email (Gmail)
 
-1. **Create a separate Gmail account for the desk** (e.g. `remya.support.desk@gmail.com`). Every unread customer
-   mail in its inbox becomes a ticket, so never use your personal mailbox.
+1. **Create a separate Gmail account for the desk** (e.g. `remya.support.desk@gmail.com`) and never use your
+   personal mailbox for it. As a safety net the desk reads **only replies to its own tickets** (`[TKT-...]` in the
+   subject) unless you tell it otherwise: `EMAIL_SUBJECT_FILTER=Support` also accepts new mails whose subject
+   contains "Support", and `EMAIL_MAILBOX_DEDICATED=true` accepts every unread mail - set that only for the desk's
+   own Gmail. Newsletters, no-reply senders and auto-replies are always ignored.
 2. In that account open **Google Account → Security → 2-Step Verification** and turn it on (App Passwords need it).
 3. Open **Google Account → Security → App passwords** (or search "App passwords"), create one named `support desk`
    and copy the 16-character password.
@@ -264,7 +267,8 @@ stop Streamlit (**Ctrl+C**) and start it again — settings are read at start-up
    EMAIL_ADDRESS=remya.support.desk@gmail.com
    EMAIL_APP_PASSWORD=abcdefghijklmnop        # the app password, spaces optional
    SUPPORT_TEAM_EMAIL=your.own@gmail.com      # where escalation alerts go (use a different address)
-   EMAIL_SUBJECT_FILTER=                      # optional, e.g. Support -> only subjects containing "Support"
+   EMAIL_MAILBOX_DEDICATED=true               # this Gmail is used only by the desk: every unread mail is a ticket
+   EMAIL_SUBJECT_FILTER=                      # optional, e.g. Support -> also new mails with "Support" in the subject
    EMAIL_LOOKBACK_DAYS=2                      # only unread mail from the last 2 days (old backlog ignored)
    ```
 6. Restart the app and check: **Channel Inbox → 🔌 Connect & test → Test Gmail login**, then **Send test email**
@@ -337,7 +341,7 @@ python channel_worker.py --once      # optional: one polling round
 uvicorn channels.webhook_server:app --port 8000   # optional: WhatsApp / Telegram webhooks (behind ngrok)
 python -m channels.setup_check      # optional: check Email / Telegram logins, find your Telegram chat ID
 python -m channels.email_diagnose   # optional: find which route to Gmail works on this network
-python -m pytest -q                  # 93 tests, no API key needed
+python -m pytest -q                  # 94 tests, no API key needed
 python -m evaluation.evaluate        # node-by-node evaluation + retrieval ground truth + faithfulness (LLM judge)
 python -m evaluation.retrieval_eval  # retrieval only: hit@k, MRR, abstention, ablation, CIs, integrity
 python -m evaluation.retrieval_eval --calibrate   # sweep the covered / not-covered thresholds on the dev split
@@ -558,7 +562,7 @@ customer-support-agents/
 │   ├── judge.py                  # LLM-as-judge faithfulness / relevance
 │   ├── calibration/              # 'covered' thresholds fitted on the dev split, one file per embedding backend
 │   └── reports/                  # EVALUATION.md, latest.json, CSVs
-├── tests/                        # pytest (offline, 93 tests)
+├── tests/                        # pytest (offline, 94 tests)
 ├── logs/                         # tickets.csv, app.log, traces.jsonl (created automatically)
 ├── data/index/                   # persisted knowledge index (created automatically)
 ├── screenshots/, docs/SUBMISSION.md

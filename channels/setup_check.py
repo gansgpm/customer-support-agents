@@ -33,6 +33,7 @@ def main() -> int:
         print(f"  account : {s.email_address}")
         print(f"  IMAP    : {res['imap']}  (unread mails: {res['unread']})")
         print(f"  SMTP    : {res['smtp']}")
+        print(f"  reads   : {res['reads']}")
         ok &= res["imap"] == "ok" and res["smtp"] == "ok"
         if args.email_to:
             html = render_email_html(s.company_name, "TKT-TEST", "Info", "This is a test from your AI support desk.\n\n"

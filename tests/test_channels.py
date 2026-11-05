@@ -285,3 +285,20 @@ def test_imap_reads_only_recent_unread_mail_and_logout_never_hides_errors(settin
         raise AssertionError("expected an error")
     except RuntimeError as exc:
         assert "EMAIL_LOOKBACK_DAYS" in str(exc) and "LOGOUT" not in str(exc)
+
+
+def test_personal_mailbox_is_safe_by_default(settings):
+    """Without a subject filter or EMAIL_MAILBOX_DEDICATED the desk reads only replies to its own tickets."""
+    from channels import email_channel as ec
+
+    base = settings.with_overrides(email_address="me@gmail.com", email_password="abcdabcdabcdabcd")
+    default = ec.EmailChannel(base).search_criteria()
+    assert default[:2] == ["UNSEEN", "SINCE"] and default[3:] == ["SUBJECT", '"TKT-"']
+    assert "only replies to desk tickets" in ec.EmailChannel(base).reading_mode()
+
+    filtered = ec.EmailChannel(base.with_overrides(email_subject_filter="Support")).search_criteria()
+    assert filtered[3:] == ["OR", "SUBJECT", '"Support"', "SUBJECT", '"TKT-"']
+
+    dedicated = ec.EmailChannel(base.with_overrides(email_mailbox_dedicated=True)).search_criteria()
+    assert dedicated[3:] == []
+    assert "every unread mail" in ec.EmailChannel(base.with_overrides(email_mailbox_dedicated=True)).reading_mode()

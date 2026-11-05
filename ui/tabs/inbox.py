@@ -36,6 +36,8 @@ def render(app) -> None:
         with e_col:
             em = dispatcher.channel("email")
             st.markdown(f"**📧 Email** — {'✅ ' + settings.email_address if em.configured else '❌ not configured'}")
+            if em.configured:
+                st.caption("Reads: " + em.reading_mode())
             if em.configured and st.button("Test Gmail login (IMAP + SMTP)", key="t_email"):
                 with st.spinner("Logging in…"):
                     res = em.check()

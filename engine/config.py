@@ -125,6 +125,9 @@ class Settings:
     email_smtp_port: int = field(default_factory=lambda: _env_int("EMAIL_SMTP_PORT", 465))
     email_force_ipv4: bool = field(default_factory=lambda: _env("EMAIL_FORCE_IPV4", "false").lower() in {"1", "true", "yes"})
     email_subject_filter: str = field(default_factory=lambda: _env("EMAIL_SUBJECT_FILTER", ""))
+    # true ONLY for a mailbox used by nothing but the desk: then every unread mail becomes a ticket. Otherwise the desk
+    # reads only replies to its own tickets ([TKT-...] in the subject) and mails matching EMAIL_SUBJECT_FILTER.
+    email_mailbox_dedicated: bool = field(default_factory=lambda: _env_bool("EMAIL_MAILBOX_DEDICATED", False))
     email_lookback_days: int = field(default_factory=lambda: _env_int("EMAIL_LOOKBACK_DAYS", 2))  # unread mail older than this is ignored
 
     telegram_bot_token: str = field(default_factory=lambda: _env("TELEGRAM_BOT_TOKEN"))
