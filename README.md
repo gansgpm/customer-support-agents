@@ -220,14 +220,20 @@ after a specialist approves or edits it.
   answer + escalation instead of a guess. Customer phrasing is normalised first ("send back" → return, "won't turn
   on" → dead / does not switch on, "verification code" → OTP, ...). The thresholds are **calibrated per embedding
   backend on the dev questions only** (`python -m evaluation.retrieval_eval --calibrate` →
-  `evaluation/calibration/<backend>.json`, used while `KB_MIN_*` are `auto`); with an LLM the Knowledge Base Agent
-  reads the passages and makes the final covered / not-covered call itself — the threshold is only its first estimate.
+  `evaluation/calibration/<backend>.json`, used while `KB_MIN_*` are `auto`). With an LLM, every search is then
+  double-checked by a separate, narrow LLM call — *do these passages really answer this customer?* — so "gift cards as
+  a payment method" no longer passes for "branded gift cards for a company" (`COVERAGE_VERDICT=auto`,
+  `engine/coverage.py`). The Knowledge Base Agent may lower that verdict but never raise it, and it is exactly the
+  check the retrieval evaluation measures.
 * **Persisted index** — saved in `data/index/policy/` with a manifest; reloaded when no document, embedding model or
   chunker changed (no re-embedding), rebuilt atomically otherwise.
 * **Citations + two grounding checks on every reply** — passages are numbered S1, S2, ...; the reply's citations are
   validated and every figure in the reply must appear in the retrieved text. With a real LLM a second, semantic
-  check follows: an **LLM claim verifier** lists every factual claim of the reply (steps, timelines, conditions,
-  promises) that the retrieved passages do not support (`GROUNDING_VERIFIER=auto`). A reply that fails either check
+  check follows: an **LLM claim verifier** goes through every factual claim of the reply (steps, timelines,
+  conditions, promises) and marks it supported or unsupported by the retrieved passages or the ticket itself (the
+  customer's own words, order id, name) (`GROUNDING_VERIFIER=auto`). A flagged claim that a passage states almost word
+  for word (same key words, same figures, same negation) is overruled, so a correct reply is not escalated by a
+  verifier mistake. List numbering ("1.", "2)") is never mistaken for a figure. A reply that fails either check
   is not sent as an answer — the ticket is escalated with the reason, the unsupported claims are shown in the UI and
   the trace, and the reply is never fed back into the learned solutions.
 * **Self-learning loop** — the Log Agent stores a solution only if it was *Resolved*, confidence ≥ threshold, backed
@@ -341,7 +347,7 @@ python channel_worker.py --once      # optional: one polling round
 uvicorn channels.webhook_server:app --port 8000   # optional: WhatsApp / Telegram webhooks (behind ngrok)
 python -m channels.setup_check      # optional: check Email / Telegram logins, find your Telegram chat ID
 python -m channels.email_diagnose   # optional: find which route to Gmail works on this network
-python -m pytest -q                  # 94 tests, no API key needed
+python -m pytest -q                  # 99 tests, no API key needed
 python -m evaluation.evaluate        # node-by-node evaluation + retrieval ground truth + faithfulness (LLM judge)
 python -m evaluation.retrieval_eval  # retrieval only: hit@k, MRR, abstention, ablation, CIs, integrity
 python -m evaluation.retrieval_eval --calibrate   # sweep the covered / not-covered thresholds on the dev split
@@ -562,7 +568,7 @@ customer-support-agents/
 │   ├── judge.py                  # LLM-as-judge faithfulness / relevance
 │   ├── calibration/              # 'covered' thresholds fitted on the dev split, one file per embedding backend
 │   └── reports/                  # EVALUATION.md, latest.json, CSVs
-├── tests/                        # pytest (offline, 94 tests)
+├── tests/                        # pytest (offline, 99 tests)
 ├── logs/                         # tickets.csv, app.log, traces.jsonl (created automatically)
 ├── data/index/                   # persisted knowledge index (created automatically)
 ├── screenshots/, docs/SUBMISSION.md

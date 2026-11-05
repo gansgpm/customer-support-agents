@@ -347,6 +347,9 @@ class SupportEngine:
                     if removed:
                         parsed["reply_guardrail"] = removed
                         state.raw_outputs["reply_guardrail"] = "; ".join(removed)
+                if parsed.get("response") and state.ticket_id not in parsed["response"]:
+                    # every reply carries the ticket number, so the customer can quote it in a follow-up
+                    parsed["response"] = parsed["response"].rstrip() + f"\n\nTicket number: {state.ticket_id}"
                 # citations default to the refs of the facts the Knowledge Base Agent handed over
                 if not parsed.get("citations"):
                     parsed["citations"] = [f["ref"] for f in state.kb_context.get("key_facts", []) if f.get("ref")]

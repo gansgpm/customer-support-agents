@@ -14,8 +14,10 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import os
 import re
 import shutil
+import subprocess
 import statistics
 import time
 from datetime import datetime
@@ -77,8 +79,9 @@ def check_guardrail(state, exp) -> Dict[str, bool | None]:
         "flag_raised": (exp["flag"] in guard) if exp.get("flag") else None,
         "pii_not_in_log": (not any(p in state.log_row.get("complaint", "") for p in exp["pii"]))
         if exp.get("pii") else None,
-        "reply_has_no_ai_chatter": not re.search(r"(as an ai|language model|LOGGED|ROUTE:|```|key_facts)", reply,
-                                                 flags=re.I),
+        # LOGGED / ROUTE: are the agents' internal markers (upper case) - "logged out" in a reply is fine
+        "reply_has_no_ai_chatter": not re.search(r"(as an ai|language model|```|key_facts)", reply, flags=re.I)
+                                   and not re.search(r"\bLOGGED\b|\bROUTE:", reply),
     }
 
 
@@ -313,17 +316,36 @@ def ui_checks() -> Dict[str, bool]:
     }
 
 
+IGNORED_DIRS = {".git", ".venv", "venv", "env", "__pycache__", ".pytest_cache", "node_modules", "_to_delete", "data",
+                "runs", ".vscode", ".idea"}
+
+
+def pushable_files() -> List[Path]:
+    """The files that go to GitHub: tracked + new files git does not ignore (falls back to a pruned walk). The
+    virtual environment and runtime folders are never scanned - their libraries contain example keys."""
+    try:
+        out = subprocess.run(["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"], cwd=BASE_DIR,
+                             capture_output=True, text=True, timeout=60)
+        if out.returncode == 0 and out.stdout:
+            files = [BASE_DIR / f for f in out.stdout.split("\0") if f]
+            return [f for f in files if f.is_file() and f.name != ".env"]
+    except (OSError, subprocess.SubprocessError):
+        pass
+    files: List[Path] = []
+    for root, dirs, names in os.walk(BASE_DIR):
+        dirs[:] = [d for d in dirs if d not in IGNORED_DIRS]
+        files += [Path(root) / n for n in names if n != ".env"]
+    return files
+
+
 def repo_checks() -> Dict[str, bool]:
     readme = (BASE_DIR / "README.md").read_text(encoding="utf-8") if (BASE_DIR / "README.md").exists() else ""
     gitignore = (BASE_DIR / ".gitignore").read_text(encoding="utf-8") if (BASE_DIR / ".gitignore").exists() else ""
     secret = re.compile(r"(sk-[A-Za-z0-9_-]{20,}|AIza[0-9A-Za-z_-]{30,}|gsk_[A-Za-z0-9]{20,}|\bAC[a-f0-9]{32}\b|"
                         r"\b\d{8,10}:[A-Za-z0-9_-]{35}\b)")
-    leaks = []
-    for p in BASE_DIR.rglob("*"):
-        if p.is_file() and p.suffix in {".py", ".md", ".txt", ".json", ".yml", ".yaml", ".toml", ".example", ".csv"} \
-                and ".git" not in p.parts and p.name != ".env":
-            if secret.search(p.read_text(encoding="utf-8", errors="ignore")):
-                leaks.append(str(p.relative_to(BASE_DIR)))
+    leaks = [str(p.relative_to(BASE_DIR)) for p in pushable_files()
+             if p.suffix in {".py", ".md", ".txt", ".json", ".yml", ".yaml", ".toml", ".example", ".csv"}
+             and secret.search(p.read_text(encoding="utf-8", errors="ignore"))]
     shots = [p for p in (BASE_DIR / "screenshots").glob("*") if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif"}]
     return {
         "README: setup, run, architecture, screenshots": all(

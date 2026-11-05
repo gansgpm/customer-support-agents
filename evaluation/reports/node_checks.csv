@@ -39,7 +39,7 @@ PDF-1,Resolution Agent,json_valid,pass
 PDF-1,Resolution Agent,numbers_grounded,pass
 PDF-1,Resolution Agent,required_facts,pass
 PDF-1,Resolution Agent,honest_when_unknown,n/a
-PDF-1,Resolution Agent,mentions_ticket,FAIL
+PDF-1,Resolution Agent,mentions_ticket,pass
 PDF-1,Resolution Agent,polite,pass
 PDF-1,Resolution Agent,concise,pass
 PDF-1,Resolution Agent,citations_valid,pass
@@ -95,7 +95,7 @@ PDF-2,Knowledge Base Agent,context_brief,pass
 PDF-2,Knowledge Base Agent,facts_verbatim,pass
 PDF-2,Knowledge Base Agent,learned_reuse,n/a
 PDF-2,Knowledge Base Agent,scoped_to_product_line,pass
-PDF-2,Resolution Agent,json_valid,pass
+PDF-2,Resolution Agent,json_valid,FAIL
 PDF-2,Resolution Agent,numbers_grounded,pass
 PDF-2,Resolution Agent,required_facts,pass
 PDF-2,Resolution Agent,honest_when_unknown,n/a
@@ -104,14 +104,14 @@ PDF-2,Resolution Agent,polite,pass
 PDF-2,Resolution Agent,concise,pass
 PDF-2,Resolution Agent,citations_valid,pass
 PDF-2,Resolution Agent,reply_grounded,pass
-PDF-2,Resolution Agent,confidence_calibrated,pass
+PDF-2,Resolution Agent,confidence_calibrated,FAIL
 PDF-2,Log Agent,row_written,pass
 PDF-2,Log Agent,required_columns,pass
-PDF-2,Log Agent,status_correct,pass
-PDF-2,Log Agent,reason_when_escalated,n/a
+PDF-2,Log Agent,status_correct,FAIL
+PDF-2,Log Agent,reason_when_escalated,pass
 PDF-2,Log Agent,logged_by_log_agent,pass
 PDF-2,Log Agent,kb_feed_correct,pass
-PDF-2,Log Agent,agent_agrees_with_rules,pass
+PDF-2,Log Agent,agent_agrees_with_rules,FAIL
 PDF-2,Log Agent,routed_to_correct_desk,pass
 PDF-2,Log Agent,product_line_logged,pass
 PDF-2,Orchestration,order_manager_query_kb_resolution_log,pass
@@ -126,7 +126,7 @@ PDF-3,Guardrails,stopped_by_expected_stage,n/a
 PDF-3,Guardrails,no_agent_group_ran_when_stopped,n/a
 PDF-3,Guardrails,flag_raised,n/a
 PDF-3,Guardrails,pii_not_in_log,n/a
-PDF-3,Guardrails,reply_has_no_ai_chatter,FAIL
+PDF-3,Guardrails,reply_has_no_ai_chatter,pass
 PDF-3,Support Manager,json_valid,pass
 PDF-3,Support Manager,product_line_tool_used,pass
 PDF-3,Support Manager,route_line_given,pass
@@ -330,28 +330,28 @@ PDF-6,Knowledge Base Agent,json_valid,pass
 PDF-6,Knowledge Base Agent,search_tool_used,pass
 PDF-6,Knowledge Base Agent,retrieval_hit,n/a
 PDF-6,Knowledge Base Agent,source_shown_in_log,n/a
-PDF-6,Knowledge Base Agent,coverage_decision,FAIL
+PDF-6,Knowledge Base Agent,coverage_decision,pass
 PDF-6,Knowledge Base Agent,context_brief,pass
 PDF-6,Knowledge Base Agent,facts_verbatim,pass
 PDF-6,Knowledge Base Agent,learned_reuse,n/a
 PDF-6,Knowledge Base Agent,scoped_to_product_line,n/a
 PDF-6,Resolution Agent,json_valid,pass
 PDF-6,Resolution Agent,numbers_grounded,pass
-PDF-6,Resolution Agent,required_facts,FAIL
-PDF-6,Resolution Agent,honest_when_unknown,FAIL
+PDF-6,Resolution Agent,required_facts,pass
+PDF-6,Resolution Agent,honest_when_unknown,pass
 PDF-6,Resolution Agent,mentions_ticket,pass
 PDF-6,Resolution Agent,polite,pass
 PDF-6,Resolution Agent,concise,pass
 PDF-6,Resolution Agent,citations_valid,pass
-PDF-6,Resolution Agent,reply_grounded,FAIL
-PDF-6,Resolution Agent,confidence_calibrated,FAIL
+PDF-6,Resolution Agent,reply_grounded,pass
+PDF-6,Resolution Agent,confidence_calibrated,pass
 PDF-6,Log Agent,row_written,pass
 PDF-6,Log Agent,required_columns,pass
 PDF-6,Log Agent,status_correct,pass
 PDF-6,Log Agent,reason_when_escalated,pass
 PDF-6,Log Agent,logged_by_log_agent,pass
 PDF-6,Log Agent,kb_feed_correct,pass
-PDF-6,Log Agent,agent_agrees_with_rules,FAIL
+PDF-6,Log Agent,agent_agrees_with_rules,pass
 PDF-6,Log Agent,routed_to_correct_desk,pass
 PDF-6,Log Agent,product_line_logged,pass
 PDF-6,Orchestration,order_manager_query_kb_resolution_log,pass
@@ -403,7 +403,7 @@ CUS-1,Resolution Agent,mentions_ticket,pass
 CUS-1,Resolution Agent,polite,pass
 CUS-1,Resolution Agent,concise,pass
 CUS-1,Resolution Agent,citations_valid,pass
-CUS-1,Resolution Agent,reply_grounded,FAIL
+CUS-1,Resolution Agent,reply_grounded,pass
 CUS-1,Resolution Agent,confidence_calibrated,pass
 CUS-1,Log Agent,row_written,pass
 CUS-1,Log Agent,required_columns,pass
@@ -496,7 +496,7 @@ CUS-3,Support Manager,secondary_divisions_found,n/a
 CUS-3,Support Manager,reason_and_guidance,pass
 CUS-3,Support Manager,handed_to_that_group,pass
 CUS-3,Customer Query Agent,json_valid,pass
-CUS-3,Customer Query Agent,category,pass
+CUS-3,Customer Query Agent,category,FAIL
 CUS-3,Customer Query Agent,urgency,pass
 CUS-3,Customer Query Agent,sentiment,pass
 CUS-3,Customer Query Agent,sentiment_tool_used,pass
@@ -576,22 +576,22 @@ CUS-4,Knowledge Base Agent,facts_verbatim,pass
 CUS-4,Knowledge Base Agent,learned_reuse,n/a
 CUS-4,Knowledge Base Agent,scoped_to_product_line,n/a
 CUS-4,Resolution Agent,json_valid,pass
-CUS-4,Resolution Agent,numbers_grounded,FAIL
+CUS-4,Resolution Agent,numbers_grounded,pass
 CUS-4,Resolution Agent,required_facts,pass
 CUS-4,Resolution Agent,honest_when_unknown,n/a
 CUS-4,Resolution Agent,mentions_ticket,pass
 CUS-4,Resolution Agent,polite,pass
 CUS-4,Resolution Agent,concise,pass
 CUS-4,Resolution Agent,citations_valid,pass
-CUS-4,Resolution Agent,reply_grounded,FAIL
+CUS-4,Resolution Agent,reply_grounded,pass
 CUS-4,Resolution Agent,confidence_calibrated,pass
 CUS-4,Log Agent,row_written,pass
 CUS-4,Log Agent,required_columns,pass
-CUS-4,Log Agent,status_correct,FAIL
-CUS-4,Log Agent,reason_when_escalated,pass
+CUS-4,Log Agent,status_correct,pass
+CUS-4,Log Agent,reason_when_escalated,n/a
 CUS-4,Log Agent,logged_by_log_agent,pass
 CUS-4,Log Agent,kb_feed_correct,pass
-CUS-4,Log Agent,agent_agrees_with_rules,FAIL
+CUS-4,Log Agent,agent_agrees_with_rules,pass
 CUS-4,Log Agent,routed_to_correct_desk,n/a
 CUS-4,Log Agent,product_line_logged,pass
 CUS-4,Orchestration,order_manager_query_kb_resolution_log,pass
@@ -757,7 +757,7 @@ LIN-2,Knowledge Base Agent,learned_reuse,n/a
 LIN-2,Knowledge Base Agent,scoped_to_product_line,pass
 LIN-2,Resolution Agent,json_valid,pass
 LIN-2,Resolution Agent,numbers_grounded,pass
-LIN-2,Resolution Agent,required_facts,FAIL
+LIN-2,Resolution Agent,required_facts,pass
 LIN-2,Resolution Agent,honest_when_unknown,n/a
 LIN-2,Resolution Agent,mentions_ticket,pass
 LIN-2,Resolution Agent,polite,pass
@@ -943,7 +943,7 @@ LIN-5,Resolution Agent,mentions_ticket,pass
 LIN-5,Resolution Agent,polite,pass
 LIN-5,Resolution Agent,concise,pass
 LIN-5,Resolution Agent,citations_valid,pass
-LIN-5,Resolution Agent,reply_grounded,FAIL
+LIN-5,Resolution Agent,reply_grounded,pass
 LIN-5,Resolution Agent,confidence_calibrated,pass
 LIN-5,Log Agent,row_written,pass
 LIN-5,Log Agent,required_columns,pass
@@ -1063,15 +1063,15 @@ SRV-2,Resolution Agent,mentions_ticket,pass
 SRV-2,Resolution Agent,polite,pass
 SRV-2,Resolution Agent,concise,pass
 SRV-2,Resolution Agent,citations_valid,pass
-SRV-2,Resolution Agent,reply_grounded,pass
+SRV-2,Resolution Agent,reply_grounded,FAIL
 SRV-2,Resolution Agent,confidence_calibrated,pass
 SRV-2,Log Agent,row_written,pass
 SRV-2,Log Agent,required_columns,pass
-SRV-2,Log Agent,status_correct,pass
-SRV-2,Log Agent,reason_when_escalated,n/a
+SRV-2,Log Agent,status_correct,FAIL
+SRV-2,Log Agent,reason_when_escalated,pass
 SRV-2,Log Agent,logged_by_log_agent,pass
 SRV-2,Log Agent,kb_feed_correct,pass
-SRV-2,Log Agent,agent_agrees_with_rules,pass
+SRV-2,Log Agent,agent_agrees_with_rules,FAIL
 SRV-2,Log Agent,routed_to_correct_desk,pass
 SRV-2,Log Agent,product_line_logged,pass
 SRV-2,Orchestration,order_manager_query_kb_resolution_log,pass
@@ -1243,15 +1243,15 @@ MUL-1,Resolution Agent,mentions_ticket,pass
 MUL-1,Resolution Agent,polite,pass
 MUL-1,Resolution Agent,concise,pass
 MUL-1,Resolution Agent,citations_valid,pass
-MUL-1,Resolution Agent,reply_grounded,pass
+MUL-1,Resolution Agent,reply_grounded,FAIL
 MUL-1,Resolution Agent,confidence_calibrated,pass
 MUL-1,Log Agent,row_written,pass
 MUL-1,Log Agent,required_columns,pass
-MUL-1,Log Agent,status_correct,pass
-MUL-1,Log Agent,reason_when_escalated,n/a
+MUL-1,Log Agent,status_correct,FAIL
+MUL-1,Log Agent,reason_when_escalated,pass
 MUL-1,Log Agent,logged_by_log_agent,pass
 MUL-1,Log Agent,kb_feed_correct,pass
-MUL-1,Log Agent,agent_agrees_with_rules,pass
+MUL-1,Log Agent,agent_agrees_with_rules,FAIL
 MUL-1,Log Agent,routed_to_correct_desk,pass
 MUL-1,Log Agent,product_line_logged,pass
 MUL-1,Orchestration,order_manager_query_kb_resolution_log,pass
@@ -1290,7 +1290,7 @@ MAN-1,Knowledge Base Agent,json_valid,pass
 MAN-1,Knowledge Base Agent,search_tool_used,pass
 MAN-1,Knowledge Base Agent,retrieval_hit,n/a
 MAN-1,Knowledge Base Agent,source_shown_in_log,n/a
-MAN-1,Knowledge Base Agent,coverage_decision,FAIL
+MAN-1,Knowledge Base Agent,coverage_decision,pass
 MAN-1,Knowledge Base Agent,context_brief,pass
 MAN-1,Knowledge Base Agent,facts_verbatim,pass
 MAN-1,Knowledge Base Agent,learned_reuse,n/a
@@ -1298,13 +1298,13 @@ MAN-1,Knowledge Base Agent,scoped_to_product_line,n/a
 MAN-1,Resolution Agent,json_valid,pass
 MAN-1,Resolution Agent,numbers_grounded,pass
 MAN-1,Resolution Agent,required_facts,n/a
-MAN-1,Resolution Agent,honest_when_unknown,FAIL
+MAN-1,Resolution Agent,honest_when_unknown,pass
 MAN-1,Resolution Agent,mentions_ticket,pass
 MAN-1,Resolution Agent,polite,pass
 MAN-1,Resolution Agent,concise,pass
 MAN-1,Resolution Agent,citations_valid,pass
 MAN-1,Resolution Agent,reply_grounded,pass
-MAN-1,Resolution Agent,confidence_calibrated,FAIL
+MAN-1,Resolution Agent,confidence_calibrated,pass
 MAN-1,Log Agent,row_written,pass
 MAN-1,Log Agent,required_columns,pass
 MAN-1,Log Agent,status_correct,pass
@@ -1414,7 +1414,7 @@ GRD-3,Log Agent,required_columns,pass
 GRD-3,Log Agent,status_correct,pass
 GRD-4,Guardrails,stopped_when_not_a_ticket,pass
 GRD-4,Guardrails,real_complaint_not_stopped,n/a
-GRD-4,Guardrails,block_reason_correct,FAIL
+GRD-4,Guardrails,block_reason_correct,pass
 GRD-4,Guardrails,stopped_by_expected_stage,pass
 GRD-4,Guardrails,no_agent_group_ran_when_stopped,pass
 GRD-4,Guardrails,flag_raised,n/a
@@ -1583,19 +1583,19 @@ CUS-6,Resolution Agent,json_valid,pass
 CUS-6,Resolution Agent,numbers_grounded,pass
 CUS-6,Resolution Agent,required_facts,n/a
 CUS-6,Resolution Agent,honest_when_unknown,n/a
-CUS-6,Resolution Agent,mentions_ticket,FAIL
+CUS-6,Resolution Agent,mentions_ticket,pass
 CUS-6,Resolution Agent,polite,pass
 CUS-6,Resolution Agent,concise,pass
 CUS-6,Resolution Agent,citations_valid,pass
-CUS-6,Resolution Agent,reply_grounded,FAIL
+CUS-6,Resolution Agent,reply_grounded,pass
 CUS-6,Resolution Agent,confidence_calibrated,pass
 CUS-6,Log Agent,row_written,pass
 CUS-6,Log Agent,required_columns,pass
-CUS-6,Log Agent,status_correct,FAIL
-CUS-6,Log Agent,reason_when_escalated,pass
+CUS-6,Log Agent,status_correct,pass
+CUS-6,Log Agent,reason_when_escalated,n/a
 CUS-6,Log Agent,logged_by_log_agent,pass
 CUS-6,Log Agent,kb_feed_correct,pass
-CUS-6,Log Agent,agent_agrees_with_rules,FAIL
+CUS-6,Log Agent,agent_agrees_with_rules,pass
 CUS-6,Log Agent,routed_to_correct_desk,n/a
 CUS-6,Log Agent,product_line_logged,pass
 CUS-6,Orchestration,order_manager_query_kb_resolution_log,pass

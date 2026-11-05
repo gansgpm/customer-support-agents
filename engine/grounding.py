@@ -18,6 +18,8 @@ from typing import Any, Dict, List
 from rag.text import content_terms, split_sentences, tokenize
 
 NUMBER = re.compile(r"(?<![\w-])(\d+(?:[.,]\d+)*)(?![\w-])")
+# "1. Open the app" / "2) Tap Login" - list numbering, not a figure the documents have to contain
+ENUMERATOR = re.compile(r"(?m)^[ \t]*\(?\d{1,2}[.)](?=\s)")
 # Sentences that are courtesy, not claims (greeting, empathy, ticket reference, sign-off)
 NON_CLAIM = re.compile(r"^(hi|hello|dear|thank|thanks|sorry|i'?m sorry|we'?re sorry|i understand|"
                        r"your ticket number|ticket number|if anything is still unclear|best regards|regards|-\s)",
@@ -25,7 +27,7 @@ NON_CLAIM = re.compile(r"^(hi|hello|dear|thank|thanks|sorry|i'?m sorry|we'?re so
 
 
 def numbers(text: str) -> List[str]:
-    return [n.replace(",", "") for n in NUMBER.findall(text or "")]
+    return [n.replace(",", "") for n in NUMBER.findall(ENUMERATOR.sub(" ", text or ""))]
 
 
 def _claim_sentences(reply: str, signatures: List[str] = ()) -> List[str]:
@@ -94,12 +96,37 @@ def describe(grounding: Dict[str, Any]) -> str:
 
 
 # ------------------------------------------------------------------ LLM claim verifier
-VERIFIER_SYSTEM = """You verify a customer-support reply against the company passages it was based on.
-List every FACTUAL claim in the reply (steps, timelines, amounts, conditions, eligibility, promises) that the passages
-do NOT support. A claim is supported when a passage states the same thing, even in different words.
-Ignore greetings, empathy, the ticket number, "a specialist will contact you / follow up", and honest statements that
-the information is not available. Do not judge style.
-Answer with ONLY a JSON object: {"unsupported_claims": ["claim as written in the reply", ...]}"""
+VERIFIER_SYSTEM = """You verify a customer-support reply against the company PASSAGES it was based on and the TICKET (the
+customer's own message and ticket details).
+Go through the reply and list each FACTUAL claim: steps, timelines, amounts, conditions, eligibility, promises of what
+the company will do. For each claim decide:
+- "supported": a passage states it (the same meaning in different words is fine), or it only repeats the TICKET (the
+  customer's name, order id, ticket number, what the customer said happened);
+- "unsupported": no passage states it, or a passage says something different.
+Skip greetings, empathy, thanks, the ticket number, "a specialist will contact you / follow up", "contact support if you
+need more help", and honest statements that the information is not available. Do not judge style.
+Answer with ONLY a JSON object:
+{"claims": [{"claim": "the claim as written in the reply", "verdict": "supported" or "unsupported",
+             "evidence": "the passage or ticket sentence that supports it (empty when unsupported)"}]}"""
+
+# How the desk itself works - a human follows up, the customer can write back - is not a policy claim the documents
+# must contain. The verifier prompt says to skip these; this enforces it when the model flags one anyway.
+DESK_PROCESS = re.compile(
+    r"(\b(specialist|support team|support agent|customer care|our team|someone|we)\b[^.]{0,60}"
+    r"\b(will|can|shall)\b[^.]{0,20}\b(follow(?:s|ing)? up|get back|contact you|reach out|be in touch|"
+    r"keep you (?:informed|updated|posted)|check (?:the|your|on) (?:status|order|ticket)|look into)"
+    r"|\b(let us know|feel free to|reply to this (?:message|email)|get in touch with us|reach out to us|"
+    r"contact(?:ing)? (?:us|our support|our customer care|support|customer care)\b(?! to\b)))", re.I)
+
+
+def is_desk_process(claim: str) -> bool:
+    """'A support specialist will follow up', 'let us know and we can check the status' - true by how the desk
+    works (escalated tickets go to a specialist, replies are linked to the ticket); never a statement with figures."""
+    return bool(DESK_PROCESS.search(claim or "")) and not numbers(claim)
+
+
+NEGATION = re.compile(r"\b(not|no|never|cannot|can't|won't|don't|doesn't|isn't|aren't|without|non)\b", re.I)
+MAX_VERIFIER_PASSAGES = 12
 
 
 def verifier_enabled(settings) -> bool:
@@ -107,22 +134,66 @@ def verifier_enabled(settings) -> bool:
     return mode == "llm" or (mode == "auto" and not settings.is_offline)
 
 
-async def llm_verify(client, reply: str, passages: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """Second, semantic grounding check: an LLM lists reply claims the retrieved passages do not support."""
+def near_verbatim(claim: str, sentences: List[str], threshold: float = 0.8) -> bool:
+    """True when one source sentence states the claim almost word for word: >= 80% of its key words, every figure
+    in it, and the same negation. Used to overrule a verifier that flags a claim copied from the documents."""
+    terms = set(content_terms(tokenize(claim)))
+    if len(terms) < 3:
+        return False
+    figures, negated = set(numbers(claim)), bool(NEGATION.search(claim))
+    for sentence in sentences:
+        words = set(tokenize(sentence))
+        if (len(terms & words) / len(terms) >= threshold and figures <= set(numbers(sentence))
+                and negated == bool(NEGATION.search(sentence))):
+            return True
+    return False
+
+
+def _verifier_passages(passages: List[Dict[str, Any]], cited: List[str] = ()) -> List[Dict[str, Any]]:
+    """Cited passages first, then the rest of what was retrieved (deduplicated, capped)."""
+    cited = list(cited or [])
+    order = sorted(range(len(passages)), key=lambda i: (passages[i].get("ref") not in cited, i))
+    seen, out = set(), []
+    for i in order:
+        p = passages[i]
+        key = (p.get("source"), p.get("section"), p.get("text", "")[:80])
+        if key not in seen:
+            seen.add(key)
+            out.append(p)
+    return out[:MAX_VERIFIER_PASSAGES]
+
+
+async def llm_verify(client, reply: str, passages: List[Dict[str, Any]], customer_text: str = "",
+                     ticket_details: str = "", cited: List[str] = ()) -> Dict[str, Any]:
+    """Second, semantic grounding check: an LLM lists the reply's claims that neither the retrieved passages nor the
+    ticket support. A flagged claim that a passage (or the ticket) states almost word for word is overruled."""
     from autogen_core.models import SystemMessage, UserMessage
 
     from engine.parsing import extract_json
 
+    chosen = _verifier_passages(passages, cited)
     evidence = "\n\n".join(f"[{p.get('ref') or i + 1}] {p.get('source', '')} > {p.get('section', '')}\n{p.get('text', '')}"
-                           for i, p in enumerate(passages[:8])) or "(no passages)"
+                           for i, p in enumerate(chosen)) or "(no passages)"
+    ticket = f"Customer's message: {customer_text.strip()}\n{ticket_details.strip()}".strip()
     try:
-        result = await client.create([SystemMessage(content=VERIFIER_SYSTEM),
-                                      UserMessage(content=f"PASSAGES:\n{evidence}\n\nREPLY:\n{reply}", source="verifier")])
+        result = await client.create([SystemMessage(content=VERIFIER_SYSTEM), UserMessage(
+            content=f"PASSAGES:\n{evidence}\n\nTICKET:\n{ticket}\n\nREPLY:\n{reply}", source="verifier")])
         obj = extract_json(result.content if isinstance(result.content, str) else str(result.content)) or {}
-        claims = [str(c).strip() for c in obj.get("unsupported_claims", []) if str(c).strip()]
-        return {"ran": True, "unsupported_claims": claims[:6]}
     except Exception as exc:  # the verifier must never block a ticket
         return {"ran": False, "unsupported_claims": [], "error": f"{type(exc).__name__}: {exc}"[:200]}
+    if isinstance(obj.get("claims"), list):
+        flagged = [str(c.get("claim", "")).strip() for c in obj["claims"]
+                   if isinstance(c, dict) and str(c.get("verdict", "")).lower().startswith("unsupported")]
+    else:  # older / simpler answer format
+        flagged = [str(c).strip() for c in obj.get("unsupported_claims", [])]
+    flagged = [c for c in flagged if c]
+    sources = [s for p in chosen for s in split_sentences(p.get("text", ""))]
+    sources.append(f"{customer_text} {ticket_details}")  # the ticket as one block (name, order id, what happened)
+    sources += split_sentences(customer_text)
+    overruled = [c for c in flagged if is_desk_process(c) or near_verbatim(c, sources)]
+    claims = [c for c in flagged if c not in overruled]
+    return {"ran": True, "unsupported_claims": claims[:6], "overruled": overruled[:6],
+            "checked_claims": len(obj["claims"]) if isinstance(obj.get("claims"), list) else None}
 
 
 def merge_llm_verdict(grounding: Dict[str, Any], verdict: Dict[str, Any]) -> Dict[str, Any]:

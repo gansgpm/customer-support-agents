@@ -73,6 +73,8 @@ def finalize_ticket(ctx: AgentContext, agent_escalate: bool = False, agent_reaso
         kb_match = bool(kb_ctx["match_found"]) and retrieved_any
     else:
         kb_match = bool(merged["match_found"])
+    if any((r.get("coverage_verdict") or {}).get("ran") for r in state.kb_results):
+        kb_match = kb_match and bool(merged["match_found"])  # the agent may lower the coverage check, never raise it
 
     if not state.resolution or not state.resolution.get("response"):
         state.resolution = {
@@ -271,8 +273,13 @@ def create_log_agent(model_client: ChatCompletionClient, ctx: AgentContext, divi
         if reply and state.kb_context.get("match_found") and grounding.verifier_enabled(ctx.settings):
             # semantic check of every claim against the retrieved passages, before the escalation decision
             merged = state.kb_merged
+            t = state.ticket
+            details = "; ".join(x for x in (f"ticket {state.ticket_id}", t.customer_name and f"customer {t.customer_name}",
+                                             t.order_id and f"order {t.order_id}", t.subject and f"subject {t.subject}") if x)
             verdict = await grounding.llm_verify(model_client, reply,
-                                                 merged["policy_passages"] + merged["resolved_ticket_matches"])
+                                                 merged["policy_passages"] + merged["resolved_ticket_matches"],
+                                                 customer_text=t.complaint, ticket_details=details,
+                                                 cited=(state.resolution or {}).get("citations", []))
             state.grounding = grounding.merge_llm_verdict(state.grounding, verdict)
         summary = finalize_ticket(ctx, agent_escalate=bool(escalate), agent_reason=escalation_reason)
         state.tool_calls.append({"agent": agent_name(division, NAME), "tool": "log_ticket",

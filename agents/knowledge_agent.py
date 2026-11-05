@@ -14,6 +14,7 @@ from autogen_agentchat.agents import AssistantAgent
 from autogen_core.models import ChatCompletionClient
 
 from agents.context import AgentContext, agent_name, division_brief
+from engine import coverage
 
 NAME = "knowledge_agent"
 DESCRIPTION = ("Knowledge Base Agent – searches the product-line guides, general policies and verified past solutions "
@@ -38,7 +39,7 @@ Work in this order:
  "gaps": "what the documents do not cover (empty string if nothing is missing)"}
 
 When a product-line guide and a general policy both apply, prefer the product-line guide (it is more specific) and mention both files in sources.
-You decide match_found yourself from the passages. The search's own match_found is only a word-overlap estimate: it can miss a passage that answers the question in different words, and it can accept loosely related text. Set match_found to true when a passage actually answers what the customer asks, and to false when none does (for example the topic is never mentioned), whatever the estimate says. Learned solutions are supporting evidence only: when they disagree with a policy document, the policy document wins. Use 3 to 6 key_facts."""
+The search's match_found comes from an independent check of whether the passages really answer this customer (not just loosely related text). Keep it. You may change it to false when none of the passages you keep answers the customer's question, but never to true when the search says false - then say in gaps what the documents do not cover, so the Resolution Agent answers honestly and a human follows up. Learned solutions are supporting evidence only: when they disagree with a policy document, the policy document wins. Use 3 to 6 key_facts."""
 
 
 def create_knowledge_agent(model_client: ChatCompletionClient, ctx: AgentContext,
@@ -58,6 +59,15 @@ def create_knowledge_agent(model_client: ChatCompletionClient, ctx: AgentContext
         result = ctx.store.search_kb(query, category=category, product_line=product_line,
                                      english_hint=state.triage.get("standalone_query") or state.triage.get("summary", ""),
                                      also=own_words)
+        if coverage.verdict_enabled(ctx.settings) and result["policy_passages"]:
+            # independent "do these passages really answer the customer?" check (the path the evaluation measures)
+            question = (state.triage.get("standalone_query") if state.ticket.parent_ticket else "") or state.ticket.complaint
+            verdict = await coverage.llm_covered(model_client, question, result["policy_passages"])
+            result["coverage_verdict"] = verdict
+            if verdict.get("ran"):
+                result["estimate_match_found"] = result["match_found"]
+                result["policy_match"] = bool(verdict["covered"])
+                result["match_found"] = result["policy_match"] or result["learned_match"]
         for p in result["policy_passages"] + result["resolved_ticket_matches"]:
             p["ref"] = state.assign_ref(p)  # S1, S2, ... - cited by the Resolution Agent and validated afterwards
         state.kb_results.append(result)

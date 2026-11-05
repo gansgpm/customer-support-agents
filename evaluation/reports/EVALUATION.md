@@ -1,31 +1,31 @@
 # Evaluation Report — AI Customer Support Automation
 
-*Model:* **openai / gpt-4o-mini** · *Orchestration:* **round_robin** · *Run:* 2026-11-04 22:17 · *Cases:* 30 · *Confidence threshold:* 80%
+*Model:* **openai / gpt-4o-mini** · *Orchestration:* **round_robin** · *Run:* 2026-11-05 18:38 · *Cases:* 30 · *Confidence threshold:* 80%
 
 > Automated self-assessment produced by `python -m evaluation.evaluate`. Each test case runs through the real
 > AutoGen engine in an isolated workspace; channel delivery is dry-run. The official grade is the evaluator's.
 
-## 1. Rubric summary — 92 / 100
+## 1. Rubric summary — 98 / 100
 
 | Area | Marks | Estimate | How it is measured |
 |---|---:|---:|---|
-| Agent design | 20 | **20.0** (100%) | Support Manager + one 4-agent group per division, single-responsibility prompts and tools; JSON contract; routing and triage accuracy |
-| Knowledge grounding | 20 | **14.9** (75%) | agent checks, no invented numbers, honest 'not covered' answers, grounded replies, ground-truth hit@3 and abstention on the HELD-OUT questions |
+| Agent design | 20 | **19.9** (100%) | Support Manager + one 4-agent group per division, single-responsibility prompts and tools; JSON contract; routing and triage accuracy |
+| Knowledge grounding | 20 | **19.1** (95%) | agent checks, no invented numbers, honest 'not covered' answers, grounded replies, ground-truth hit@3 and abstention on the HELD-OUT questions |
 | Workflow & escalation | 20 | **19.0** (95%) | Manager → division group (Query → Knowledge → Resolution → Log), LOGGED termination + safety nets, escalation accuracy, guardrails |
-| Logging | 15 | **14.5** (97%) | row per ticket, required columns, status/reason, KB feed rule |
+| Logging | 15 | **14.5** (96%) | row per ticket, required columns, status/reason, KB feed rule |
 | Streamlit UI | 15 | **15.0** (100%) | feature checklist (see screenshots for the visual evidence) |
-| Code & README | 10 | **9.1** (91%) | structure, no secrets, setup steps, screenshots, tests |
+| Code & README | 10 | **10.0** (100%) | structure, no secrets, setup steps, screenshots, tests |
 
 ## 2. Node-by-node scores
 
 | Node | Score | Checks (passed / applicable) |
 |---|---:|---|
-| Guardrails | **96%** | real_complaint_not_stopped 26/26; reply_has_no_ai_chatter 29/30; stopped_when_not_a_ticket 4/4; block_reason_correct 3/4; stopped_by_expected_stage 4/4; no_agent_group_ran_when_stopped 4/4; flag_raised 2/2; pii_not_in_log 1/1 |
+| Guardrails | **100%** | real_complaint_not_stopped 26/26; reply_has_no_ai_chatter 30/30; stopped_when_not_a_ticket 4/4; block_reason_correct 4/4; stopped_by_expected_stage 4/4; no_agent_group_ran_when_stopped 4/4; flag_raised 2/2; pii_not_in_log 1/1 |
 | Support Manager | **100%** | json_valid 26/26; product_line_tool_used 26/26; route_line_given 26/26; routed_to_correct_division 26/26; reason_and_guidance 26/26; handed_to_that_group 26/26; secondary_divisions_found 2/2; needs_human_flag 2/2 |
-| Customer Query Agent | **100%** | json_valid 26/26; category 26/26; urgency 26/26; sentiment 26/26; sentiment_tool_used 26/26; history_rag_used 26/26; summary_ok 26/26; product_line 26/26; repeat_detected 1/1; all_product_lines_found 2/2; language 1/1 |
-| Knowledge Base Agent | **99%** | json_valid 26/26; search_tool_used 26/26; retrieval_hit 24/24; source_shown_in_log 24/24; coverage_decision 24/26; context_brief 26/26; facts_verbatim 26/26; scoped_to_product_line 15/15; learned_reuse 1/1 |
-| Resolution Agent | **85%** | json_valid 26/26; numbers_grounded 25/26; required_facts 21/23; mentions_ticket 24/26; polite 26/26; concise 26/26; citations_valid 26/26; reply_grounded 20/26; confidence_calibrated 24/26; honest_when_unknown 0/2 |
-| Log Agent | **97%** | row_written 30/30; required_columns 30/30; status_correct 27/30; logged_by_log_agent 26/26; kb_feed_correct 26/26; agent_agrees_with_rules 21/26; product_line_logged 26/26; routed_to_correct_desk 19/19; reason_when_escalated 13/13 |
+| Customer Query Agent | **100%** | json_valid 26/26; category 25/26; urgency 26/26; sentiment 26/26; sentiment_tool_used 26/26; history_rag_used 26/26; summary_ok 26/26; product_line 26/26; repeat_detected 1/1; all_product_lines_found 2/2; language 1/1 |
+| Knowledge Base Agent | **100%** | json_valid 26/26; search_tool_used 26/26; retrieval_hit 24/24; source_shown_in_log 24/24; coverage_decision 26/26; context_brief 26/26; facts_verbatim 26/26; scoped_to_product_line 15/15; learned_reuse 1/1 |
+| Resolution Agent | **98%** | json_valid 25/26; numbers_grounded 26/26; required_facts 23/23; mentions_ticket 26/26; polite 26/26; concise 26/26; citations_valid 26/26; reply_grounded 23/26; confidence_calibrated 25/26; honest_when_unknown 2/2 |
+| Log Agent | **96%** | row_written 30/30; required_columns 30/30; status_correct 26/30; logged_by_log_agent 26/26; kb_feed_correct 26/26; agent_agrees_with_rules 21/26; product_line_logged 26/26; reason_when_escalated 14/14; routed_to_correct_desk 19/19 |
 | Orchestration | **100%** | order_manager_query_kb_resolution_log 26/26; one_division_group_ran 26/26; terminated_on_LOGGED 26/26; within_message_cap 26/26; no_pipeline_error 26/26 |
 | Channels (Email / Telegram / WhatsApp) | **100%** | whatsapp_webhook_parsed pass; whatsapp_number_normalised pass; telegram_update_parsed pass; email_parsed_and_quote_stripped pass; email_html_template pass; reply_dispatched_to_3_channels pass; outbox_records_messages pass; inbox_deduplicates pass |
 
@@ -34,42 +34,42 @@
 | | Predicted Escalated | Predicted Resolved |
 |---|---:|---:|
 | **Expected Escalated** | 10 | 0 |
-| **Expected Resolved** | 3 | 13 |
+| **Expected Resolved** | 4 | 12 |
 
-Escalation accuracy: **88%**
+Escalation accuracy: **85%**
 
 
 ### Retrieval against hand-labelled ground truth
 
-87 questions (en, hi, ta) in `evaluation/retrieval_set.json`, each labelled with the passage(s) that answer it, plus questions the documents do not cover. The *dev* split was used to tune query expansion, the reranker and the thresholds; the *held-out test* split is never tuned on and is the honest number. Embeddings: `tfidf`, reranker: `feature`, LLM: `openai / gpt-4o-mini`; production path: **+ LLM rewrite + LLM coverage verdict (production)**.
+87 questions (en, hi, ta) in `evaluation/retrieval_set.json`, each labelled with the passage(s) that answer it, plus questions the documents do not cover. The *dev* split was used to tune query expansion, the reranker and the thresholds; the *held-out test* split is never tuned on and is the honest number. Embeddings: `openai`, reranker: `feature`, LLM: `openai / gpt-4o-mini`; production path: **+ LLM rewrite + LLM coverage verdict (production)**.
 
 - Held-out split SHA-256 `c7bfadff79a00eae…` — **unchanged** since it was frozen on 2026-11-04
 - Held-out questions found in the code or knowledge base: none
-- 'Covered' thresholds: min relevance 0.056, min coverage 0.344, strong relevance 0.396 — calibrated (tfidf.json, 2026-11-04 16:24)
+- 'Covered' thresholds: min relevance 0.454, min coverage 0.231, strong relevance 0.663 — calibrated (openai.json, 2026-11-04 22:04)
 
 **held-out test**
 
 | variant | hit@1 | hit@3 | hit@3 95% CI | hit@5 | MRR@10 | hit@3 Tamil/Hindi | abstention accuracy | abstention 95% CI | false 'covered' on unanswerable | missed answerable |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| BM25 only | 0.536 | 0.75 | 0.57-0.89 | 0.821 | 0.655 | 0.5 | 0.742 | 0.58-0.87 | 0 | 8 |
-| Vector only | 0.607 | 0.75 | 0.57-0.89 | 0.857 | 0.696 | 0.5 | 0.742 | 0.58-0.87 | 0 | 8 |
-| Hybrid (RRF) | 0.571 | 0.75 | 0.57-0.89 | 0.821 | 0.679 | 0.5 | 0.742 | 0.58-0.87 | 0 | 8 |
-| Hybrid + feature reranker | 0.571 | 0.786 | 0.61-0.93 | 0.857 | 0.685 | 0.75 | 0.806 | 0.68-0.94 | 0 | 6 |
-| Hybrid + reranker, no translation | 0.536 | 0.679 | 0.50-0.86 | 0.75 | 0.619 | 0.0 | 0.677 | 0.52-0.84 | 0 | 10 |
-| + LLM query rewrite | 0.786 | 0.857 | 0.71-0.96 | 0.964 | 0.846 | 0.75 | 0.903 | 0.81-1.00 | 0 | 3 |
-| + LLM rewrite + LLM coverage verdict (production) | 0.786 | 0.857 | 0.71-0.96 | 0.964 | 0.846 | 0.75 | 0.903 | 0.77-1.00 | 0 | 3 |
+| BM25 only | 0.536 | 0.75 | 0.57-0.89 | 0.821 | 0.655 | 0.5 | 0.645 | 0.48-0.81 | 0 | 11 |
+| Vector only | 0.893 | 0.964 | 0.89-1.00 | 1.0 | 0.932 | 0.75 | 0.677 | 0.52-0.84 | 0 | 10 |
+| Hybrid (RRF) | 0.607 | 0.929 | 0.82-1.00 | 0.964 | 0.757 | 1.0 | 0.71 | 0.55-0.87 | 0 | 9 |
+| Hybrid + feature reranker | 0.607 | 0.893 | 0.75-1.00 | 0.929 | 0.759 | 0.75 | 0.71 | 0.55-0.87 | 0 | 9 |
+| Hybrid + reranker, no translation | 0.571 | 0.857 | 0.71-0.96 | 0.929 | 0.726 | 0.5 | 0.645 | 0.48-0.81 | 0 | 11 |
+| + LLM query rewrite | 0.821 | 0.929 | 0.82-1.00 | 1.0 | 0.891 | 1.0 | 0.839 | 0.68-0.97 | 0 | 5 |
+| + LLM rewrite + LLM coverage verdict (production) | 0.821 | 0.929 | 0.82-1.00 | 1.0 | 0.891 | 1.0 | 0.903 | 0.77-1.00 | 0 | 3 |
 
 **dev (tuning)**
 
 | variant | hit@1 | hit@3 | hit@3 95% CI | hit@5 | MRR@10 | hit@3 Tamil/Hindi | abstention accuracy | abstention 95% CI | false 'covered' on unanswerable | missed answerable |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| BM25 only | 0.902 | 0.98 | 0.94-1.00 | 0.98 | 0.938 | 1.0 | 0.929 | 0.86-0.98 | 1 | 3 |
-| Vector only | 0.922 | 0.98 | 0.94-1.00 | 0.98 | 0.948 | 1.0 | 0.929 | 0.86-0.98 | 1 | 3 |
-| Hybrid (RRF) | 0.902 | 0.98 | 0.94-1.00 | 0.98 | 0.938 | 1.0 | 0.929 | 0.86-0.98 | 1 | 3 |
-| Hybrid + feature reranker | 0.902 | 0.98 | 0.94-1.00 | 0.98 | 0.938 | 1.0 | 0.929 | 0.86-0.98 | 1 | 3 |
-| Hybrid + reranker, no translation | 0.706 | 0.784 | 0.67-0.90 | 0.784 | 0.742 | 0.0 | 0.75 | 0.62-0.86 | 1 | 13 |
-| + LLM query rewrite | 0.824 | 0.98 | 0.94-1.00 | 1.0 | 0.907 | 1.0 | 0.946 | 0.89-1.00 | 2 | 1 |
-| + LLM rewrite + LLM coverage verdict (production) | 0.824 | 0.98 | 0.94-1.00 | 1.0 | 0.907 | 1.0 | 0.982 | 0.95-1.00 | 1 | 0 |
+| BM25 only | 0.902 | 0.98 | 0.94-1.00 | 0.98 | 0.938 | 1.0 | 0.911 | 0.84-0.98 | 0 | 5 |
+| Vector only | 0.863 | 1.0 | 1.00-1.00 | 1.0 | 0.928 | 1.0 | 0.875 | 0.79-0.95 | 0 | 7 |
+| Hybrid (RRF) | 0.902 | 0.98 | 0.94-1.00 | 1.0 | 0.946 | 1.0 | 0.893 | 0.80-0.96 | 0 | 6 |
+| Hybrid + feature reranker | 0.902 | 0.98 | 0.94-1.00 | 1.0 | 0.946 | 1.0 | 0.893 | 0.80-0.96 | 0 | 6 |
+| Hybrid + reranker, no translation | 0.765 | 0.863 | 0.76-0.94 | 0.902 | 0.824 | 0.4 | 0.732 | 0.61-0.84 | 0 | 15 |
+| + LLM query rewrite | 0.902 | 1.0 | 1.00-1.00 | 1.0 | 0.951 | 1.0 | 1.0 | 1.00-1.00 | 0 | 0 |
+| + LLM rewrite + LLM coverage verdict (production) | 0.902 | 1.0 | 1.00-1.00 | 1.0 | 0.951 | 1.0 | 1.0 | 1.00-1.00 | 0 | 0 |
 
 hit@k = share of answerable questions whose labelled passage is in the top k; MRR@10 = mean of 1/rank of the first labelled passage; abstention accuracy = covered/not-covered decision correct (answerable must be covered, unanswerable must not); 95% CI = bootstrap interval (2,000 resamples) - with ~30 held-out questions one question moves hit@3 by about 3.5 points, so read the interval, not the third decimal. Per-question results: `evaluation/reports/retrieval_cases.csv`.
 
@@ -78,11 +78,11 @@ hit@k = share of answerable questions whose labelled passage is in the top k; MR
 | Measure | Value |
 |---|---:|
 | Replies checked | 26 |
-| Grounded (every figure found in the retrieved passages, valid citations) | 77% |
-| Lexical claim support (factual sentences whose key words are in the passages) | 80% |
-| Replies with unsupported figures | 1 |
-| LLM-as-judge faithfulness (1-5) | 4.92 |
-| LLM-as-judge relevance (1-5) | 5 |
+| Grounded (every figure found in the retrieved passages, valid citations) | 88% |
+| Lexical claim support (factual sentences whose key words are in the passages) | 74% |
+| Replies with unsupported figures | 0 |
+| LLM-as-judge faithfulness (1-5) | 4.88 |
+| LLM-as-judge relevance (1-5) | 4.96 |
 
 Judge: LLM-as-judge (openai / gpt-4o-mini). Per-reply results: `evaluation/reports/faithfulness.csv`.
 
@@ -90,68 +90,56 @@ Judge: LLM-as-judge (openai / gpt-4o-mini). Per-reply results: `evaluation/repor
 
 | Case | Scenario | Channel | Manager → group | Product line → desk | Category · Urgency · Sentiment | KB source | Conf. | Status (expected) | G | M | Q | K | R | L | O |
 |---|---|---|---|---|---|---|---:|---|---:|---:|---:|---:|---:|---:|---:|
-| PDF-1 | Late delivery | web | general_group | general → General Support Desk | Shipping · Medium · Neutral | shipping_policy.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 89% | 100% | 100% |
-| PDF-2 | Shoe refund | web | fashion_group | fashion → Fashion Desk | Refund · Low · Neutral | fashion_footwear.md; refund_policy.md | 95 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| PDF-3 | Forgot password | web | general_group | general → General Support Desk | Account · Low · Neutral | account_and_login.md | 95 | ✅ Resolved (Resolved) | 50% | 100% | 100% | 100% | 100% | 100% | 100% |
-| PDF-4 | Broken blender | web | home_appliances_group | home_appliances → Appliances Desk | Product · Medium · Negative | home_appliances.md; product_faq.md | 95 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| PDF-5 | Charged three times + legal threat | web | general_group | general → Billing Desk | Billing · High · Angry | billing_and_payments.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| PDF-6 | Corporate gift cards (not in KB) | web | general_group | general → General Support Desk | General · Low · Positive | billing_and_payments.md; product_faq.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 80% | 60% | 89% | 100% |
-| CUS-1 | PDF log example: 10 days late, ignored emails | email | general_group | general → General Support Desk | Shipping · High · Angry | shipping_policy.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 89% | 100% | 100% |
+| PDF-1 | Late delivery | web | general_group | general → General Support Desk | Shipping · Medium · Neutral | shipping_policy.md | 85 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| PDF-2 | Shoe refund | web | fashion_group | fashion → Fashion Desk | Refund · Low · Neutral | fashion_footwear.md; refund_policy.md | 50 | ❌ Escalated (Resolved) | 100% | 100% | 100% | 100% | 78% | 78% | 100% |
+| PDF-3 | Forgot password | web | general_group | general → General Support Desk | Account · Low · Neutral | account_and_login.md | 95 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| PDF-4 | Broken blender | web | home_appliances_group | home_appliances → Appliances Desk | Product · Medium · Negative | home_appliances.md; product_faq.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| PDF-5 | Charged three times + legal threat | web | general_group | general → Billing Desk | Billing · High · Angry | billing_and_payments.md; support_and_escalation_policy.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| PDF-6 | Corporate gift cards (not in KB) | web | general_group | general → General Support Desk | General · Low · Positive | none | 50 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| CUS-1 | PDF log example: 10 days late, ignored emails | email | general_group | general → General Support Desk | Shipping · High · Angry | shipping_policy.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 | CUS-2 | Torn package, missing item (WhatsApp) | whatsapp | electronics_group | electronics → Electronics Desk | Shipping · Medium · Negative | shipping_policy.md; electronics.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| CUS-3 | Account takeover / fraud (Telegram) | telegram | general_group | general → Trust & Safety Team | Account · High · Negative | account_and_login.md | 100 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| CUS-4 | Promo code not working | web | general_group | general → General Support Desk | Billing · Low · Neutral | billing_and_payments.md | 90 | ❌ Escalated (Resolved) | 100% | 100% | 100% | 100% | 78% | 75% | 100% |
+| CUS-3 | Account takeover / fraud (Telegram) | telegram | general_group | general → Trust & Safety Team | General · High · Negative | account_and_login.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 88% | 100% | 100% | 100% | 100% |
+| CUS-4 | Promo code not working | web | general_group | general → General Support Desk | Billing · Low · Neutral | billing_and_payments.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 | CUS-5 | Self-learning re-use (similar to PDF-2) | web | fashion_group | fashion → Fashion Desk | Refund · Low · Neutral | fashion_footwear.md; refund_policy.md | 95 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| LIN-1 | Electronics: phone battery swelling (Telegram) | telegram | electronics_group | electronics → Electronics Desk | Product · High · Neutral | electronics.md | 95 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| LIN-2 | Electronics: laptop warranty | web | electronics_group | electronics → Electronics Desk | Product · Medium · Neutral | electronics.md | 90 | ❌ Escalated (Resolved) | 100% | 100% | 100% | 100% | 78% | 78% | 100% |
-| LIN-3 | Fashion: sneaker size exchange | web | fashion_group | fashion → Fashion Desk | Refund · Low · Neutral | fashion_footwear.md; refund_policy.md | 95 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| LIN-4 | Grocery: spoiled milk and paneer (WhatsApp) | whatsapp | grocery_group | grocery → Remya Fresh Grocery Desk | Product · Medium · Neutral | remya_fresh_grocery.md; refund_policy.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| LIN-5 | Grocery: food safety (insect found) | web | grocery_group | grocery → Remya Fresh Grocery Desk | Product · High · Negative | remya_fresh_grocery.md; product_faq.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 89% | 100% | 100% |
-| SRV-1 | Remya Care: technician missed AC installation | web | installation_repair_group | installation_repair → Remya Care Services Desk | Service · Medium · Neutral | remya_care_installation_repair.md; home_appliances.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| SRV-2 | Remya Shield: how to raise a claim | web | protection_plan_group | protection_plan → Remya Shield Claims Desk | Service · Low · Neutral | remya_shield_protection_plans.md; product_faq.md | 95 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| SRV-3 | Remya Plus: unwanted renewal refund (email) | email | membership_group | membership → Plus Membership Desk | Billing · Medium · Negative | remya_plus_membership.md; refund_policy.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| SRV-4 | Remya Care: technician damaged wall, was rude (WhatsApp) | whatsapp | installation_repair_group | installation_repair → Remya Care Services Desk | Service · Medium · Negative | remya_care_installation_repair.md | 100 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| MUL-1 | TV installation pending + wrong shoe size in one order | web | installation_repair_group | installation_repair → Remya Care Services Desk | Product · Medium · Negative | remya_care_installation_repair.md; fashion_footwear.md; refund_policy.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| MAN-1 | Typed reason, no division: rude delivery boy -> human | web | general_group | general → General Support Desk | General · Medium · Negative | remya_care_installation_repair.md; shipping_policy.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 80% | 78% | 100% | 100% |
+| LIN-1 | Electronics: phone battery swelling (Telegram) | telegram | electronics_group | electronics → Electronics Desk | Product · High · Neutral | electronics.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| LIN-2 | Electronics: laptop warranty | web | electronics_group | electronics → Electronics Desk | Product · Medium · Neutral | electronics.md | 80 | ❌ Escalated (Resolved) | 100% | 100% | 100% | 100% | 89% | 78% | 100% |
+| LIN-3 | Fashion: sneaker size exchange | web | fashion_group | fashion → Fashion Desk | Refund · Low · Neutral | fashion_footwear.md; refund_policy.md | 100 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| LIN-4 | Grocery: spoiled milk and paneer (WhatsApp) | whatsapp | grocery_group | grocery → Remya Fresh Grocery Desk | Product · Medium · Neutral | remya_fresh_grocery.md; product_faq.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| LIN-5 | Grocery: food safety (insect found) | web | grocery_group | grocery → Remya Fresh Grocery Desk | Product · High · Negative | remya_fresh_grocery.md; product_faq.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| SRV-1 | Remya Care: technician missed AC installation | web | installation_repair_group | installation_repair → Remya Care Services Desk | Service · Medium · Neutral | remya_care_installation_repair.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| SRV-2 | Remya Shield: how to raise a claim | web | protection_plan_group | protection_plan → Remya Shield Claims Desk | Service · Low · Neutral | remya_shield_protection_plans.md; product_faq.md | 95 | ❌ Escalated (Resolved) | 100% | 100% | 100% | 100% | 89% | 78% | 100% |
+| SRV-3 | Remya Plus: unwanted renewal refund (email) | email | membership_group | membership → Plus Membership Desk | Refund · Medium · Negative | remya_plus_membership.md; refund_policy.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| SRV-4 | Remya Care: technician damaged wall, was rude (WhatsApp) | whatsapp | installation_repair_group | installation_repair → Remya Care Services Desk | Service · Medium · Negative | remya_care_installation_repair.md; electronics.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
+| MUL-1 | TV installation pending + wrong shoe size in one order | web | installation_repair_group | installation_repair → Remya Care Services Desk | Product · Medium · Negative | remya_care_installation_repair.md; fashion_footwear.md; refund_policy.md | 90 | ❌ Escalated (Resolved) | 100% | 100% | 100% | 100% | 89% | 78% | 100% |
+| MAN-1 | Typed reason, no division: rude delivery boy -> human | web | general_group | general → General Support Desk | General · Medium · Negative | none | 60 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 | MAN-2 | Typed reason routed by knowledge base: sour paneer | web | grocery_group | grocery → Remya Fresh Grocery Desk | Product · Medium · Neutral | remya_fresh_grocery.md; shipping_policy.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 | GRD-1 | Greeting only (Telegram) | telegram | (stopped) | general → - | Not a support request · Low · Neutral | none |  | ✅ Filtered (Filtered) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 | GRD-2 | Spam with a link | web | (stopped) | general → - | Not a support request · Low · Negative | none |  | ✅ Filtered (Filtered) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 | GRD-3 | Prompt injection only | web | (stopped) | general → - | Not a support request · Low · Negative | none |  | ✅ Filtered (Filtered) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| GRD-4 | Off-topic request (stopped by the Support Manager) | web | (stopped) | general → - | Not a support request · Low · Neutral | none |  | ✅ Filtered (Filtered) | 80% | 100% | 100% | 100% | 100% | 100% | 100% |
+| GRD-4 | Off-topic request (stopped by the Support Manager) | web | (stopped) | general → - | Not a support request · Low · Neutral | none |  | ✅ Filtered (Filtered) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 | GRD-5 | Real issue + injection attempt -> Trust & Safety | web | general_group | general → Trust & Safety Team | Shipping · Medium · Negative | shipping_policy.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 89% | 100% |
 | GRD-6 | Card number + OTP masked, payment dispute (email) | email | general_group | general → Billing Desk | Billing · High · Negative | billing_and_payments.md | 90 | ✅ Escalated (Escalated) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
-| CUS-6 | Tamil message (language detection, LLM only) | whatsapp | general_group | general → General Support Desk | Shipping · Medium · Neutral | shipping_policy.md | 90 | ❌ Escalated (Resolved) | 100% | 100% | 100% | 100% | 75% | 75% | 100% |
+| CUS-6 | Tamil message (language detection, LLM only) | whatsapp | general_group | general → General Support Desk | Shipping · Medium · Neutral | shipping_policy.md | 90 | ✅ Resolved (Resolved) | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 
 G = Guardrails, M = Support Manager, Q = Customer Query Agent, K = Knowledge Base Agent, R = Resolution Agent, L = Log Agent, O = Orchestration.
 
 ### Failed checks
 
-- **PDF-1** · Resolution Agent · `mentions_ticket`
-- **PDF-3** · Guardrails · `reply_has_no_ai_chatter`
-- **PDF-6** · Knowledge Base Agent · `coverage_decision`
-- **PDF-6** · Resolution Agent · `required_facts`
-- **PDF-6** · Resolution Agent · `honest_when_unknown`
-- **PDF-6** · Resolution Agent · `reply_grounded`
-- **PDF-6** · Resolution Agent · `confidence_calibrated`
-- **PDF-6** · Log Agent · `agent_agrees_with_rules`
-- **CUS-1** · Resolution Agent · `reply_grounded`
-- **CUS-4** · Resolution Agent · `numbers_grounded`
-- **CUS-4** · Resolution Agent · `reply_grounded`
-- **CUS-4** · Log Agent · `status_correct`
-- **CUS-4** · Log Agent · `agent_agrees_with_rules`
-- **LIN-2** · Resolution Agent · `required_facts`
+- **PDF-2** · Resolution Agent · `json_valid`
+- **PDF-2** · Resolution Agent · `confidence_calibrated`
+- **PDF-2** · Log Agent · `status_correct`
+- **PDF-2** · Log Agent · `agent_agrees_with_rules`
+- **CUS-3** · Customer Query Agent · `category`
 - **LIN-2** · Resolution Agent · `reply_grounded`
 - **LIN-2** · Log Agent · `status_correct`
 - **LIN-2** · Log Agent · `agent_agrees_with_rules`
-- **LIN-5** · Resolution Agent · `reply_grounded`
-- **MAN-1** · Knowledge Base Agent · `coverage_decision`
-- **MAN-1** · Resolution Agent · `honest_when_unknown`
-- **MAN-1** · Resolution Agent · `confidence_calibrated`
-- **GRD-4** · Guardrails · `block_reason_correct`
+- **SRV-2** · Resolution Agent · `reply_grounded`
+- **SRV-2** · Log Agent · `status_correct`
+- **SRV-2** · Log Agent · `agent_agrees_with_rules`
+- **MUL-1** · Resolution Agent · `reply_grounded`
+- **MUL-1** · Log Agent · `status_correct`
+- **MUL-1** · Log Agent · `agent_agrees_with_rules`
 - **GRD-5** · Log Agent · `agent_agrees_with_rules`
-- **CUS-6** · Resolution Agent · `mentions_ticket`
-- **CUS-6** · Resolution Agent · `reply_grounded`
-- **CUS-6** · Log Agent · `status_correct`
-- **CUS-6** · Log Agent · `agent_agrees_with_rules`
 
 ## 4. What each node is checked for
 
@@ -223,7 +211,7 @@ G = Guardrails, M = Support Manager, Q = Customer Query Agent, K = Knowledge Bas
 - ✅ ground-truth retrieval set (>= 20 questions)
 - ✅ .env.example present
 - ✅ .env ignored by git
-- ❌ no API keys in code
+- ✅ no API keys in code
 - ✅ one-command start (streamlit run app.py)
 - ✅ screenshots folder (>= 3 images)
 - ✅ tests folder
@@ -240,4 +228,4 @@ python -m evaluation.retrieval_eval               # retrieval only (ablation, CI
 python -m evaluation.retrieval_eval --calibrate   # re-fit the 'covered' thresholds on the dev split
 ```
 
-Raw results: `evaluation/reports/case_results.csv`, `node_checks.csv`, `eval_tickets.csv` (workspace `evaluation\runs\20261104_220731`).
+Raw results: `evaluation/reports/case_results.csv`, `node_checks.csv`, `eval_tickets.csv` (workspace `evaluation\runs\20261105_182314`).

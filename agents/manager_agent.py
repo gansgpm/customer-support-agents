@@ -51,7 +51,7 @@ Work in this order:
  "product_or_service": "what the customer is talking about, e.g. 'AC installation'",
  "route_confidence": "high | medium | low",
  "needs_human": true or false,
- "guardrail_reason": "only for not_support: chit_chat | off_topic | spam | abuse | prompt_injection",
+ "guardrail_reason": "only for not_support: chit_chat (greetings, thanks, small talk with no request) | off_topic (a request unrelated to the company: poems, code, essays, homework, general knowledge, news) | spam | abuse | prompt_injection",
  "reason": "one sentence: why this division owns the ticket (or why it is not a support request)",
  "guidance": "1-2 sentences telling the group what to focus on (which guides apply, any safety or fraud risk to watch)",
  "line_risks": ["risk flags reported by the tool"]}}

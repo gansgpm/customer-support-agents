@@ -38,6 +38,7 @@ from typing import Dict, List, Optional
 import numpy as np
 import pandas as pd
 
+from engine import coverage
 from engine.config import BASE_DIR, Settings, get_settings
 from rag.knowledge import STRONG_MIN_COVERAGE, KnowledgeStore, calibration_file
 
@@ -50,9 +51,7 @@ SPLIT_NAMES = {"test": "held-out test", "dev": "dev (tuning)", "all": "all"}
 REWRITE_PROMPT = """You are the Knowledge Base Agent of a customer-support desk. Rewrite the customer's message as ONE
 short English search query for the company's policy documents: translate it if needed, keep the product, the
 problem and what the customer wants, use the plain words a policy document would use. Return only the query."""
-VERDICT_PROMPT = """You are the Knowledge Base Agent of a customer-support desk. Decide whether the PASSAGES (company
-policy documents) contain the answer to the CUSTOMER'S MESSAGE. Loosely related text does not count: the passages
-must actually address what the customer asks. Answer with ONLY a JSON object: {"covered": true or false}"""
+VERDICT_PROMPT = coverage.VERDICT_PROMPT  # the production coverage check, see engine/coverage.py
 
 
 # ------------------------------------------------------------------ data + integrity
@@ -119,14 +118,11 @@ class LLMHelper:
         return str(self.cache[key])
 
     async def verdict(self, question: str, passages: List[Dict]) -> bool:
-        evidence = "\n\n".join(f"[{i + 1}] {p['source']} > {p['section']}\n{p['text']}" for i, p in enumerate(passages[:4]))
-        key = self._key("verdict", question + "||" + "|".join(p.get("chunk_id", p["section"]) for p in passages[:4]))
+        """The production coverage check (engine/coverage.py): same prompt, same passages, same parsing."""
+        top = passages[:coverage.TOP_PASSAGES]
+        key = self._key("verdict", question + "||" + "|".join(p.get("chunk_id", p["section"]) for p in top))
         if key not in self.cache:
-            from engine.parsing import extract_json
-
-            raw = await self._ask(VERDICT_PROMPT, f"CUSTOMER'S MESSAGE:\n{question}\n\nPASSAGES:\n{evidence or '(none)'}")
-            obj = extract_json(raw) or {}
-            self.cache[key] = bool(obj.get("covered", "true" in raw.lower()))
+            self.cache[key] = coverage.parse(await self._ask(VERDICT_PROMPT, coverage.user_prompt(question, top)))
         return bool(self.cache[key])
 
     def save(self) -> None:

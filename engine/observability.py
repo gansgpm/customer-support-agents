@@ -49,7 +49,8 @@ def build_trace(state, model: str, orchestration: str, error: Optional[str] = No
     searches: List[Dict[str, Any]] = [{
         "queries": r.get("search_queries", []), "language": r.get("query_language", ""),
         "scope": r.get("scoped_to", []), "retriever": r.get("retriever", ""),
-        "match_found": r.get("match_found"), "top_relevance": r.get("top_relevance"),
+        "match_found": r.get("match_found"), "estimate_match_found": r.get("estimate_match_found"),
+        "coverage_verdict": r.get("coverage_verdict"), "top_relevance": r.get("top_relevance"),
         "top_coverage": r.get("top_coverage"),
         "passages": [_passage(p) for p in r.get("policy_passages", [])],
         "learned": [_passage(p) for p in r.get("resolved_ticket_matches", [])],

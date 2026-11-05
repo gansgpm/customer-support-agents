@@ -74,6 +74,9 @@ class Settings:
     # after the reply is written, an LLM checks every claim against the retrieved passages (auto = when a real LLM
     # is configured); unsupported claims send the ticket to a human
     grounding_verifier: str = field(default_factory=lambda: _env("GROUNDING_VERIFIER", "auto").lower())
+    # every search_kb result is checked by a narrow LLM call: do these passages really answer the customer?
+    # (auto = when a real LLM is configured; engine/coverage.py) - the verdict becomes the search's match_found
+    coverage_verdict: str = field(default_factory=lambda: _env("COVERAGE_VERDICT", "auto").lower())
     stream_replies: bool = field(default_factory=lambda: _env("STREAM_REPLIES", "true").lower() in {"1", "true", "yes"})
     log_level: str = field(default_factory=lambda: _env("LOG_LEVEL", "INFO").upper())
 

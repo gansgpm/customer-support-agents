@@ -151,6 +151,8 @@ class OfflineChatCompletionClient(ChatCompletionClient):
 
         if system.startswith("You verify a customer-support reply"):  # grounding.llm_verify
             return self._verify(all_text)
+        if "Decide whether the PASSAGES" in system:  # engine.coverage - offline stand-in: any passage counts
+            return json.dumps({"covered": "PASSAGES:\n(none)" not in all_text})
         if "You are the Support Manager" in system:
             if not tool_results and tool_names:
                 return [self._call("identify_product_line", {"text": ticket["complaint"]})]
